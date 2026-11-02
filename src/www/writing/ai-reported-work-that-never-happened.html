@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What I changed after my AI reported work that never happened &#x2014; Robert Guida</title>
+<meta name="description" content="How I run my projects with AI agents. Every answer is a draft, and I make the final call.">
+<link rel="canonical" href="https://robguida.com/writing/ai-reported-work-that-never-happened.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://robguida.com/writing/ai-reported-work-that-never-happened.html">
+<meta property="og:title" content="What I changed after my AI reported work that never happened">
+<meta property="og:description" content="How I run my projects with AI agents. Every answer is a draft, and I make the final call.">
+<meta property="og:image" content="https://robguida.com/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Robert Guida, smiling, in a grey jacket and light-blue open-collar shirt, against a dark blue background.">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+    :root{
+      --paper:#F7F8FA;
+      --ink:#1A1F26;
+      --navy:#0F2A44;
+      --navy-lt:#1B4A73;
+      --rule:#DCE1E8;
+      --muted:#4A5462;
+    }
+    body,.rg{
+      background:var(--paper);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+                  "Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size:18px;
+      line-height:1.6;
+      text-align:left;
+    }
+    body{margin:0;-webkit-text-size-adjust:100%;}
+    .rg,.rg *{box-sizing:border-box;}
+    .rg{overflow-wrap:break-word;}
+    .rg p{margin:0 0 1.15rem;}
+    .rg a{color:var(--navy);text-decoration:underline;text-underline-offset:2px;}
+    .rg a:hover,.rg a:focus{color:var(--navy-lt);}
+    .rg :focus-visible{outline:2px solid var(--navy-lt);outline-offset:3px;}
+    .wrap{max-width:44rem;margin:0 auto;padding:0 1.5rem;}
+    .site-head{position:relative;overflow:hidden;color:var(--paper);
+               padding:.75rem 0 clamp(2.5rem,7vw,4rem);
+               background:radial-gradient(ellipse 70% 90% at 100% 0,rgba(27,74,115,.55) 0,rgba(27,74,115,0) 70%),
+                          radial-gradient(ellipse 60% 70% at 0 100%,rgba(15,42,68,.7) 0,rgba(15,42,68,0) 70%),
+                          #000819;
+               border-bottom:1px solid rgba(200,212,226,.18);}
+    .site-head::before{content:"";position:absolute;inset:0;pointer-events:none;
+               background:linear-gradient(rgba(200,212,226,.06) 1px,transparent 1px) 0 0 / 2rem 2rem,
+                          linear-gradient(90deg,rgba(200,212,226,.06) 1px,transparent 1px) 0 0 / 2rem 2rem;
+               -webkit-mask-image:linear-gradient(200deg,#000 0,rgba(0,0,0,.5) 35%,transparent 75%);
+                       mask-image:linear-gradient(200deg,#000 0,rgba(0,0,0,.5) 35%,transparent 75%);}
+    .site-head .wrap{position:relative;}
+    .site-head :focus-visible{outline-color:#FFFFFF;}
+    .rg .masthead{display:flex;align-items:center;gap:1rem;min-height:2.75rem;
+              margin:0 0 clamp(2.25rem,7vw,3.75rem);}
+    .masthead::after{content:"";flex:1;height:1px;background:rgba(200,212,226,.25);}
+    .rg .masthead a{font-size:clamp(1.3rem,4.4vw,1.75rem);line-height:1.15;letter-spacing:.005em;
+               white-space:nowrap;color:var(--paper);text-decoration:none;
+               padding-left:.7rem;border-left:3px solid var(--navy-lt);}
+    .masthead .wm-first{font-weight:300;color:#C8D4E2;}
+    .masthead .wm-last{font-weight:700;}
+    .rg .masthead a:hover,.rg .masthead a:focus{color:#FFFFFF;border-left-color:#C8D4E2;}
+    .rg .masthead a:hover .wm-first,.rg .masthead a:focus .wm-first{color:#FFFFFF;}
+    @media (max-width:48.99rem){ .rg .masthead{padding-left:2.75rem;} }
+    .site-head .masthead{margin-bottom:0;}
+    .site-head{padding-bottom:.75rem;}
+    .rg .menu-btn{position:fixed;top:.75rem;left:.75rem;z-index:50;width:2.75rem;height:2.75rem;
+                  display:none;align-items:center;justify-content:center;margin:0;padding:0;
+                  background:rgba(15,42,68,.94);color:var(--paper);border:1px solid rgba(200,212,226,.5);
+                  border-radius:4px;cursor:pointer;box-shadow:0 2px 8px rgba(0,8,25,.25);}
+    .rg .menu-btn:hover{background:var(--navy-lt);}
+    .rg .menu-btn:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px;box-shadow:0 0 0 4px var(--navy-lt);}
+    .rg .menu-btn svg{display:block;width:1.375rem;height:1.375rem;}
+    .rg .menu{position:fixed;inset:0 auto 0 0;margin:0;width:min(19rem,85vw);height:100%;max-height:none;
+              overflow-y:auto;border:0;border-right:1px solid rgba(200,212,226,.25);
+              background:#000819;color:var(--paper);padding:.75rem 1.5rem 2rem;}
+    .rg .menu::backdrop{background:rgba(0,8,25,.55);}
+    .rg .menu{display:none;}
+    @supports selector(:popover-open){.rg .menu-btn{display:flex;}.rg .menu:popover-open{display:block;}}
+    .rg .menu :focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
+    .rg .menu-close{display:flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;
+                    margin:0 0 1.25rem -.75rem;padding:0;background:transparent;color:var(--paper);
+                    border:1px solid rgba(200,212,226,.5);border-radius:4px;cursor:pointer;}
+    .rg .menu-close:hover{background:var(--navy);}
+    .rg .menu-close svg{display:block;width:1.25rem;height:1.25rem;}
+    .rg .menu ul{list-style:none;margin:0;padding:0;}
+    .rg .menu li{border-top:1px solid rgba(200,212,226,.2);}
+    .rg .menu li:last-child{border-bottom:1px solid rgba(200,212,226,.2);}
+    .rg .menu a{display:flex;align-items:center;min-height:2.75rem;padding:.6rem 0;color:var(--paper);
+                font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;}
+    .rg .menu a:hover,.rg .menu a:focus{color:#FFFFFF;text-decoration:underline;text-underline-offset:4px;}
+    .rg .menu a[aria-current="page"]{box-shadow:inset 3px 0 0 #C8D4E2;padding-left:.85rem;}
+    .rg .menu a svg{display:block;height:28px;width:auto;max-width:33px;flex:none;}
+    .rg .menu a svg + span:not(.sr-only){margin-left:.6rem;}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+             clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+    .sec{padding:clamp(2.75rem,7vw,4rem) 0;}
+    .sec h1{font-size:clamp(1.8rem,5.2vw,2.3rem);line-height:1.2;
+            letter-spacing:-.015em;font-weight:700;margin:0 0 .9rem;text-wrap:balance;}
+    .sec h1::before{content:"";display:block;width:2.5rem;height:3px;
+                    background:var(--navy);margin-bottom:1.1rem;}
+    .post-head{border-bottom:1px solid var(--rule);padding-bottom:1.4rem;margin-bottom:2rem;}
+    .dek{font-size:1.125rem;color:var(--muted);margin:0 0 1.25rem;}
+    .byline{font-weight:600;margin:0 0 .2rem;}
+    .rg .dateline{font-size:.9375rem;color:var(--muted);margin:0 0 .2rem;}
+    .rg .dateline:last-child{margin-bottom:0;}
+    .sec h2{font-size:1.35rem;line-height:1.35;font-weight:700;color:var(--navy);
+            margin:2.25rem 0 .75rem;text-wrap:balance;}
+    .sec h3{font-size:1.125rem;line-height:1.4;font-weight:700;color:var(--navy);
+            margin:1.75rem 0 .5rem;}
+    .sec ul,.sec ol{margin:0 0 1.15rem;padding-left:1.3rem;}
+    .sec li{margin-bottom:.5rem;}
+    .sec li:last-child{margin-bottom:0;}
+    .rg blockquote{margin:0 0 1.15rem;padding-left:1.15rem;border-left:3px solid var(--rule);}
+    .rg figure{margin:0 0 1.5rem;}
+    .sec img{display:block;max-width:100%;height:auto;border-radius:4px;}
+    .rg figcaption{font-size:.9375rem;color:var(--muted);margin-top:.5rem;}
+    .rg code{font-family:Consolas,"SFMono-Regular",Menlo,monospace;font-size:.9em;}
+    .rg pre{overflow-x:auto;background:#EDF1F6;padding:1rem;border-radius:4px;margin:0 0 1.15rem;line-height:1.45;}
+    .site-footer{position:relative;color:#BCCBDA;font-size:.9375rem;
+               padding:clamp(2.5rem,7vw,3.5rem) 0 2rem;
+               background:radial-gradient(ellipse 60% 90% at 0 100%,rgba(27,74,115,.45) 0,rgba(27,74,115,0) 70%),
+                          #000819;
+               border-top:3px solid var(--navy-lt);}
+    .site-footer :focus-visible{outline-color:#FFFFFF;}
+    .foot-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem 2rem;
+              padding-bottom:1.75rem;border-bottom:1px solid rgba(200,212,226,.2);}
+    .rg .foot-mark{margin:0;}
+    .rg .foot-mark a{font-size:clamp(1.3rem,4.4vw,1.75rem);line-height:1.15;white-space:nowrap;
+               color:var(--paper);text-decoration:none;padding-left:.7rem;border-left:3px solid var(--navy-lt);}
+    .foot-mark .wm-first{font-weight:300;color:#C8D4E2;}
+    .foot-mark .wm-last{font-weight:700;}
+    .rg .foot-mark a:hover,.rg .foot-mark a:focus{color:#FFFFFF;border-left-color:#C8D4E2;}
+    .rg .foot-cta{margin:0;}
+    .rg a.btn{display:inline-block;font-size:1rem;font-weight:600;line-height:1.25;
+         padding:.85rem 1.5rem;border-radius:4px;text-decoration:none;
+         background:var(--paper);color:var(--navy);}
+    .rg a.btn:hover,.rg a.btn:focus{background:#FFFFFF;color:var(--navy);}
+    .foot-nav ul{list-style:none;margin:0;padding:1.5rem 0;display:flex;flex-wrap:wrap;align-items:center;
+                 gap:.5rem 1.75rem;}
+    .rg .foot-nav a{color:var(--paper);font-weight:600;font-size:.8125rem;letter-spacing:.14em;
+                 text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;min-height:2.75rem;}
+    .rg .foot-nav a:hover,.rg .foot-nav a:focus{color:#FFFFFF;text-decoration:underline;text-underline-offset:4px;}
+    .rg .foot-nav a[aria-current="page"]{color:#C8D4E2;}
+    .foot-nav img{display:block;width:auto;height:28px;}
+    .foot-nav .ico{display:block;height:28px;width:auto;max-width:33px;flex:none;}
+    .rg .foot-nav a .ico + span{margin-left:.5rem;}
+    .rg .copyright{margin:0;padding-top:1.25rem;border-top:1px solid rgba(200,212,226,.2);
+                 font-size:.8125rem;letter-spacing:.04em;color:#8E9DB0;}
+    @media (max-width:26rem){
+      .wrap{padding:0 1.15rem;}
+      body,.rg{font-size:17px;}
+    }
+</style>
+<script src="/js/menu.js" defer></script>
+</head>
+<body>
+<div class="rg">
+<button type="button" class="menu-btn" id="menu-button" popovertarget="site-menu" aria-label="Menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+<nav class="menu" id="site-menu" popover aria-label="Site menu">
+  <button type="button" class="menu-close" popovertarget="site-menu" popovertargetaction="hide" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <ul>
+    <li><a href="/"><svg viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg><span class="sr-only">Home</span></a></li>
+    <li><a href="/#focus-engage">Focus &amp; Engage</a></li>
+    <li><a href="/#works">Works</a></li>
+    <li><a href="/#assessment">Assessment Offer</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/writing/"><svg viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
+  </ul>
+</nav>
+<header class="site-head">
+  <div class="wrap">
+    <p class="masthead"><a href="/"><span class="wm-first">Robert</span> <span class="wm-last">Guida</span></a></p>
+  </div>
+</header>
+<main class="sec">
+  <article class="wrap">
+    <header class="post-head">
+      <h1>What I changed after my AI reported work that never happened</h1>
+      <p class="dek">How I run my projects with AI agents. Every answer is a draft, and I make the final call.</p>
+      <p class="byline">Robert Guida, Fractional CTO &amp; Solutions Architect</p>
+      <p class="dateline"><time datetime="2026-10-16">October 16, 2026</time></p>
+    </header>
+
+    <p>The AI agent that coordinates my projects told me another agent was building a feature. The update was clear and confident. I believed it and moved on.</p>
+    <p>That other agent had never been started. The request to start it had been dropped. The work did not exist. Only the status report did.</p>
+    <p>I have been building software and leading development teams for more than 30 years. Today I run my own projects with an AI engineering team, a way of working now called agentic engineering. That one report changed how I work. Here is what the process looks like, and what I changed because of it.</p>
+
+    <h2>Why this kind of mistake is hard to catch</h2>
+    <p>That was a hallucination, and it is the kind nobody warns you about. Most people worry the AI will write bad code. What caught me out was a well-written summary of progress that never happened. You cannot tell by reading it.</p>
+    <p>I don't think hallucinations are solved, and I don't claim to have solved them. What I have is a process built to catch them. Every piece of AI output is treated as a draft until it passes the checks.</p>
+
+    <h2>Every rule has a date on it</h2>
+    <p>After that, I wrote a rule. No work can be reported as in progress unless there is proof it was actually started.</p>
+    <p>That is how my whole rulebook was built. I did not design the rules up front. Most were written after something broke, and each one carries the date and the reason behind it.</p>
+    <p>Many rules are written instructions, and an AI can ignore an instruction. So repeat problems get logged.</p>
+    <p>If the same defect shows up a third time, it becomes a ticket to replace the reminder with a mechanical guard: an automated guardrail that blocks the work until it is fixed. The AI can't talk its way past that.</p>
+    <p>To be honest, more of my rules are still written instructions than I would like. Moving the important ones to mechanical guards is ongoing work.</p>
+
+    <h2>The whole job, start to finish</h2>
+    <p>When I say I run my projects with AI, most people picture a chat window that writes code. That is a small part of it. Most of the work is around the code: deciding what to build, and checking what came back.</p>
+    <p>On the AI side, that work is split across agents with different jobs, and one agent coordinates them. The industry term is multi-agent orchestration.</p>
+    <p>It starts with a written requirements document. That is spec-driven development: the spec comes first, then the code. Then a project plan, with every ticket estimated before any work begins. Then the build, then testing. Testing includes threat modeling and a code review as well as the test suite. Deployment comes last.</p>
+    <p>Nothing merges until it passes three quality gates: code review, testing, and a security and compliance check. The compliance check is not saved for the end. It can run at any stage, from the plan to the push. Before any code leaves my machine, a check looks for secrets and sensitive data.</p>
+    <p>The same process helps with my own business work: market research, brand, and planning my pipeline and portfolio. Those are simulated reviews of my own plans, not conversations with real customers. I treat them as drafts, like everything else.</p>
+
+    <h2>I make the final call</h2>
+    <p>The AI drafts, tests and reviews. Nothing ships until I approve it.</p>
+    <p>That is on purpose. It is called human-in-the-loop, and the human is me. An AI checking AI-written work is not a true second opinion. It shares the same blind spots, and it is weakest on the mistakes that don't look wrong. So the last check is mine, every time, even on small changes.</p>
+    <p>My part is the judgment. I decide what gets built and what is allowed to ship, and I am accountable for the result.</p>
+
+    <h2>Every project keeps a written memory</h2>
+    <p>AI tools forget. A chat window holds a conversation, and then it is gone.</p>
+    <p>So every project keeps a written record of the plan, the decisions and the lessons learned. It carries over from one session to the next. In AI terms, that is persistent memory, kept in plain written files.</p>
+    <p>When work starts, the AI reads the record first. Deciding what the AI reads, and when, is context engineering. When it answers a question about the project, the answer is grounded in that record, not in whatever the model happens to remember.</p>
+    <p>The work does not live in my head or in a chat window. That is why context carries over between sessions. It is also why I can show what was decided, and when.</p>
+    <p>Today the AI finds what it needs by reading those files. The next step is a RAG layer over that memory. RAG stands for retrieval-augmented generation: the AI searches the record first, then answers from what it found. It will start with keyword search of the index files. If those results are weak, it will go past the index files and search the full record. It is designed not to report back a weak response. Hybrid search, which also matches meaning, comes after that. The design is done. The build has not started. I will not call it reliable until it has been tested.</p>
+
+    <h2>Cheap models do the legwork. The strongest model recommends.</h2>
+    <p>Not every task needs the most powerful model. So each task is sized first, then sent to a model that fits. That is dynamic model routing. Finding files or pulling a list is simple work, and a cheaper model does it well.</p>
+    <p>Recommendations are different. They come to me only from the strongest model. The cheap models never recommend anything, and their work is checked before it reaches me.</p>
+
+    <h2>I check my own work every day</h2>
+    <p>A few daily habits keep the process honest. They apply to me as much as to the AI.</p>
+    <p>Each morning, the day's work is checked against the written plan before it starts. What comes next is set by the plan, not by whatever we talked about last.</p>
+    <p>Each day I run a retrospective. For every ticket, I compare the estimate with the actual time, in work hours and in elapsed time. When we miss, I write down the root cause.</p>
+    <p>The retrospective also reviews my own prompts: what worked, what caused rework, and a better wording. A lot of AI rework starts with an unclear request. Some of those requests were mine.</p>
+
+    <h2>What this means for your team</h2>
+    <p>The goal is less rework and less lost context. Every decision leaves a record you can audit later. That is AI governance as a daily habit, not just a policy document. None of it depends on having fewer developers.</p>
+    <p>That is also what I bring to client work as a Fractional CTO and Solutions Architect: architecture, delivery, and rescuing projects that have stalled.</p>
+    <p>When a project has been "three months from done" for nine months, the cause is rarely the code. It is usually architecture nobody went back to, scope nobody closed, or a decision nobody owned.</p>
+    <p>AI does not fix those problems. If nothing is in place to catch them, it makes them show up faster.</p>
+    <p>If your team now writes much of its code with AI, ask what blocks a merge today. If the honest answer is "nothing," that is where I would start.</p>
+
+    <h2>If you want to talk</h2>
+    <p>If you have a project that is stuck, or work you have won and can't staff, I would like to hear about it.</p>
+    <p>I start with a two-week assessment. I look at one codebase and how work actually moves through it, including how your team is using AI-written code. You get a written findings document with a prioritized plan. It is yours to keep, whether or not the engagement continues.</p>
+    <p>Send me a message on <a href="https://www.linkedin.com/in/rob-guida-63843582/" target="_blank" rel="noopener">LinkedIn</a>, or <a href="/book" target="_blank" rel="noopener">book a 20-minute call</a>. On that call, I am glad to walk you through the records from my own projects: the plans, the dated rules and the estimate history.</p>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-mark"><a href="/"><span class="wm-first">Robert</span> <span class="wm-last">Guida</span></a></p>
+      <p class="foot-cta"><a class="btn" href="/book" target="_blank" rel="noopener">Let's talk &#x2014; 20 minutes</a></p>
+    </div>
+    <nav class="foot-nav" aria-label="Footer">
+      <ul>
+        <li><a href="/" aria-label="Home"><svg class="ico" viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></a></li>
+        <li><a href="/writing/"><svg class="ico" viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
+        <li><a href="/privacy.html"><svg class="ico" viewBox="2 3 20 17" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.6 10C7 6.3 7.6 3.6 9.6 3.1Q12 4.1 14.4 3.1C16.4 3.6 17 6.3 17.4 10z"/><path d="M2 11Q12 8.4 22 11Q12 12.6 2 11z"/><path d="M2.5 13.5h8v2Q10.5 20 7 20H5.6Q3 20 2.5 16.3z"/><path d="M21.5 13.5h-8v2Q13.5 20 17 20h1.4Q21 20 21.5 16.3z"/><path d="M10.4 13.5h3.2v1.1h-3.2z"/></svg><span>Privacy</span></a></li>
+        <li><a class="social" href="https://www.linkedin.com/in/rob-guida-63843582/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/img/linkedin-in-bug.png" width="33" height="28" alt=""></a></li>
+      </ul>
+    </nav>
+    <p class="copyright">&#xA9; 2026 Robert Guida. All rights reserved.</p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simplify with Colors &#x2014; Robert Guida</title>
+<meta name="description" content="How I use four colors to make the to-dos in my AI chat easy to find, with the rules, the setup and how to undo it.">
+<link rel="canonical" href="https://robguida.com/writing/simplify-with-colors.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://robguida.com/writing/simplify-with-colors.html">
+<meta property="og:title" content="Simplify with Colors">
+<meta property="og:description" content="How I use four colors to make the to-dos in my AI chat easy to find, with the rules, the setup and how to undo it.">
+<meta property="og:image" content="https://robguida.com/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Robert Guida, smiling, in a grey jacket and light-blue open-collar shirt, against a dark blue background.">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+    :root{
+      --paper:#F7F8FA;
+      --ink:#1A1F26;
+      --navy:#0F2A44;
+      --navy-lt:#1B4A73;
+      --rule:#DCE1E8;
+      --muted:#4A5462;
+    }
+    body,.rg{
+      background:var(--paper);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+                  "Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size:18px;
+      line-height:1.6;
+      text-align:left;
+    }
+    body{margin:0;-webkit-text-size-adjust:100%;}
+    .rg,.rg *{box-sizing:border-box;}
+    .rg{overflow-wrap:break-word;}
+    .rg p{margin:0 0 1.15rem;}
+    .rg a{color:var(--navy);text-decoration:underline;text-underline-offset:2px;}
+    .rg a:hover,.rg a:focus{color:var(--navy-lt);}
+    .rg :focus-visible{outline:2px solid var(--navy-lt);outline-offset:3px;}
+    .wrap{max-width:44rem;margin:0 auto;padding:0 1.5rem;}
+    .site-head{position:relative;overflow:hidden;color:var(--paper);
+               padding:.75rem 0 clamp(2.5rem,7vw,4rem);
+               background:radial-gradient(ellipse 70% 90% at 100% 0,rgba(27,74,115,.55) 0,rgba(27,74,115,0) 70%),
+                          radial-gradient(ellipse 60% 70% at 0 100%,rgba(15,42,68,.7) 0,rgba(15,42,68,0) 70%),
+                          #000819;
+               border-bottom:1px solid rgba(200,212,226,.18);}
+    .site-head::before{content:"";position:absolute;inset:0;pointer-events:none;
+               background:linear-gradient(rgba(200,212,226,.06) 1px,transparent 1px) 0 0 / 2rem 2rem,
+                          linear-gradient(90deg,rgba(200,212,226,.06) 1px,transparent 1px) 0 0 / 2rem 2rem;
+               -webkit-mask-image:linear-gradient(200deg,#000 0,rgba(0,0,0,.5) 35%,transparent 75%);
+                       mask-image:linear-gradient(200deg,#000 0,rgba(0,0,0,.5) 35%,transparent 75%);}
+    .site-head .wrap{position:relative;}
+    .site-head :focus-visible{outline-color:#FFFFFF;}
+    .rg .masthead{display:flex;align-items:center;gap:1rem;min-height:2.75rem;
+              margin:0 0 clamp(2.25rem,7vw,3.75rem);}
+    .masthead::after{content:"";flex:1;height:1px;background:rgba(200,212,226,.25);}
+    .rg .masthead a{font-size:clamp(1.3rem,4.4vw,1.75rem);line-height:1.15;letter-spacing:.005em;
+               white-space:nowrap;color:var(--paper);text-decoration:none;
+               padding-left:.7rem;border-left:3px solid var(--navy-lt);}
+    .masthead .wm-first{font-weight:300;color:#C8D4E2;}
+    .masthead .wm-last{font-weight:700;}
+    .rg .masthead a:hover,.rg .masthead a:focus{color:#FFFFFF;border-left-color:#C8D4E2;}
+    .rg .masthead a:hover .wm-first,.rg .masthead a:focus .wm-first{color:#FFFFFF;}
+    @media (max-width:48.99rem){ .rg .masthead{padding-left:2.75rem;} }
+    .site-head .masthead{margin-bottom:0;}
+    .site-head{padding-bottom:.75rem;}
+    .rg .menu-btn{position:fixed;top:.75rem;left:.75rem;z-index:50;width:2.75rem;height:2.75rem;
+                  display:none;align-items:center;justify-content:center;margin:0;padding:0;
+                  background:rgba(15,42,68,.94);color:var(--paper);border:1px solid rgba(200,212,226,.5);
+                  border-radius:4px;cursor:pointer;box-shadow:0 2px 8px rgba(0,8,25,.25);}
+    .rg .menu-btn:hover{background:var(--navy-lt);}
+    .rg .menu-btn:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px;box-shadow:0 0 0 4px var(--navy-lt);}
+    .rg .menu-btn svg{display:block;width:1.375rem;height:1.375rem;}
+    .rg .menu{position:fixed;inset:0 auto 0 0;margin:0;width:min(19rem,85vw);height:100%;max-height:none;
+              overflow-y:auto;border:0;border-right:1px solid rgba(200,212,226,.25);
+              background:#000819;color:var(--paper);padding:.75rem 1.5rem 2rem;}
+    .rg .menu::backdrop{background:rgba(0,8,25,.55);}
+    .rg .menu{display:none;}
+    @supports selector(:popover-open){.rg .menu-btn{display:flex;}.rg .menu:popover-open{display:block;}}
+    .rg .menu :focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
+    .rg .menu-close{display:flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;
+                    margin:0 0 1.25rem -.75rem;padding:0;background:transparent;color:var(--paper);
+                    border:1px solid rgba(200,212,226,.5);border-radius:4px;cursor:pointer;}
+    .rg .menu-close:hover{background:var(--navy);}
+    .rg .menu-close svg{display:block;width:1.25rem;height:1.25rem;}
+    .rg .menu ul{list-style:none;margin:0;padding:0;}
+    .rg .menu li{border-top:1px solid rgba(200,212,226,.2);}
+    .rg .menu li:last-child{border-bottom:1px solid rgba(200,212,226,.2);}
+    .rg .menu a{display:flex;align-items:center;min-height:2.75rem;padding:.6rem 0;color:var(--paper);
+                font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;}
+    .rg .menu a:hover,.rg .menu a:focus{color:#FFFFFF;text-decoration:underline;text-underline-offset:4px;}
+    .rg .menu a[aria-current="page"]{box-shadow:inset 3px 0 0 #C8D4E2;padding-left:.85rem;}
+    .rg .menu a svg{display:block;height:28px;width:auto;max-width:33px;flex:none;}
+    .rg .menu a svg + span:not(.sr-only){margin-left:.6rem;}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+             clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+    .sec{padding:clamp(2.75rem,7vw,4rem) 0;}
+    .sec h1{font-size:clamp(1.8rem,5.2vw,2.3rem);line-height:1.2;
+            letter-spacing:-.015em;font-weight:700;margin:0 0 .9rem;text-wrap:balance;}
+    .sec h1::before{content:"";display:block;width:2.5rem;height:3px;
+                    background:var(--navy);margin-bottom:1.1rem;}
+    .post-head{border-bottom:1px solid var(--rule);padding-bottom:1.4rem;margin-bottom:2rem;}
+    .dek{font-size:1.125rem;color:var(--muted);margin:0 0 1.25rem;}
+    .byline{font-weight:600;margin:0 0 .2rem;}
+    .rg .dateline{font-size:.9375rem;color:var(--muted);margin:0 0 .2rem;}
+    .rg .dateline:last-child{margin-bottom:0;}
+    .sec h2{font-size:1.35rem;line-height:1.35;font-weight:700;color:var(--navy);
+            margin:2.25rem 0 .75rem;text-wrap:balance;}
+    .sec h3{font-size:1.125rem;line-height:1.4;font-weight:700;color:var(--navy);
+            margin:1.75rem 0 .5rem;}
+    .sec ul,.sec ol{margin:0 0 1.15rem;padding-left:1.3rem;}
+    .sec li{margin-bottom:.5rem;}
+    .sec li:last-child{margin-bottom:0;}
+    .rg blockquote{margin:0 0 1.15rem;padding-left:1.15rem;border-left:3px solid var(--rule);}
+    .rg figure{margin:0 0 1.5rem;}
+    .sec img{display:block;max-width:100%;height:auto;border-radius:4px;}
+    .rg figcaption{font-size:.9375rem;color:var(--muted);margin-top:.5rem;}
+    .rg code{font-family:Consolas,"SFMono-Regular",Menlo,monospace;font-size:.9em;}
+    .rg hr{border:0;border-top:1px solid var(--rule);margin:2rem 0;}
+    .rg pre{overflow-x:auto;background:#EDF1F6;padding:1rem;border-radius:4px;margin:0 0 1.15rem;line-height:1.45;}
+    .codebox{background:#EDF1F6;border-radius:4px;margin:0 0 1.15rem;}
+    .rg .codebox pre{margin:0;border-radius:0 0 4px 4px;padding-top:.5rem;}
+    .codebar{display:flex;justify-content:flex-end;padding:.4rem .6rem 0;}
+    .copybtn{font:inherit;font-size:.9375rem;font-weight:600;line-height:1.2;color:var(--navy);
+             background:var(--paper);border:1px solid var(--navy);border-radius:4px;
+             padding:.45rem .9rem;min-height:2.25rem;min-width:5rem;cursor:pointer;}
+    .copybtn:hover{background:#FFFFFF;}
+    .site-footer{position:relative;color:#BCCBDA;font-size:.9375rem;
+               padding:clamp(2.5rem,7vw,3.5rem) 0 2rem;
+               background:radial-gradient(ellipse 60% 90% at 0 100%,rgba(27,74,115,.45) 0,rgba(27,74,115,0) 70%),
+                          #000819;
+               border-top:3px solid var(--navy-lt);}
+    .site-footer :focus-visible{outline-color:#FFFFFF;}
+    .foot-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem 2rem;
+              padding-bottom:1.75rem;border-bottom:1px solid rgba(200,212,226,.2);}
+    .rg .foot-mark{margin:0;}
+    .rg .foot-mark a{font-size:clamp(1.3rem,4.4vw,1.75rem);line-height:1.15;white-space:nowrap;
+               color:var(--paper);text-decoration:none;padding-left:.7rem;border-left:3px solid var(--navy-lt);}
+    .foot-mark .wm-first{font-weight:300;color:#C8D4E2;}
+    .foot-mark .wm-last{font-weight:700;}
+    .rg .foot-mark a:hover,.rg .foot-mark a:focus{color:#FFFFFF;border-left-color:#C8D4E2;}
+    .rg .foot-cta{margin:0;}
+    .rg a.btn{display:inline-block;font-size:1rem;font-weight:600;line-height:1.25;
+         padding:.85rem 1.5rem;border-radius:4px;text-decoration:none;
+         background:var(--paper);color:var(--navy);}
+    .rg a.btn:hover,.rg a.btn:focus{background:#FFFFFF;color:var(--navy);}
+    .foot-nav ul{list-style:none;margin:0;padding:1.5rem 0;display:flex;flex-wrap:wrap;align-items:center;
+                 gap:.5rem 1.75rem;}
+    .rg .foot-nav a{color:var(--paper);font-weight:600;font-size:.8125rem;letter-spacing:.14em;
+                 text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;min-height:2.75rem;}
+    .rg .foot-nav a:hover,.rg .foot-nav a:focus{color:#FFFFFF;text-decoration:underline;text-underline-offset:4px;}
+    .rg .foot-nav a[aria-current="page"]{color:#C8D4E2;}
+    .foot-nav img{display:block;width:auto;height:28px;}
+    .foot-nav .ico{display:block;height:28px;width:auto;max-width:33px;flex:none;}
+    .rg .foot-nav a .ico + span{margin-left:.5rem;}
+    .rg .copyright{margin:0;padding-top:1.25rem;border-top:1px solid rgba(200,212,226,.2);
+                 font-size:.8125rem;letter-spacing:.04em;color:#8E9DB0;}
+    @media (max-width:26rem){
+      .wrap{padding:0 1.15rem;}
+      body,.rg{font-size:17px;}
+    }
+</style>
+<script src="/js/menu.js" defer></script>
+</head>
+<body>
+<div class="rg">
+<button type="button" class="menu-btn" id="menu-button" popovertarget="site-menu" aria-label="Menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+<nav class="menu" id="site-menu" popover aria-label="Site menu">
+  <button type="button" class="menu-close" popovertarget="site-menu" popovertargetaction="hide" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <ul>
+    <li><a href="/"><svg viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg><span class="sr-only">Home</span></a></li>
+    <li><a href="/#focus-engage">Focus &amp; Engage</a></li>
+    <li><a href="/#works">Works</a></li>
+    <li><a href="/#assessment">Assessment Offer</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/writing/"><svg viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
+  </ul>
+</nav>
+<header class="site-head">
+  <div class="wrap">
+    <p class="masthead"><a href="/"><span class="wm-first">Robert</span> <span class="wm-last">Guida</span></a></p>
+  </div>
+</header>
+<main class="sec">
+  <article class="wrap">
+    <header class="post-head">
+      <h1>Simplify with Colors</h1>
+      <p class="byline">Robert Guida, Fractional CTO &amp; Solutions Architect</p>
+      <p class="dateline"><time datetime="2026-10-28">October 28, 2026</time></p>
+    </header>
+
+<p>I like the noise when my agent team is working. As the output scrolls by, I can see that things are moving. When the screen sits still, I can't tell what's happening unless I open <code>/tasks</code>, the Claude Code command that lists what's running in the background, and read through it.</p>
+<p>A few times it sat still, and I thought work was going on in the background. I should have checked <code>/tasks</code>, which would have shown that nothing was running. It turned out my prompt had misfired and quit instead of running. So at a glance, moving output is how I know things are getting done.</p>
+<p>The trouble was what all that movement did to the things I needed to see. Other work kept running in the background, and the chat didn't wait for me. Unless I sat glued to the screen, the questions and to-dos meant for me scrolled up and off the page. I missed things often, and the same questions kept coming up again and again.</p>
+<p>Rather than cut the noise, I gave the four things that matter their own colors in the chat panel I work in.</p>
+<p>The colors don't stop anything from scrolling, and the to-dos still move up the page with everything else. What changed is how fast I find them when I come back. The yellow boxes stand out when I scroll up, and every reply ends with a short to-do list, so the bottom of the latest reply shows what's waiting on me.</p>
+<p>This page shows what that looks like, the rules I gave my AI, and how I set up the colors, in case any of it helps you.</p>
+<h2>The four colors</h2>
+<ul>
+<li><strong>Green: my prompts.</strong> Everything I type sits on a green band.</li>
+<li><strong>Yellow: something I need to do.</strong> Anything that needs me shows in a yellow box, and nothing else does.</li>
+<li><strong>Orange: worth a look, nothing to do.</strong> The team hit a problem and fixed it without me, and it tells me so in one orange line.</li>
+<li><strong>Red: time for a new chat.</strong> The chat is getting too long, and it's time to start a new one.</li>
+</ul>
+<p>Yellow is the one I protect most, because if anything else turns yellow, yellow stops meaning "act."</p>
+<h2>What it looks like</h2>
+<p>Both pictures are made up for this page. They are not screenshots of my real work.</p>
+<figure>
+<img src="/img/simplify-with-colors-before.png" width="963" height="668" alt="Before: a made-up reply in the chat panel with no color tweak. A warning, a note and a to-do appear as plain grey quote lines with small colored dots." loading="lazy" decoding="async">
+<figcaption>Before: a made-up reply with no tweak. The warning, the note and the to-do are all plain grey quote lines, told apart only by a small colored dot.</figcaption>
+</figure>
+<figure>
+<img src="/img/simplify-with-colors-after.png" width="963" height="735" alt="After: the same made-up reply with the tweak. The prompt sits on a green band, and the warning, note and to-do show in red, orange and yellow boxes." loading="lazy" decoding="async">
+<figcaption>After: the same reply with the tweak. The prompt sits on a green band, and the warning, the note and the to-do each get their own box, in red, orange and yellow.</figcaption>
+</figure>
+<h2>Where the colors come from</h2>
+<p>Two pieces work together.</p>
+<ol>
+<li><strong>The rules tell the AI how to mark each line.</strong> In the chat panel, a line that starts with "&gt;" shows as a quote. My rules use one "&gt;" for a to-do, two for a red warning and three for an orange note, and each one starts with a colored dot.</li>
+<li><strong>The tweak paints them.</strong> It's a small block of color rules added to the end of the panel's style file. It turns those quote lines into colored boxes and puts the green band under my prompts.</li>
+</ol>
+<p>Without the tweak, the AI still puts the colored dots on those lines, and that already helps. The boxes and the green band come from the tweak.</p>
+<p>The tweak paints every quote line, not just the ones you meant as alerts. That's why the rules tell the AI to use italics when it quotes something.</p>
+<h2>The rules I gave my AI</h2>
+<p>Here are the rules I gave mine, in case they help. They live in my AI's standing instructions, so if you try them, that's where they would go. In Claude Code, standing instructions go in a file called CLAUDE.md, and the one at <code>~/.claude/CLAUDE.md</code> applies to every project.</p>
+<pre><code>~/.claude/CLAUDE.md</code></pre>
+<pre><code>1. Anything I must do myself goes on its own line, starting with "&gt; 🟡". Only three kinds of line start with "&gt;": "&gt; 🟡", "&gt;&gt; 🔴" and "&gt;&gt;&gt; 🟠". To quote something, use italics.
+2. End every reply with a short To-do list. Each thing I must do is a "&gt; 🟡" line. Things that need nothing from me stay plain. If there is nothing for me to do, one plain line says so.
+3. If something went wrong and you fixed it without me, tell me in one line starting with "&gt;&gt;&gt; 🟠". Never put a to-do in orange.
+4. If this chat seems to be getting too long, tell me in one line starting with "&gt;&gt; 🔴" and suggest a new one. Use red for nothing else.
+</code></pre>
+<p>One note on red. In my setup, a separate small check measures how long the chat has grown and tells the AI when to raise the red line. With the rule alone, the AI is judging that for itself, so treat red as a rough guide.</p>
+<h2>How I set it up</h2>
+<p>The steps below look like a lot, and they aren't what I did. I told Claude what I wanted, and it set it up for me. If you'd like Claude to do the same for you, the next part shows what it needs. The by-hand steps come after that, for anyone who would rather do it themselves or see exactly what changes.</p>
+<h3>Before you start</h3>
+<ul>
+<li><strong>You need Node.js installed.</strong> The script is written for it, and any current version works. Nothing else needs installing.</li>
+<li><strong>It's unofficial.</strong> The extension has no setting for these colors, so the tweak adds them to the end of one of its own style files. Nobody at the maker supports it.</li>
+<li><strong>It only changes how things look.</strong> The color block doesn't change what the AI does.</li>
+<li><strong>Updates wipe it.</strong> Each extension update brings a fresh style file, and the colors are gone. The script puts them back each time you start a session.</li>
+<li><strong>The version here is smaller than mine.</strong> It covers the green band and the three colored boxes, in light and dark themes.</li>
+<li><strong>You can undo it.</strong> The steps are at the bottom of this page.</li>
+</ul>
+<h3>Keep it safe</h3>
+<p>The script runs on your own computer every time a session starts, so read it before you use it. Keep the script and the color file in a folder that only you can change, inside your own user folder. Not a shared folder, and not one that syncs to the cloud. Anyone who could change them could run their own code at every session start, or make the panel hide things from you.</p>
+<h3>Let Claude do it</h3>
+<p>You need the same tools either way: VS Code, the Claude Code extension and Node.js.</p>
+<p>Claude will need to change three places, and the script changes a fourth:</p>
+<ol>
+<li><strong>Your user-level CLAUDE.md</strong> (<code>~/.claude/CLAUDE.md</code>), for the four rules.</li>
+<li><strong>Your user-level settings file</strong> (<code>~/.claude/settings.json</code>), for the hook that runs the script at each session start.</li>
+<li><strong>A new folder you pick</strong>, for <code>colors.css</code> and <code>apply-colors.js</code>. Pick one that only you can change.</li>
+<li><strong>The extension's own style file.</strong> Claude doesn't edit this one. The script changes it when it runs, at your next session start. It's <code>webview/index.css</code> in the newest <code>anthropic.claude-code-...</code> folder inside <code>~/.vscode/extensions</code>.<pre><code>~/.vscode/extensions</code></pre></li>
+</ol>
+<p>Before you start, click the mode at the bottom of the prompt box and switch it to Manual. In Manual, Claude Code asks before it edits a file and before most commands it runs, so you see each step before it happens. Read each one first, and say yes only when it matches what you asked for. If it offers to stop asking, for this session or for good, say no.</p>
+<p>Then paste this prompt, and under it paste the four rules, the color block, the script and the hook setting from this page.</p>
+<pre><code>Set up the chat colors from the page text I've pasted below.
+1. Add the four rules to my user-level CLAUDE.md (~/.claude/CLAUDE.md).
+2. Make the folder &lt;your folder&gt;. Save the color block there as colors.css and the script as apply-colors.js, exactly as pasted.
+3. Add the SessionStart hook to my user-level settings file (~/.claude/settings.json), pointed at that folder. Keep every entry that is already in the file.
+Change nothing else, and don't run the script. Show me each change before you make it.
+</code></pre>
+<p>Pasting the code yourself means Claude works from exactly what you read. When it's done, open the two saved files and check they match this page. Then turn it on and check it, as in Steps 5 and 6 below.</p>
+<h3>Or do it by hand</h3>
+<p>These steps make the same changes yourself.</p>
+<h3>What you need</h3>
+<ul>
+<li>VS Code with the Claude Code extension.</li>
+<li>Node.js.</li>
+<li>A recent version of VS Code. On an older one, the red and orange boxes show as yellow.</li>
+</ul>
+<h3>Step 1. Add the rules</h3>
+<p>Copy the four rules above into your standing instructions file and save it.</p>
+<h3>Step 2. Save the color block</h3>
+<p>Make a new folder for the two files. Save this block in it as <code>colors.css</code>.</p>
+<pre><code>colors.css</code></pre>
+<pre><code>/* claude-panel-colors:start */
+/* Colors for the Claude Code chat panel in VS Code. Unofficial.
+   Green = your prompts. In Claude's replies: "&gt; " yellow, "&gt;&gt; " red, "&gt;&gt;&gt; " orange. */
+body {
+  --green-bg: #86efac; --green-fg: #052e16; --green-edge: #16a34a;
+  --yellow-bg: #fef08a; --yellow-fg: #1c1917; --yellow-edge: #ca8a04;
+  --red-bg: #dc2626; --red-fg: #ffffff; --red-edge: #7f1d1d;
+  --orange-bg: #fdba74; --orange-fg: #431407; --orange-edge: #c2410c;
+}
+body.vscode-dark, body.vscode-high-contrast {
+  --green-bg: #166534; --green-fg: #f0fdf4; --green-edge: #4ade80;
+  --yellow-bg: #7a5c00; --yellow-fg: #fefce8; --yellow-edge: #facc15;
+  --red-bg: #b91c1c; --red-fg: #ffffff; --red-edge: #fca5a5;
+  --orange-bg: #f97316; --orange-fg: #1a0a00; --orange-edge: #fed7aa;
+}
+
+/* Your prompts: a full-width green band. */
+[class*="userMessageContainer_"] { display: block; width: 100%; }
+[class^="userMessage_"], [class*=" userMessage_"] {
+  --app-input-background: var(--green-bg);
+  --app-primary-foreground: var(--green-fg);
+  --app-secondary-foreground: var(--green-fg);
+  display: block; max-width: none; padding: 6px 10px;
+  background: var(--green-bg) !important; color: var(--green-fg) !important;
+  border: 1px solid var(--green-edge) !important; border-left-width: 5px !important;
+}
+
+/* Quote boxes in Claude's replies. The number of "&gt;" picks the color. */
+[data-testid="assistant-message"] blockquote {
+  --bg: var(--yellow-bg); --fg: var(--yellow-fg); --edge: var(--yellow-edge);
+  background: var(--bg) !important; color: var(--fg) !important;
+  border: 0 !important; border-left: 6px solid var(--edge) !important;
+  border-radius: 4px; margin: 6px 0 !important; padding: 6px 10px !important;
+}
+[data-testid="assistant-message"] blockquote:has(&gt; blockquote) {
+  --bg: var(--red-bg); --fg: var(--red-fg); --edge: var(--red-edge); font-weight: 600;
+}
+[data-testid="assistant-message"] blockquote:has(&gt; blockquote &gt; blockquote) {
+  --bg: var(--orange-bg); --fg: var(--orange-fg); --edge: var(--orange-edge);
+}
+/* The inner quotes melt into the outer box, so it reads as one box. */
+[data-testid="assistant-message"] blockquote blockquote {
+  background: none !important; color: inherit !important;
+  border: 0 !important; margin: 0 !important; padding: 0 !important;
+}
+/* claude-panel-colors:end */
+</code></pre>
+<h3>Step 3. Save the script</h3>
+<p>Save this in the same folder as <code>apply-colors.js</code>. It finds the newest Claude Code extension on your computer and makes a backup of its style file, named <code>index.css.orig</code>, right next to it. Then it adds the color block to the end, once. If you run it again, it changes nothing, and if it can't find the extension, it quietly does nothing.</p>
+<pre><code>apply-colors.js</code></pre>
+<pre><code>#!/usr/bin/env node
+// apply-colors.js - adds colors.css (kept next to this file) to the Claude Code
+// VS Code extension's chat panel styles. Needs Node.js. Unofficial.
+//
+//   node apply-colors.js              use the normal VS Code extensions folder
+//   node apply-colors.js &lt;folder&gt;     use another extensions folder (a test copy,
+//                                     or e.g. ~/.vscode-insiders/extensions)
+//   add --verbose                     print what it did
+//
+// Prints nothing and always exits 0, so it can never block a Claude Code session.
+'use strict';
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+
+const START = '/* claude-panel-colors:start */';
+const END = '/* claude-panel-colors:end */';
+const args = process.argv.slice(2);
+const verbose = args.includes('--verbose');
+const root = args.find((a) =&gt; !a.startsWith('--')) || path.join(os.homedir(), '.vscode', 'extensions');
+const say = (msg) =&gt; { if (verbose) console.log(msg); };
+
+// The newest installed Claude Code extension, skipping versions VS Code has retired.
+function newestExtension() {
+  let names;
+  try { names = fs.readdirSync(root); } catch (e) { return null; }
+  let retired = {};
+  try { retired = JSON.parse(fs.readFileSync(path.join(root, '.obsolete'), 'utf8')); } catch (e) {}
+  const ver = (n) =&gt; (n.match(/^anthropic\.claude-code-(\d+)\.(\d+)\.(\d+)/i) || []).slice(1).map(Number);
+  const found = names
+    .filter((n) =&gt; ver(n).length === 3 &amp;&amp; !retired[n])
+    .sort((a, b) =&gt; { const x = ver(a), y = ver(b); return x[0] - y[0] || x[1] - y[1] || x[2] - y[2]; });
+  return found.length ? path.join(root, found[found.length - 1]) : null;
+}
+
+try {
+  const ext = newestExtension();
+  const file = ext &amp;&amp; path.join(ext, 'webview', 'index.css');
+  if (!file || !fs.existsSync(file)) { say('No Claude Code extension found in ' + root); process.exit(0); }
+
+  const block = fs.readFileSync(path.join(__dirname, 'colors.css'), 'utf8').trim();
+  if (!block.startsWith(START) || !block.endsWith(END)) { say('colors.css lost its start/end lines'); process.exit(0); }
+
+  const css = fs.readFileSync(file, 'utf8');
+  const s = css.indexOf(START);
+  const e = s &lt; 0 ? -1 : css.indexOf(END, s);
+  if (s &gt;= 0 &amp;&amp; e &lt; 0) { say('Start line with no end line, left the file alone: ' + file); process.exit(0); }
+  if (s &gt;= 0 &amp;&amp; e &gt;= 0 &amp;&amp; css.slice(s, e + END.length) === block) { say('Already applied: ' + file); process.exit(0); }
+
+  // One-time backup of the untouched original, saved next to it as index.css.orig.
+  const backup = file + '.orig';
+  if (s &lt; 0 &amp;&amp; !fs.existsSync(backup)) fs.copyFileSync(file, backup);
+
+  // Take out an older copy of the block (if any), then add the current one at the end.
+  const base = s &lt; 0 ? css : css.slice(0, s) + (e &gt;= 0 ? css.slice(e + END.length) : '');
+  const tmp = file + '.tmp';
+  fs.writeFileSync(tmp, base.trimEnd() + '\n\n' + block + '\n');
+  try { fs.renameSync(tmp, file); } catch (err) { fs.unlinkSync(tmp); throw err; }
+  say((s &lt; 0 ? 'Applied: ' : 'Updated: ') + file);
+} catch (err) {
+  say('Skipped: ' + err.message);
+}
+process.exit(0);
+</code></pre>
+<h3>Step 4. Run it at each session start</h3>
+<p>Claude Code can run a command each time a session starts, using a setting called a SessionStart hook. Add this to your Claude Code settings file, <code>~/.claude/settings.json</code>, which applies to every project. Replace <code>&lt;path-to&gt;</code> with the folder where you saved the script. On Windows, use forward slashes, like <code>C:/Users/you/panel-colors</code>. Backslashes break the settings file. Before you change the file, save a copy of it.</p>
+<pre><code>~/.claude/settings.json</code></pre>
+<pre><code>{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"&lt;path-to&gt;/apply-colors.js\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
+</code></pre>
+<p>If your settings file already has a <code>"hooks"</code> section, put only the <code>SessionStart</code> part inside it. If it already has a <code>"SessionStart"</code> list, leave the entries that are there alone and add this one to the same list, with a comma between them. Claude Code runs every matching entry in the list, so your old commands keep working. Keep just one <code>"hooks"</code> and one <code>"SessionStart"</code> in the file, with everything inside them.</p>
+<h3>Step 5. Turn it on</h3>
+<p>Start a new session so the script runs. Then reload the VS Code window: open the Command Palette and choose "Developer: Reload Window".</p>
+<pre><code>Developer: Reload Window</code></pre>
+<h3>Step 6. Check it</h3>
+<p>Your next prompt should sit on a green band. If you ask the AI to reply with one line starting with "&gt; 🟡", that line should show in a yellow box.</p>
+<p>The script prints nothing by design. To see the one file it changed, run it once yourself with <code>--verbose</code> on the end: <code>node "&lt;path-to&gt;/apply-colors.js" --verbose</code>.</p>
+<pre><code>node "&lt;path-to&gt;/apply-colors.js" --verbose</code></pre>
+<h3>After an update</h3>
+<p>When the extension updates, the colors drop off until the script runs again. Right after an update, the panel may look plain at first. Start a session, reload the window, and they're back.</p>
+<p>If the extension ever renames the parts of the panel that the tweak looks for, the colors just stop showing, and the panel looks the way it does without the tweak. That's the one failure I know of. I can't promise how every future update will behave, so if the panel ever looks wrong, the undo steps below put the original style file back.</p>
+<h3>How to undo it</h3>
+<ol>
+<li><strong>Stop it coming back.</strong> Open your Claude Code settings file (<code>~/.claude/settings.json</code>) and delete the hook entry that runs <code>apply-colors.js</code>. If it was the only SessionStart hook, delete the whole <code>"SessionStart"</code> block.
+</li>
+<li><strong>Take the colors out.</strong> Pick one:
+<ul>
+<li><strong>a.</strong> Copy the backup over the styled file. In your VS Code extensions folder, open the newest <code>anthropic.claude-code-...</code> folder, then <code>webview</code>. Copy <code>index.css.orig</code> over <code>index.css</code>.</li>
+<li><strong>b.</strong> Or just let VS Code update or reinstall the Claude Code extension. A fresh install has no colors.</li>
+</ul></li>
+<li><strong>Reload VS Code</strong> (Command Palette, then "Developer: Reload Window").
+</li>
+<li><strong>Optional:</strong> delete the folder where you saved <code>apply-colors.js</code> and <code>colors.css</code>.
+</li></ol>
+<hr>
+<p>I kept the noise, because it tells me the work is moving. What helped most was using each color for one thing and nothing else.</p>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-mark"><a href="/"><span class="wm-first">Robert</span> <span class="wm-last">Guida</span></a></p>
+      <p class="foot-cta"><a class="btn" href="/book" target="_blank" rel="noopener">Let's talk &#x2014; 20 minutes</a></p>
+    </div>
+    <nav class="foot-nav" aria-label="Footer">
+      <ul>
+        <li><a href="/" aria-label="Home"><svg class="ico" viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></a></li>
+        <li><a href="/writing/"><svg class="ico" viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
+        <li><a href="/privacy.html"><svg class="ico" viewBox="2 3 20 17" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.6 10C7 6.3 7.6 3.6 9.6 3.1Q12 4.1 14.4 3.1C16.4 3.6 17 6.3 17.4 10z"/><path d="M2 11Q12 8.4 22 11Q12 12.6 2 11z"/><path d="M2.5 13.5h8v2Q10.5 20 7 20H5.6Q3 20 2.5 16.3z"/><path d="M21.5 13.5h-8v2Q13.5 20 17 20h1.4Q21 20 21.5 16.3z"/><path d="M10.4 13.5h3.2v1.1h-3.2z"/></svg><span>Privacy</span></a></li>
+        <li><a class="social" href="https://www.linkedin.com/in/rob-guida-63843582/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/img/linkedin-in-bug.png" width="33" height="28" alt=""></a></li>
+      </ul>
+    </nav>
+    <p class="copyright">&#xA9; 2026 Robert Guida. All rights reserved.</p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

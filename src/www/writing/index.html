@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing &#x2014; Robert Guida</title>
+<meta name="description" content="AI-assisted Articles by Robert Guida, Fractional CTO and solutions architect.">
+<link rel="canonical" href="https://robguida.com/writing/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://robguida.com/writing/">
+<meta property="og:title" content="Writing &#x2014; Robert Guida">
+<meta property="og:description" content="AI-assisted Articles by Robert Guida, Fractional CTO and solutions architect.">
+<meta property="og:image" content="https://robguida.com/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Robert Guida, smiling, in a grey jacket and light-blue open-collar shirt, against a dark blue background.">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+    :root{
+      --paper:#F7F8FA;
+      --ink:#1A1F26;
+      --navy:#0F2A44;
+      --navy-lt:#1B4A73;
+      --rule:#DCE1E8;
+      --muted:#4A5462;
+    }
+    body,.rg{
+      background:var(--paper);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+                  "Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size:18px;
+      line-height:1.6;
+      text-align:left;
+    }
+    body{margin:0;-webkit-text-size-adjust:100%;}
+    .rg,.rg *{box-sizing:border-box;}
+    .rg{overflow-wrap:break-word;}
+    .rg p{margin:0 0 1.15rem;}
+    .rg a{color:var(--navy);text-decoration:underline;text-underline-offset:2px;}
+    .rg a:hover,.rg a:focus{color:var(--navy-lt);}
+    .rg :focus-visible{outline:2px solid var(--navy-lt);outline-offset:3px;}
+    .wrap{max-width:44rem;margin:0 auto;padding:0 1.5rem;}
+    .site-head{position:relative;overflow:hidden;color:var(--paper);
+               padding:.75rem 0 clamp(2.5rem,7vw,4rem);
+               background:radial-gradient(ellipse 70% 90% at 100% 0,rgba(27,74,115,.55) 0,rgba(27,74,115,0) 70%),
+                          radial-gradient(ellipse 60% 70% at 0 100%,rgba(15,42,68,.7) 0,rgba(15,42,68,0) 70%),
+                          #000819;
+               border-bottom:1px solid rgba(200,212,226,.18);}
+    .site-head::before{content:"";position:absolute;inset:0;pointer-events:none;
+               background:linear-gradient(rgba(200,212,226,.06) 1px,transparent 1px) 0 0 / 2rem 2rem,
+                          linear-gradient(90deg,rgba(200,212,226,.06) 1px,transparent 1px) 0 0 / 2rem 2rem;
+               -webkit-mask-image:linear-gradient(200deg,#000 0,rgba(0,0,0,.5) 35%,transparent 75%);
+                       mask-image:linear-gradient(200deg,#000 0,rgba(0,0,0,.5) 35%,transparent 75%);}
+    .site-head .wrap{position:relative;}
+    .site-head :focus-visible{outline-color:#FFFFFF;}
+    .rg .masthead{display:flex;align-items:center;gap:1rem;min-height:2.75rem;
+              margin:0 0 clamp(2.25rem,7vw,3.75rem);}
+    .masthead::after{content:"";flex:1;height:1px;background:rgba(200,212,226,.25);}
+    .rg .masthead a{font-size:clamp(1.3rem,4.4vw,1.75rem);line-height:1.15;letter-spacing:.005em;
+               white-space:nowrap;color:var(--paper);text-decoration:none;
+               padding-left:.7rem;border-left:3px solid var(--navy-lt);}
+    .masthead .wm-first{font-weight:300;color:#C8D4E2;}
+    .masthead .wm-last{font-weight:700;}
+    .rg .masthead a:hover,.rg .masthead a:focus{color:#FFFFFF;border-left-color:#C8D4E2;}
+    .rg .masthead a:hover .wm-first,.rg .masthead a:focus .wm-first{color:#FFFFFF;}
+    @media (max-width:48.99rem){ .rg .masthead{padding-left:2.75rem;} }
+    .site-head h1{font-size:clamp(2rem,6.2vw,3rem);line-height:1.14;letter-spacing:-.015em;
+                  font-weight:700;margin:0 0 .9rem;color:var(--paper);text-transform:uppercase;}
+    .site-head h1::before{content:"";display:block;width:2.5rem;height:3px;
+                    background:#C8D4E2;margin-bottom:1.25rem;}
+    .site-head .lede{font-size:1.125rem;font-weight:300;letter-spacing:.01em;color:#BCCBDA;
+                     margin:0 0 clamp(2rem,6vw,2.75rem);max-width:30rem;}
+    .latest{border-top:1px solid rgba(200,212,226,.25);padding-top:1.25rem;}
+    .rg .latest .latest-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem 1rem;margin:0 0 .6rem;
+                 font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:#C8D4E2;}
+    .latest-meta strong{font-weight:700;color:var(--paper);padding-left:.75rem;
+                        border-left:3px solid var(--navy-lt);}
+    .latest h2{font-size:clamp(1.3rem,3.6vw,1.6rem);line-height:1.3;font-weight:700;
+               letter-spacing:-.01em;margin:0 0 .6rem;text-wrap:balance;}
+    .rg .latest h2 a{color:var(--paper);text-decoration:none;
+                     background:linear-gradient(#C8D4E2,#C8D4E2) 0 100% / 0 1px no-repeat;}
+    .rg .latest h2 a:hover,.rg .latest h2 a:focus{color:#FFFFFF;background-size:100% 1px;}
+    @media (prefers-reduced-motion:no-preference){ .rg .latest h2 a{transition:background-size .25s ease;} }
+    .rg .latest p{margin:0;color:#BCCBDA;font-size:1rem;max-width:36rem;}
+    .rg img.head-photo{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;
+               object-position:92% top;border-radius:4px;margin:0 0 clamp(2rem,6vw,2.75rem);
+               -webkit-mask-image:linear-gradient(to right,transparent 0,#000 30%);
+                       mask-image:linear-gradient(to right,transparent 0,#000 30%);}
+    @media (min-width:64rem){
+      .site-head .wrap{position:static;}
+      .site-head .wrap > *{position:relative;z-index:1;}
+      .rg .site-head .wrap > img.head-photo{position:absolute;z-index:0;top:0;right:0;bottom:0;margin:0;
+               width:calc((100vw - 44rem) / 2 + 10rem);height:100%;aspect-ratio:auto;border-radius:0;
+               object-position:97% top;
+               -webkit-mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.55) 5rem,#000 10rem),
+                                  linear-gradient(to top,transparent 0,#000 30%);
+               -webkit-mask-composite:source-in;
+                       mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.55) 5rem,#000 10rem),
+                                  linear-gradient(to top,transparent 0,#000 30%);
+                       mask-composite:intersect;}
+      .latest{max-width:31rem;}
+    }
+
+    .rg .menu-btn{position:fixed;top:.75rem;left:.75rem;z-index:50;width:2.75rem;height:2.75rem;
+                  display:none;align-items:center;justify-content:center;margin:0;padding:0;
+                  background:rgba(15,42,68,.94);color:var(--paper);border:1px solid rgba(200,212,226,.5);
+                  border-radius:4px;cursor:pointer;box-shadow:0 2px 8px rgba(0,8,25,.25);}
+    .rg .menu-btn:hover{background:var(--navy-lt);}
+    .rg .menu-btn:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px;box-shadow:0 0 0 4px var(--navy-lt);}
+    .rg .menu-btn svg{display:block;width:1.375rem;height:1.375rem;}
+    .rg .menu{position:fixed;inset:0 auto 0 0;margin:0;width:min(19rem,85vw);height:100%;max-height:none;
+              overflow-y:auto;border:0;border-right:1px solid rgba(200,212,226,.25);
+              background:#000819;color:var(--paper);padding:.75rem 1.5rem 2rem;}
+    .rg .menu::backdrop{background:rgba(0,8,25,.55);}
+    .rg .menu{display:none;}
+    @supports selector(:popover-open){.rg .menu-btn{display:flex;}.rg .menu:popover-open{display:block;}}
+    .rg .menu :focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
+    .rg .menu-close{display:flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;
+                    margin:0 0 1.25rem -.75rem;padding:0;background:transparent;color:var(--paper);
+                    border:1px solid rgba(200,212,226,.5);border-radius:4px;cursor:pointer;}
+    .rg .menu-close:hover{background:var(--navy);}
+    .rg .menu-close svg{display:block;width:1.25rem;height:1.25rem;}
+    .rg .menu ul{list-style:none;margin:0;padding:0;}
+    .rg .menu li{border-top:1px solid rgba(200,212,226,.2);}
+    .rg .menu li:last-child{border-bottom:1px solid rgba(200,212,226,.2);}
+    .rg .menu a{display:flex;align-items:center;min-height:2.75rem;padding:.6rem 0;color:var(--paper);
+                font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;}
+    .rg .menu a:hover,.rg .menu a:focus{color:#FFFFFF;text-decoration:underline;text-underline-offset:4px;}
+    .rg .menu a[aria-current="page"]{box-shadow:inset 3px 0 0 #C8D4E2;padding-left:.85rem;}
+    .rg .menu a svg{display:block;height:28px;width:auto;max-width:33px;flex:none;}
+    .rg .menu a svg + span:not(.sr-only){margin-left:.6rem;}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+             clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+    .sec{padding:clamp(2.75rem,7vw,4rem) 0;}
+    .lede{font-size:1.0625rem;margin-bottom:2rem;}
+    .rg ul.posts{list-style:none;margin:0;padding:0;border-top:3px solid var(--navy);}
+    .posts li{position:relative;display:grid;grid-template-areas:"date" "title" "sum";row-gap:.45rem;
+              margin:0 -1rem;padding:1.6rem 1rem 1.75rem;border-bottom:1px solid var(--rule);}
+    .posts li:hover,.posts li:has(a:focus-visible){background:#FFFFFF;
+              box-shadow:inset 3px 0 0 var(--navy-lt),0 8px 24px rgba(15,42,68,.08);}
+    .posts h2{grid-area:title;font-size:clamp(1.2rem,3.2vw,1.375rem);line-height:1.3;font-weight:700;
+              letter-spacing:-.01em;margin:0;text-wrap:balance;}
+    .rg .posts h2 a{color:var(--ink);text-decoration:none;}
+    .rg .posts h2 a::after{content:"";position:absolute;inset:0;}
+    .rg .posts li:hover h2 a,.rg .posts h2 a:focus{color:var(--navy-lt);text-decoration:underline;
+              text-underline-offset:4px;text-decoration-thickness:1px;}
+    .rg .posts .dateline{grid-area:date;margin:0;font-size:.8125rem;font-weight:600;
+              letter-spacing:.14em;text-transform:uppercase;color:var(--navy-lt);}
+    .rg .posts li p:not(.dateline){grid-area:sum;margin:0;color:#3A4452;max-width:34rem;}
+    @media (min-width:40rem){
+      .posts li{grid-template-columns:9.5rem 1fr;grid-template-areas:"date title" "date sum";column-gap:1.75rem;}
+      .rg .posts .dateline{padding-top:.3rem;}
+    }
+    @media (prefers-reduced-motion:no-preference){
+      .posts li{transition:background-color .2s ease,box-shadow .2s ease;}
+    }
+
+    .site-footer{position:relative;color:#BCCBDA;font-size:.9375rem;
+               padding:clamp(2.5rem,7vw,3.5rem) 0 2rem;
+               background:radial-gradient(ellipse 60% 90% at 0 100%,rgba(27,74,115,.45) 0,rgba(27,74,115,0) 70%),
+                          #000819;
+               border-top:3px solid var(--navy-lt);}
+    .site-footer :focus-visible{outline-color:#FFFFFF;}
+    .foot-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem 2rem;
+              padding-bottom:1.75rem;border-bottom:1px solid rgba(200,212,226,.2);}
+    .rg .foot-mark{margin:0;}
+    .rg .foot-mark a{font-size:clamp(1.3rem,4.4vw,1.75rem);line-height:1.15;white-space:nowrap;
+               color:var(--paper);text-decoration:none;padding-left:.7rem;border-left:3px solid var(--navy-lt);}
+    .foot-mark .wm-first{font-weight:300;color:#C8D4E2;}
+    .foot-mark .wm-last{font-weight:700;}
+    .rg .foot-mark a:hover,.rg .foot-mark a:focus{color:#FFFFFF;border-left-color:#C8D4E2;}
+    .rg .foot-cta{margin:0;}
+    .rg a.btn{display:inline-block;font-size:1rem;font-weight:600;line-height:1.25;
+         padding:.85rem 1.5rem;border-radius:4px;text-decoration:none;
+         background:var(--paper);color:var(--navy);}
+    .rg a.btn:hover,.rg a.btn:focus{background:#FFFFFF;color:var(--navy);}
+    .foot-nav ul{list-style:none;margin:0;padding:1.5rem 0;display:flex;flex-wrap:wrap;align-items:center;
+                 gap:.5rem 1.75rem;}
+    .rg .foot-nav a{color:var(--paper);font-weight:600;font-size:.8125rem;letter-spacing:.14em;
+                 text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;min-height:2.75rem;}
+    .rg .foot-nav a:hover,.rg .foot-nav a:focus{color:#FFFFFF;text-decoration:underline;text-underline-offset:4px;}
+    .rg .foot-nav a[aria-current="page"]{color:#C8D4E2;}
+    .foot-nav img{display:block;width:auto;height:28px;}
+    .foot-nav .ico{display:block;height:28px;width:auto;max-width:33px;flex:none;}
+    .rg .foot-nav a .ico + span{margin-left:.5rem;}
+    .rg .copyright{margin:0;padding-top:1.25rem;border-top:1px solid rgba(200,212,226,.2);
+                 font-size:.8125rem;letter-spacing:.04em;color:#8E9DB0;}
+    @media (max-width:26rem){
+      .wrap{padding:0 1.15rem;}
+      body,.rg{font-size:17px;}
+    }
+</style>
+<script src="/js/menu.js" defer></script>
+</head>
+<body>
+<div class="rg">
+<button type="button" class="menu-btn" id="menu-button" popovertarget="site-menu" aria-label="Menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+<nav class="menu" id="site-menu" popover aria-label="Site menu">
+  <button type="button" class="menu-close" popovertarget="site-menu" popovertargetaction="hide" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <ul>
+    <li><a href="/"><svg viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg><span class="sr-only">Home</span></a></li>
+    <li><a href="/#focus-engage">Focus &amp; Engage</a></li>
+    <li><a href="/#works">Works</a></li>
+    <li><a href="/#assessment">Assessment Offer</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/writing/" aria-current="page"><svg viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
+  </ul>
+</nav>
+<header class="site-head">
+  <div class="wrap">
+    <p class="masthead"><a href="/"><span class="wm-first">Robert</span> <span class="wm-last">Guida</span></a></p>
+    <h1>Writing</h1>
+    <p class="lede">AI-assisted Articles by Robert Guida. Newest first.</p>
+    <img class="head-photo" src="/img/rob-guida-hero.jpg" width="1672" height="941" fetchpriority="high" decoding="async" alt="Robert Guida, smiling, in a grey jacket and light-blue open-collar shirt, against a dark blue background.">
+    <div class="latest">
+      <p class="latest-meta"><strong>Latest</strong><time datetime="2026-10-28">October 28, 2026</time></p>
+      <h2><a href="/writing/simplify-with-colors.html">Simplify with Colors</a></h2>
+      <p>How I use four colors to make the to-dos in my AI chat easy to find, with the rules, the setup and how to undo it.</p>
+    </div>
+  </div>
+</header>
+<main class="sec">
+  <div class="wrap">
+    <ul class="posts">
+      <li>
+        <h2><a href="/writing/simplify-with-colors.html">Simplify with Colors</a></h2>
+        <p class="dateline"><time datetime="2026-10-28">October 28, 2026</time></p>
+        <p>How I use four colors to make the to-dos in my AI chat easy to find, with the rules, the setup and how to undo it.</p>
+      </li>
+      <li>
+        <h2><a href="/writing/stop-giving-your-ai-the-answer-key.html">Stop Giving Your AI the Answer Key</a></h2>
+        <p class="dateline"><time datetime="2026-10-24">October 24, 2026</time></p>
+        <p>When my AI gets something wrong, I don't hand it the fix. I ask it the questions I would ask a person, and make it work the answer out first.</p>
+      </li>
+      <li>
+        <h2><a href="/writing/ai-budget-without-touching-the-checks.html">Putting My AI on a Budget Without Touching the Checks</a></h2>
+        <p class="dateline"><time datetime="2026-10-23">October 23, 2026</time></p>
+        <p>In October I changed how I use AI to make my weekly allowance last longer. The checks were the one thing I would not cut.</p>
+      </li>
+      <li>
+        <h2><a href="/writing/the-second-ai-found-a-gate.html">The Second AI Didn't Find My Bugs. It Found a Gate That Looked Unnecessary.</a></h2>
+        <p class="dateline"><time datetime="2026-10-23">October 23, 2026</time></p>
+        <p>Every AI service has blind spots. So I have a second one review the work, and the first one review the review.</p>
+      </li>
+      <li>
+        <h2><a href="/writing/ai-reported-work-that-never-happened.html">What I changed after my AI reported work that never happened</a></h2>
+        <p class="dateline"><time datetime="2026-10-16">October 16, 2026</time></p>
+        <p>How I run my projects with AI agents. Every answer is a draft, and I make the final call.</p>
+      </li>
+    </ul>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-mark"><a href="/"><span class="wm-first">Robert</span> <span class="wm-last">Guida</span></a></p>
+      <p class="foot-cta"><a class="btn" href="/book" target="_blank" rel="noopener">Let's talk &#x2014; 20 minutes</a></p>
+    </div>
+    <nav class="foot-nav" aria-label="Footer">
+      <ul>
+        <li><a href="/" aria-label="Home"><svg class="ico" viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></a></li>
+        <li><a href="/writing/" aria-current="page"><svg class="ico" viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
+        <li><a href="/privacy.html"><svg class="ico" viewBox="2 3 20 17" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.6 10C7 6.3 7.6 3.6 9.6 3.1Q12 4.1 14.4 3.1C16.4 3.6 17 6.3 17.4 10z"/><path d="M2 11Q12 8.4 22 11Q12 12.6 2 11z"/><path d="M2.5 13.5h8v2Q10.5 20 7 20H5.6Q3 20 2.5 16.3z"/><path d="M21.5 13.5h-8v2Q13.5 20 17 20h1.4Q21 20 21.5 16.3z"/><path d="M10.4 13.5h3.2v1.1h-3.2z"/></svg><span>Privacy</span></a></li>
+        <li><a class="social" href="https://www.linkedin.com/in/rob-guida-63843582/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/img/linkedin-in-bug.png" width="33" height="28" alt=""></a></li>
+      </ul>
+    </nav>
+    <p class="copyright">&#xA9; 2026 Robert Guida. All rights reserved.</p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

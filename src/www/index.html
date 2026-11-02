@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robert Guida &#x2014; Fractional CTO &amp; Solutions Architect</title>
+<meta name="description" content="Fractional CTO and solutions architect. I get stalled software finished, with agentic engineering and human review. Two-week assessment, $7,500 fixed.">
+<link rel="canonical" href="https://robguida.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://robguida.com/">
+<meta property="og:title" content="Robert Guida &#x2014; Fractional CTO &amp; Solutions Architect">
+<meta property="og:description" content="Fractional CTO and solutions architect. I get stalled software finished, with agentic engineering and human review. Two-week assessment, $7,500 fixed.">
+<meta property="og:image" content="https://robguida.com/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Robert Guida, smiling, in a grey jacket and light-blue open-collar shirt, against a dark blue background.">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Robert Guida",
+  "jobTitle": "Fractional CTO & Solutions Architect",
+  "url": "https://robguida.com/",
+  "image": "https://robguida.com/img/rob-guida-hero.jpg",
+  "sameAs": ["https://www.linkedin.com/in/rob-guida-63843582/"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Robert Guida",
+  "url": "https://robguida.com/"
+}
+</script>
+<style>
+    :root{
+      --paper:#F7F8FA;
+      --ink:#1A1F26;
+      --navy:#0F2A44;
+      --navy-lt:#1B4A73;
+      --band:#0B1523;
+      --rule:#DCE1E8;
+      --tint:#EDF1F6;
+      --tint-2:#E6ECF3;
+    }
+    body,.rg{
+      background:var(--paper);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+                  "Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size:18px;
+      line-height:1.6;
+      text-align:left;
+    }
+    body{margin:0;-webkit-text-size-adjust:100%;}
+    .rg,.rg *{box-sizing:border-box;}
+    .rg{overflow-wrap:break-word;}
+    .rg p{margin:0 0 1.15rem;}
+    .rg a{color:var(--navy);text-decoration:underline;text-underline-offset:2px;}
+    .rg a:hover,.rg a:focus{color:var(--navy-lt);}
+    .rg :focus-visible{outline:2px solid var(--navy-lt);outline-offset:3px;}
+
+    .wrap{max-width:44rem;margin:0 auto;padding:0 1.5rem;}
+
+    .hero{background:var(--band);color:var(--paper);
+          padding:clamp(3.25rem,9vw,5.5rem) 0 clamp(3rem,8vw,5rem);}
+    .hero :focus-visible{outline-color:#FFFFFF;}
+    .eyebrow{font-size:.8125rem;font-weight:600;letter-spacing:.2em;
+             color:#C8D4E2;margin:0 0 1.1rem;}
+    .hero h1{font-size:clamp(2rem,6.2vw,3rem);line-height:1.14;
+             letter-spacing:-.015em;font-weight:700;margin:0 0 .9rem;
+             color:var(--paper);max-width:22ch;}
+    .hero-role{font-size:1.0625rem;font-weight:500;letter-spacing:.03em;
+               color:#BCCBDA;margin:0 0 2rem;}
+    .hero p{color:var(--paper);max-width:34rem;}
+
+    .rg a.btn{display:inline-block;font-size:1.0625rem;font-weight:600;line-height:1.25;
+         padding:.95rem 1.7rem;border-radius:4px;text-decoration:none;
+         border:1px solid transparent;}
+    .rg a.btn-light{background:var(--paper);color:var(--navy);}
+    .rg a.btn-light:hover,.rg a.btn-light:focus{background:#FFFFFF;color:var(--navy);}
+
+    .sec{padding:clamp(2.75rem,7vw,4rem) 0;}
+    .sec h2{font-size:clamp(1.5rem,4.2vw,1.9rem);line-height:1.25;
+            letter-spacing:-.01em;font-weight:700;margin:0 0 1.4rem;text-transform:uppercase;
+            text-wrap:balance;}
+    .sec h2::before{content:"";display:block;width:2.5rem;height:3px;
+                    background:var(--navy);margin-bottom:1.1rem;}
+    .sec h3{font-size:clamp(1.25rem,3.15vw,1.425rem);line-height:1.4;font-weight:700;margin:0 0 .5rem;
+            color:var(--navy);text-wrap:balance;}
+    .lede{font-size:1.0625rem;margin-bottom:2rem;}
+
+    .item{border-left:3px solid var(--rule);padding-left:1.15rem;margin-bottom:2rem;}
+    .item p:last-child{margin-bottom:0;}
+
+    .entry{border-top:1px solid var(--rule);padding-top:1.4rem;margin-bottom:1.6rem;}
+    .entry p:last-child{margin-bottom:0;}
+
+    .stack{margin-top:2.25rem;border-top:1px solid var(--rule);padding-top:1.75rem;}
+    .stack-box{background:var(--tint);border-left:3px solid var(--navy);
+               padding:1.15rem 1.25rem;}
+    .stack-box h3{font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;
+                  margin:0 0 .45rem;}
+    .stack-box p{margin:0;font-weight:500;}
+
+    .offer{background:var(--tint);border:2px solid var(--navy);border-radius:4px;
+           padding:clamp(1.4rem,4.5vw,2.25rem);}
+    .offer h2{margin-bottom:.6rem;}
+    .price{font-size:clamp(1.8rem,5.6vw,2.5rem);line-height:1.15;font-weight:700;
+           color:var(--navy);margin:0 0 1.3rem;}
+    .offer ul{list-style:none;margin:0 0 1.4rem;padding:0;}
+    .offer li{padding-left:1.3em;text-indent:-1.3em;margin-bottom:.55rem;}
+    .kicker{font-weight:700;margin:0;}
+
+    .availability{font-size:1.1875rem;font-weight:700;color:var(--navy);
+                  margin:1.9rem 0 0;}
+
+    .close p{max-width:34rem;}
+    .site-footer{position:relative;color:#BCCBDA;font-size:.9375rem;
+               padding:clamp(2.5rem,7vw,3.5rem) 0 2rem;
+               background:radial-gradient(ellipse 60% 90% at 0 100%,rgba(27,74,115,.45) 0,rgba(27,74,115,0) 70%),
+                          #000819;
+               border-top:3px solid var(--navy-lt);}
+    .site-footer :focus-visible{outline-color:#FFFFFF;}
+    .foot-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem 2rem;
+              padding-bottom:1.75rem;border-bottom:1px solid rgba(200,212,226,.2);}
+    .rg .foot-mark{margin:0;}
+    .rg .foot-mark a{font-size:clamp(1.3rem,4.4vw,1.75rem);line-height:1.15;white-space:nowrap;
+               color:var(--paper);text-decoration:none;padding-left:.7rem;border-left:3px solid var(--navy-lt);}
+    .foot-mark .wm-first{font-weight:300;color:#C8D4E2;}
+    .foot-mark .wm-last{font-weight:700;}
+    .rg .foot-mark a:hover,.rg .foot-mark a:focus{color:#FFFFFF;border-left-color:#C8D4E2;}
+    .rg .foot-cta{margin:0;}
+    .rg .site-footer a.btn{display:inline-block;font-size:1rem;font-weight:600;line-height:1.25;
+         padding:.85rem 1.5rem;border-radius:4px;border:0;text-decoration:none;
+         background:var(--paper);color:var(--navy);}
+    .rg .site-footer a.btn:hover,.rg .site-footer a.btn:focus{background:#FFFFFF;color:var(--navy);}
+    .foot-nav ul{list-style:none;margin:0;padding:1.5rem 0;display:flex;flex-wrap:wrap;align-items:center;
+                 gap:.5rem 1.75rem;}
+    .rg .foot-nav a{color:var(--paper);font-weight:600;font-size:.8125rem;letter-spacing:.14em;
+                 text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;min-height:2.75rem;}
+    .rg .foot-nav a:hover,.rg .foot-nav a:focus{color:#FFFFFF;text-decoration:underline;text-underline-offset:4px;}
+    .rg .foot-nav a[aria-current="page"]{color:#C8D4E2;}
+    .foot-nav img{display:block;width:auto;height:28px;}
+    .foot-nav .ico{display:block;height:28px;width:auto;max-width:33px;flex:none;}
+    .rg .foot-nav a .ico + span{margin-left:.5rem;}
+    .rg .copyright{margin:0;padding-top:1.25rem;border-top:1px solid rgba(200,212,226,.2);
+                 font-size:.8125rem;letter-spacing:.04em;color:#8E9DB0;}
+
+    @media (max-width:26rem){
+      .wrap{padding:0 1.15rem;}
+      body,.rg{font-size:17px;}
+    }
+
+    .rg ul.facts{list-style:none;margin:0 0 1.15rem;padding:0;}
+    .rg ul.facts li{margin-bottom:.45rem;}
+    .rg ul.facts li:last-child{margin-bottom:0;}
+    .hero ul.facts{max-width:34rem;margin-bottom:2rem;}
+    .item ul.facts:last-child,.entry ul.facts:last-child{margin-bottom:0;}
+    .rg ul.facts.facts-bullets{list-style:disc;padding-left:1.3em;}
+    .rg ol.facts{margin:0 0 2rem;padding-left:1.3em;}
+    .rg ol.facts li{margin-bottom:.45rem;}
+    .rg ol.facts li:last-child{margin-bottom:0;}
+    .label{font-size:.8125rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+           color:var(--navy);margin:0 0 .5rem;}
+    .rg img.photo{display:block;width:100%;height:auto;border-radius:4px;margin:0 0 1.75rem;}
+    @media (min-width:75rem){
+      .hero{min-height:min(56.25vw,100vh);display:flex;align-items:center;}
+      .hero .wrap{max-width:none;margin:0 0 0 max(5vw,calc(46vw - 36rem));
+                  padding:0;width:min(36rem,41vw);}
+      .hero img.photo{display:none;}
+    }
+
+    .hero h1{margin-bottom:1.75rem;}
+    .hero-figure{position:relative;margin:2.5rem 0 0;}
+    .hero-figure img.photo{margin:0;aspect-ratio:4/5;object-fit:cover;object-position:97% top;}
+    .nameplate{position:absolute;left:0;right:0;bottom:0;padding:4rem 1rem 1rem;
+               border-radius:0 0 4px 4px;
+               background:linear-gradient(to top,rgba(5,11,22,.92) 0,rgba(5,11,22,.8) 55%,rgba(5,11,22,0) 100%);
+               text-shadow:0 1px 3px rgba(0,0,0,.7);}
+    .nameplate .eyebrow{margin:0 0 .35rem;}
+    .nameplate .hero-role{margin:0 0 .6rem;}
+    .hero .nameplate p:last-child{margin:0;}
+    @media (min-width:40rem){
+      .hero-figure img.photo{aspect-ratio:auto;}
+      .nameplate{padding:4rem 1.5rem 1.25rem;}
+    }
+    @media (min-width:75rem){
+      .hero{position:relative;
+            background:linear-gradient(to top,rgba(5,11,22,.88) 0,rgba(5,11,22,.55) 22%,rgba(5,11,22,0) 42%),
+                       var(--band) url("img/rob-guida-hero.jpg") right top / cover no-repeat;}
+      .hero-figure{position:static;margin:0;}
+      .nameplate{left:auto;right:max(4vw,calc(50vw - 44rem));bottom:clamp(2rem,5vh,3.5rem);
+                 width:min(30rem,40vw);padding:0;background:none;border-radius:0;}
+    }
+
+    .hero{--band:#000819;}
+    @media (max-width:39.99rem){
+      .hero-figure img.photo{
+        -webkit-mask-image:linear-gradient(to right,transparent 0,#000 22%);
+                mask-image:linear-gradient(to right,transparent 0,#000 22%);}
+    }
+
+    @media (max-width:39.99rem){
+      .hero a.btn,.close a.btn{display:block;width:fit-content;margin:0 auto;}
+    }
+
+    @media (min-width:64rem){
+      .pair{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;
+            max-width:68rem;margin:0 auto;padding:0 1.5rem;align-items:start;}
+      .pair .wrap{max-width:none;padding:0;}
+    }
+    .row-tint{background:var(--tint-2);}
+
+    .band{--band:#000819;background:var(--band);color:var(--paper);
+          padding:clamp(3.25rem,9vw,5.5rem) 0 clamp(3rem,8vw,5rem);
+          --fade-x:linear-gradient(to right,transparent 0,#000 14%,#000 50%,transparent 100%);
+          --fade-y:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.3) .8%,rgba(0,0,0,.65) 1.8%,rgba(0,0,0,.9) 2.8%,#000 3.4%,
+                   #000 86%,rgba(0,0,0,.8) 90%,rgba(0,0,0,.45) 94%,rgba(0,0,0,.15) 97.5%,transparent 100%);}
+    .band :focus-visible{outline-color:#FFFFFF;}
+    .band h2::before{background:#C8D4E2;}
+    .band p,.band ul.facts{max-width:34rem;}
+    .band img.photo{margin:0 0 2.5rem;
+      -webkit-mask-image:var(--fade-x),var(--fade-y);-webkit-mask-composite:source-in;
+              mask-image:var(--fade-x),var(--fade-y);mask-composite:intersect;}
+    @media (max-width:74.99rem){
+      .band .wrap{display:flow-root;}
+      .band .wrap::before{content:"";display:block;height:4.75rem;margin:-3rem 0 -1.75rem;
+        background:url("img/rob-guida-standing.jpg") 0 0 / 100% 50000% no-repeat;
+        --fade-up:linear-gradient(to top,#000 1.75rem,rgba(0,0,0,.6) 2.75rem,rgba(0,0,0,.28) 3.6rem,rgba(0,0,0,.08) 4.3rem,transparent 4.75rem);
+        -webkit-mask-image:var(--fade-x),var(--fade-up);-webkit-mask-composite:source-in;
+                mask-image:var(--fade-x),var(--fade-up);mask-composite:intersect;}
+    }
+    @media (max-width:39.99rem){
+      .band{--fade-x:linear-gradient(to right,transparent 0,#000 22%,#000 78%,transparent 100%);}
+      .band img.photo{aspect-ratio:4/5;object-fit:cover;object-position:17% top;}
+      .band .wrap::before{background-size:222.1% 50000%;background-position:17% 0;}
+    }
+    @media (min-width:75rem){
+      .band{background:
+              linear-gradient(to bottom,var(--band) 0,rgba(0,8,25,.7) .8%,rgba(0,8,25,.35) 1.8%,rgba(0,8,25,.1) 2.8%,rgba(0,8,25,0) 3.4%,
+                              rgba(0,8,25,0) 86%,rgba(0,8,25,.2) 90%,rgba(0,8,25,.55) 94%,rgba(0,8,25,.85) 97.5%,var(--band) 100%),
+              linear-gradient(to right,var(--band) 0,rgba(0,8,25,0) 8%,rgba(0,8,25,0) 55%,var(--band) 100%),
+              var(--band) url("img/rob-guida-standing.jpg") 40% top / cover no-repeat;
+            min-height:56.25vw;display:flex;align-items:center;}
+      .band .wrap{max-width:none;margin:0 max(5vw,calc(46vw - 36rem)) 0 auto;
+                  padding:0;width:min(36rem,41vw);}
+      .band img.photo{display:none;}
+    }
+
+    .book{margin-top:clamp(2.75rem,7vw,4rem);scroll-margin-top:4.25rem;}
+    #home,#focus-engage,#works,#assessment,#about{scroll-margin-top:4.25rem;}
+
+    .contact{scroll-margin-top:1.5rem;}
+    .contact form{max-width:36rem;}
+    .contact .form-noscript{font-weight:600;color:var(--navy);border-left:3px solid var(--navy);
+                            padding-left:1.15rem;}
+    .contact .form-req{font-weight:600;}
+    .contact .field{margin:0 0 1.4rem;}
+    .contact label{display:block;font-weight:600;margin:0 0 .35rem;}
+    .contact .hint{font-size:.9375rem;color:#4A5462;margin:-.1rem 0 .5rem;}
+    .contact input,.contact textarea{display:block;width:100%;margin:0;font:inherit;color:var(--ink);
+                                     background:#FFFFFF;border:1px solid #5E6B7A;border-radius:4px;
+                                     padding:.65rem .8rem;}
+    .contact textarea{min-height:11rem;line-height:1.5;resize:vertical;}
+    .contact input:disabled,.contact textarea:disabled{background:var(--tint);cursor:not-allowed;}
+    .contact .hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .contact .form-privacy{font-size:.9375rem;}
+    .rg .btn-outline{display:inline-block;margin:0;font:inherit;font-size:1.0625rem;font-weight:600;
+                     line-height:1.25;padding:.9rem 1.65rem;border-radius:4px;border:2px solid var(--navy);
+                     background:transparent;color:var(--navy);cursor:pointer;}
+    .rg .btn-outline:hover{background:var(--tint);}
+    .rg .btn-outline:disabled,.rg .btn-outline[aria-disabled="true"]{opacity:.55;cursor:not-allowed;}
+    .rg .btn-outline[aria-disabled="true"]:hover{background:transparent;}
+    .contact .form-send{margin-bottom:.75rem;}
+    .contact .form-status{font-weight:600;color:var(--navy);margin:0;}
+    .contact .form-check{margin-top:.75rem;}
+
+    .hero .hero-more{font-size:1rem;margin:0;}
+    .hero .hero-more a{color:var(--paper);}
+    .hero .hero-more a:hover,.hero .hero-more a:focus{color:#FFFFFF;}
+    @media (max-width:39.99rem){
+      .hero .hero-more{text-align:center;}
+    }
+
+    @media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth;} }
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+             clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+    .rg .menu-btn{position:fixed;top:.75rem;left:.75rem;z-index:50;width:2.75rem;height:2.75rem;
+                  display:none;align-items:center;justify-content:center;margin:0;padding:0;
+                  background:rgba(15,42,68,.94);color:var(--paper);border:1px solid rgba(200,212,226,.5);
+                  border-radius:4px;cursor:pointer;box-shadow:0 2px 8px rgba(0,8,25,.25);}
+    .rg .menu-btn:hover{background:var(--navy-lt);}
+    .rg .menu-btn:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px;box-shadow:0 0 0 4px var(--navy-lt);}
+    .rg .menu-btn svg{display:block;width:1.375rem;height:1.375rem;}
+    .rg .menu{position:fixed;inset:0 auto 0 0;margin:0;width:min(19rem,85vw);height:100%;max-height:none;
+              overflow-y:auto;border:0;border-right:1px solid rgba(200,212,226,.25);
+              background:#000819;color:var(--paper);padding:.75rem 1.5rem 2rem;}
+    .rg .menu::backdrop{background:rgba(0,8,25,.55);}
+    .rg .menu{display:none;}
+    @supports selector(:popover-open){.rg .menu-btn{display:flex;}.rg .menu:popover-open{display:block;}}
+    .rg .menu :focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
+    .rg .menu-close{display:flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;
+                    margin:0 0 1.25rem -.75rem;padding:0;background:transparent;color:var(--paper);
+                    border:1px solid rgba(200,212,226,.5);border-radius:4px;cursor:pointer;}
+    .rg .menu-close:hover{background:var(--navy);}
+    .rg .menu-close svg{display:block;width:1.25rem;height:1.25rem;}
+    .rg .menu ul{list-style:none;margin:0;padding:0;}
+    .rg .menu li{border-top:1px solid rgba(200,212,226,.2);}
+    .rg .menu li:last-child{border-bottom:1px solid rgba(200,212,226,.2);}
+    .rg .menu a{display:flex;align-items:center;min-height:2.75rem;padding:.6rem 0;color:var(--paper);
+                font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;}
+    .rg .menu a:hover,.rg .menu a:focus{color:#FFFFFF;text-decoration:underline;text-underline-offset:4px;}
+    .rg .menu a svg{display:block;height:28px;width:auto;max-width:33px;flex:none;}
+    .rg .menu a svg + span:not(.sr-only){margin-left:.6rem;}
+    .hero{padding-top:clamp(4.75rem,9vw,5.5rem);}
+</style>
+<script src="js/menu.js" defer></script>
+</head>
+<body>
+<div class="rg">
+<button type="button" class="menu-btn" id="menu-button" popovertarget="site-menu" aria-label="Menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+<nav class="menu" id="site-menu" popover aria-label="Site menu">
+  <button type="button" class="menu-close" popovertarget="site-menu" popovertargetaction="hide" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <ul>
+    <li><a href="#home"><svg viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg><span class="sr-only">Home</span></a></li>
+    <li><a href="#focus-engage">Focus &amp; Engage</a></li>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#assessment">Assessment Offer</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="/writing/"><svg viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
+  </ul>
+</nav>
+<main>
+
+  <section class="hero" id="home" aria-labelledby="hook">
+    <div class="wrap">
+      <h1 id="hook">AI can write your code.<br />It can't run your project.</h1>
+      <ul class="facts">
+        <li>30+ years building software and leading development teams.</li>
+        <li>I help your team &#x2014; the people and the AI &#x2014; get stuck or at-risk projects delivered.</li>
+        <li>New products: I help your company spec, develop, test and launch the product.</li>
+        <li>I run my own projects with an AI engineering team, and the gates that make its work safe to ship.</li>
+      </ul>
+      <p><a class="btn btn-light" href="/book" target="_blank" rel="noopener">Let's talk &#x2014; 20 minutes</a></p>
+      <p class="hero-more"><a href="/writing/">Read my writing</a></p>
+      <div class="hero-figure">
+        <img class="photo" fetchpriority="high" src="img/rob-guida-hero.jpg" width="1672" height="941" alt="Robert Guida, smiling, in a grey jacket and light-blue open-collar shirt, against a dark blue background.">
+        <div class="nameplate">
+          <p class="eyebrow">ROBERT GUIDA</p>
+          <h2 class="hero-role">Fractional CTO &amp; Solutions Architect</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pair" id="focus-engage">
+  <section class="sec">
+    <div class="wrap">
+      <h2>Focus Areas</h2>
+      <p class="lede">For founders, COOs with a software budget, agency and dev-shop principals, and engineering leaders.</p>
+      <div class="item">
+        <h3>Stalled or late projects</h3>
+        <ul class="facts">
+          <li><strong>Diagnosis:</strong> the real cause is usually architecture, scope, or decisions no one owns.</li>
+          <li><strong>Outcome:</strong> the project delivered.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Architecture capacity for agencies and dev shops</h3>
+        <ul class="facts">
+          <li>Senior architect for work you have won but cannot staff.</li>
+          <li>Under your brand (white-label) or mine.</li>
+          <li>Flexible on contract structure.</li>
+          <li>No client solicitation.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Review process for AI-written code</h3>
+        <ul class="facts">
+          <li><strong>AI governance:</strong> setting up and leading how your team uses AI in delivery.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>Engagement Options</h2>
+      <p class="lede">Which option fits is decided after we discuss the problem.</p>
+      <div class="item">
+        <h3>Fractional CTO Retainer</h3>
+        <ul class="facts">
+          <li>Ongoing senior technical direction.</li>
+          <li>No executive added to payroll.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Architecture &amp; Solution Design</h3>
+        <ul class="facts">
+          <li>System design, data architecture, cloud, build-vs-buy.</li>
+          <li>Tradeoffs and a recommendation. You own the decision.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Delivery &amp; Project Rescue</h3>
+        <ul class="facts">
+          <li>Stalled or over-budget projects.</li>
+          <li>An honest assessment, then a realistic schedule.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <div class="row-tint" id="works">
+  <div class="pair">
+  <section class="sec">
+    <div class="wrap">
+      <h2>Selected Work</h2>
+      <p class="lede">Client names are confidential. Records from my own projects are available on request.</p>
+      <div class="entry">
+        <h3>My own projects &#x2014; AI-governed delivery, running daily</h3>
+        <ul class="facts">
+          <li>A governed AI development process, run daily on real projects.</li>
+          <li>Each morning, the day's work is checked against the written plan before it starts.</li>
+          <li>I run a quantitative retrospective every day: Time Variance (estimate versus actual) for every ticket, in work hours and elapsed time, with the root cause of any miss.</li>
+          <li>The retrospective includes a review of my own prompts: what worked, what caused rework, and a better wording.</li>
+          <li>Repeat defects are logged; the third time one shows up, it becomes a ticket to replace the written rule with a mechanical guard.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <h3>Web applications for a public-sector client in a regulated environment &#x2014; 5+ years and ongoing</h3>
+        <ul class="facts">
+          <li>The applications handle sensitive personal data.</li>
+          <li>Designed the API and data layer.</li>
+          <li>Every change I ship passes a sensitive-data scan before it leaves my machine.</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <div class="stack-box">
+          <h3>Core stack</h3>
+          <p>AWS &#xB7; SQL &#xB7; Node.js &#xB7; GraphQL &#xB7;<br />React &#xB7; Python &#xB7; PHP &#xB7; Rust</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>How an Engagement Works</h2>
+      <p>How an engagement runs:</p>
+      <ol class="facts">
+        <li>You describe the problem.</li>
+        <li>I review what exists.</li>
+        <li>You get findings and options ranked.</li>
+        <li>You own the decision.</li>
+        <li>I lead your team through the build and delivery.</li>
+      </ol>
+      <p><strong>Delivery safeguards:</strong></p>
+      <p><strong>Scope:</strong> requirements, project plan, build, testing, threat modeling, code review, deployment.</p>
+      <p><strong>Spec-driven development:</strong> written requirements, then a project plan, before any code.</p>
+      <p>My AI engineering team runs on a written rulebook. Every ticket is estimated before work starts. Nothing merges until it passes these quality gates:</p>
+      <ul class="facts facts-bullets">
+        <li>Code review</li>
+        <li>Testing</li>
+        <li>Security and compliance check</li>
+      </ul>
+      <p><strong>AI output:</strong> treated as a draft until it passes these checks.</p>
+      <p>Most rules were written after something broke, and each one carries the date and the reason behind it.</p>
+      <p><strong>Guardrails:</strong> automated checks that block a step, or force one.</p>
+      <p><strong>Multi-agent orchestration:</strong> my AI agents work in defined roles and departments, coordinated as one team.</p>
+      <p><strong>Dynamic model routing:</strong> each task is sized, then sent to a model that fits.</p>
+      <p><strong>Purpose:</strong> less rework and less lost context &#x2014; not fewer developers.</p>
+      <p><strong>Continuity:</strong> plans, decisions and lessons are written down and kept with the project, not in my head.</p>
+      <p><strong>Persistent memory:</strong> the AI reads that record first, when work starts.</p>
+    </div>
+  </section>
+  </div>
+  </div>
+
+  <div class="pair" id="assessment">
+  <section class="sec">
+    <div class="wrap">
+      <div class="offer">
+        <p class="label">Entry engagement</p>
+        <h2>Architecture &amp; Delivery Assessment</h2>
+        <p class="price">$7,500 fixed.<br />Two weeks.</p>
+        <p><strong>Purpose:</strong> find the real cause before any fix is proposed.</p>
+        <p><strong>Included:</strong></p>
+        <ul>
+          <li>&#x2022; Up to six interviews with your team</li>
+          <li>&#x2022; A review of one codebase and how work actually flows through it, including how your team is using AI-written code</li>
+          <li>&#x2022; One written findings document with a prioritized plan</li>
+          <li>&#x2022; One 60-minute readout</li>
+        </ul>
+        <p>Work beyond this scope is quoted separately.</p>
+        <p><a href="/assessment-agreement.html" target="_blank">Read the full agreement</a></p>
+        <p class="kicker">The findings document is yours to keep, whether or not the engagement continues.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>Fit, Limits, Availability</h2>
+      <ul class="facts">
+        <li><strong>Best fit:</strong> teams under ~15 engineers.</li>
+        <li><strong>Schedule:</strong> two fixed days a week.</li>
+        <li><strong>Terms:</strong> month-to-month, 30 days' notice.</li>
+        <li><strong>Working model:</strong> remote and async-first, with overlap with US business hours every working day.</li>
+        <li><strong>Response time:</strong> same business day.</li>
+        <li><strong>Regulated work:</strong> every change I ship passes a sensitive-data scan before it leaves my machine.</li>
+      </ul>
+    </div>
+  </section>
+  </div>
+
+  <section class="sec band close" id="about">
+    <div class="wrap">
+      <img class="photo" src="img/rob-guida-standing.jpg" width="1672" height="941" loading="lazy" alt="Robert Guida standing full length in a navy jacket and grey trousers, hands in pockets, against a dark blue background.">
+      <h2>About</h2>
+      <ul class="facts">
+        <li>Robert Guida.</li>
+        <li><strong>Experience:</strong> 30+ years building software and leading development teams.</li>
+        <li><strong>Community:</strong> volunteer coach to non-technical founders building software with AI. I ask the questions that make them think through requirements, how data is used and shared, and SaaS architecture.</li>
+        <li><strong>Method:</strong> agentic engineering, an AI engineering process run daily on real projects.</li>
+        <li><strong>What experience adds:</strong> the ability to plan, execute and deploy projects, leading an AI agent team set up like a small software development company.</li>
+        <li><strong>What the process adds:</strong> executing the plan and developing the code, gated by checks and balances.</li>
+        <li><strong>Next:</strong> a RAG layer over my written plans, decisions and lessons. Keyword search first, then hybrid search.</li>
+        <li><strong>Approach:</strong> proven methods over the newest framework.</li>
+        <li><strong>Human-in-the-loop:</strong> the final call is mine, on every plan and every release.</li>
+      </ul>
+      <div class="book" id="book-a-call">
+        <h2>Book a Call</h2>
+        <ul class="facts">
+          <li>Free 20-minute call.</li>
+          <li>You describe the problem. I ask questions.</li>
+          <li>Then we discuss what might solve it.</li>
+          <li>You decide whether it is a fit.</li>
+        </ul>
+        <p><a class="btn btn-light" href="/book" target="_blank" rel="noopener">Let's talk &#x2014; 20 minutes</a></p>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-top">
+        <p class="foot-mark"><a href="#home"><span class="wm-first">Robert</span> <span class="wm-last">Guida</span></a></p>
+        <p class="foot-cta"><a class="btn" href="#book-a-call">Let's talk &#x2014; 20 minutes</a></p>
+      </div>
+      <nav class="foot-nav" aria-label="Footer">
+        <ul>
+          <li><a href="#home" aria-label="Home" aria-current="page"><svg class="ico" viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></a></li>
+          <li><a href="/writing/"><svg class="ico" viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
+          <li><a href="/privacy.html" target="_blank"><svg class="ico" viewBox="2 3 20 17" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.6 10C7 6.3 7.6 3.6 9.6 3.1Q12 4.1 14.4 3.1C16.4 3.6 17 6.3 17.4 10z"/><path d="M2 11Q12 8.4 22 11Q12 12.6 2 11z"/><path d="M2.5 13.5h8v2Q10.5 20 7 20H5.6Q3 20 2.5 16.3z"/><path d="M21.5 13.5h-8v2Q13.5 20 17 20h1.4Q21 20 21.5 16.3z"/><path d="M10.4 13.5h3.2v1.1h-3.2z"/></svg><span>Privacy</span></a></li>
+          <li><a class="social" href="https://www.linkedin.com/in/rob-guida-63843582/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="img/linkedin-in-bug.png" width="33" height="28" alt=""></a></li>
+        </ul>
+      </nav>
+      <p class="copyright">&#xA9; 2026 Robert Guida. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
