@@ -162,6 +162,7 @@
     .rg table{border-collapse:collapse;width:100%;min-width:38rem;font-size:.9375rem;line-height:1.45;}
     .rg th,.rg td{border:1px solid var(--rule);padding:.5rem .65rem;text-align:left;vertical-align:top;}
     .rg th{background:#EDF1F6;color:var(--navy);}
+    .rg .update-note{font-size:.9375rem;background:#FFFFFF;border:1px solid var(--rule);border-left:3px solid var(--navy-lt);border-radius:4px;padding:.6rem .8rem;}
 </style>
 <script src="/js/menu.js" defer></script>
 </head>
@@ -213,7 +214,7 @@
 <path d="M605 122 L605 150" stroke="#1C2128" stroke-width="3" fill="none"/>
 <text x="620" y="182" text-anchor="end" font-size="26" font-weight="700" fill="#1C2128">The rest</text>
 <text x="620" y="214" text-anchor="end" font-size="22" fill="#4F5864">Everything else</text>
-</svg><figcaption>These figures cover every AI coding session on my laptop.</figcaption></figure>
+</svg><figcaption>These figures cover every session my main AI coding tool logged on my laptop.</figcaption></figure>
     <p>Re-reading is billed at a small fraction of the price of new input. Storing each new part of the chat so it can be re-read later makes up about half of the estimated cost.</p>
     <p>On October 16, I rebuilt a chat-length monitor. At 150,000 tokens, the reply opens with a red box: finish this step, then start a new session. At 250,000, the AI is set to write a handoff note first: where it stopped, what is saved, the exact next step, and any open decisions. Then the red box tells me to open a new session and paste one line pointing to the note.</p>
     <p>The warning is red on purpose. My screen is full of logs that I like to watch, and a plain warning would get lost in them.</p>
@@ -232,7 +233,7 @@
 <text x="120" y="334" text-anchor="middle" font-size="26" fill="#1C2128">Oct 1 to 11</text>
 <text x="320" y="334" text-anchor="middle" font-size="26" fill="#1C2128">Oct 12 to 15</text>
 <text x="520" y="334" text-anchor="middle" font-size="26" fill="#1C2128">Oct 16 to 20</text>
-</svg><figcaption>These figures cover every AI coding session on my laptop.</figcaption></figure>
+</svg><figcaption>These figures cover every session my main AI coding tool logged on my laptop.</figcaption></figure>
     <h2>Match the Model to the Task</h2>
     <p>On October 12, I added dynamic model routing. The coordinating agent judges how hard each task is and picks a model. Small, mechanical work, like finding files, goes to a cheaper model. Routine work goes to a middle tier. Hard work stays on the strongest model: architecture, security, compliance, and money.</p>
     <p>The checks are the exception. My rules keep code review, the test gate, and the security and compliance check on the strongest model, however small the change. Cheaper models can build. They do not decide whether the work passes. That keeps the reviews where they were; it does not prove they catch as much as before.</p>
@@ -251,6 +252,7 @@
     <p>I use it daily, but its accuracy has not been formally tested. On October 31, I plan to check it against 20 known questions, including replaced decisions, with a script scoring the answers, not an AI.</p>
     <h2>What It Took, and What It Returned</h2>
     <p>Around October 6, I turned on a setting for shorter replies, and the average reply fell from about 641 tokens to about 300. That is the least certain estimate below.</p>
+    <p class="update-note">Update, November 3, 2026: this held from Oct 7 to 22. From Oct 23 the average across all AI calls rose to about 983 tokens, and my logs do not show why. The return estimates on this page run only to Oct 22.</p>
     <p>These are my own estimates from my usage logs, at pay-per-use list prices, from each change's start to October 22.</p>
     <div class="table-wrap" tabindex="0" role="region" aria-label="Estimates by change"><table>
 <thead><tr><th scope="col">Change</th><th scope="col">Started</th><th scope="col">Estimated cost to build</th><th scope="col">Estimated return to Oct 22</th></tr></thead>

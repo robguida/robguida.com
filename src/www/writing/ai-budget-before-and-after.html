@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My AI Budget: The Before and After &#x2014; Robert Guida</title>
+<meta name="description" content="A follow-up to my October post on putting my AI on a budget.">
+<link rel="canonical" href="https://robguida.com/writing/ai-budget-before-and-after.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://robguida.com/writing/ai-budget-before-and-after.html">
+<meta property="og:title" content="My AI Budget: The Before and After">
+<meta property="og:description" content="A follow-up to my October post on putting my AI on a budget.">
+<meta property="og:image" content="https://robguida.com/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Robert Guida, smiling, in a grey jacket and light-blue open-collar shirt, against a dark blue background.">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+    :root{
+      --paper:#F7F8FA;
+      --ink:#1A1F26;
+      --navy:#0F2A44;
+      --navy-lt:#1B4A73;
+      --rule:#DCE1E8;
+      --muted:#4A5462;
+    }
+    body,.rg{
+      background:var(--paper);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+                  "Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size:18px;
+      line-height:1.6;
+      text-align:left;
+    }
+    body{margin:0;-webkit-text-size-adjust:100%;}
+    .rg,.rg *{box-sizing:border-box;}
+    .rg{overflow-wrap:break-word;}
+    .rg p{margin:0 0 1.15rem;}
+    .rg a{color:var(--navy);text-decoration:underline;text-underline-offset:2px;}
+    .rg a:hover,.rg a:focus{color:var(--navy-lt);}
+    .rg :focus-visible{outline:2px solid var(--navy-lt);outline-offset:3px;}
+    .wrap{max-width:44rem;margin:0 auto;padding:0 1.5rem;}
+    .site-head{position:relative;overflow:hidden;color:var(--paper);
+               padding:.75rem 0 clamp(2.5rem,7vw,4rem);
+               background:radial-gradient(ellipse 70% 90% at 100% 0,rgba(27,74,115,.55) 0,rgba(27,74,115,0) 70%),
+                          radial-gradient(ellipse 60% 70% at 0 100%,rgba(15,42,68,.7) 0,rgba(15,42,68,0) 70%),
+                          #000819;
+               border-bottom:1px solid rgba(200,212,226,.18);}
+    .site-head::before{content:"";position:absolute;inset:0;pointer-events:none;
+               background:linear-gradient(rgba(200,212,226,.06) 1px,transparent 1px) 0 0 / 2rem 2rem,
+                          linear-gradient(90deg,rgba(200,212,226,.06) 1px,transparent 1px) 0 0 / 2rem 2rem;
+               -webkit-mask-image:linear-gradient(200deg,#000 0,rgba(0,0,0,.5) 35%,transparent 75%);
+                       mask-image:linear-gradient(200deg,#000 0,rgba(0,0,0,.5) 35%,transparent 75%);}
+    .site-head .wrap{position:relative;}
+    .site-head :focus-visible{outline-color:#FFFFFF;}
+    .rg .masthead{display:flex;align-items:center;gap:1rem;min-height:2.75rem;
+              margin:0 0 clamp(2.25rem,7vw,3.75rem);}
+    .masthead::after{content:"";flex:1;height:1px;background:rgba(200,212,226,.25);}
+    .rg .masthead a{font-size:clamp(1.3rem,4.4vw,1.75rem);line-height:1.15;letter-spacing:.005em;
+               white-space:nowrap;color:var(--paper);text-decoration:none;
+               padding-left:.7rem;border-left:3px solid var(--navy-lt);}
+    .masthead .wm-first{font-weight:300;color:#C8D4E2;}
+    .masthead .wm-last{font-weight:700;}
+    .rg .masthead a:hover,.rg .masthead a:focus{color:#FFFFFF;border-left-color:#C8D4E2;}
+    .rg .masthead a:hover .wm-first,.rg .masthead a:focus .wm-first{color:#FFFFFF;}
+    @media (max-width:48.99rem){ .rg .masthead{padding-left:2.75rem;} }
+    .site-head .masthead{margin-bottom:0;}
+    .site-head{padding-bottom:.75rem;}
+    .rg .menu-btn{position:fixed;top:.75rem;left:.75rem;z-index:50;width:2.75rem;height:2.75rem;
+                  display:none;align-items:center;justify-content:center;margin:0;padding:0;
+                  background:rgba(15,42,68,.94);color:var(--paper);border:1px solid rgba(200,212,226,.5);
+                  border-radius:4px;cursor:pointer;box-shadow:0 2px 8px rgba(0,8,25,.25);}
+    .rg .menu-btn:hover{background:var(--navy-lt);}
+    .rg .menu-btn:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px;box-shadow:0 0 0 4px var(--navy-lt);}
+    .rg .menu-btn svg{display:block;width:1.375rem;height:1.375rem;}
+    .rg .menu{position:fixed;inset:0 auto 0 0;margin:0;width:min(19rem,85vw);height:100%;max-height:none;
+              overflow-y:auto;border:0;border-right:1px solid rgba(200,212,226,.25);
+              background:#000819;color:var(--paper);padding:.75rem 1.5rem 2rem;}
+    .rg .menu::backdrop{background:rgba(0,8,25,.55);}
+    .rg .menu{display:none;}
+    @supports selector(:popover-open){.rg .menu-btn{display:flex;}.rg .menu:popover-open{display:block;}}
+    .rg .menu :focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
+    .rg .menu-close{display:flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;
+                    margin:0 0 1.25rem -.75rem;padding:0;background:transparent;color:var(--paper);
+                    border:1px solid rgba(200,212,226,.5);border-radius:4px;cursor:pointer;}
+    .rg .menu-close:hover{background:var(--navy);}
+    .rg .menu-close svg{display:block;width:1.25rem;height:1.25rem;}
+    .rg .menu ul{list-style:none;margin:0;padding:0;}
+    .rg .menu li{border-top:1px solid rgba(200,212,226,.2);}
+    .rg .menu li:last-child{border-bottom:1px solid rgba(200,212,226,.2);}
+    .rg .menu a{display:flex;align-items:center;min-height:2.75rem;padding:.6rem 0;color:var(--paper);
+                font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;}
+    .rg .menu a:hover,.rg .menu a:focus{color:#FFFFFF;text-decoration:underline;text-underline-offset:4px;}
+    .rg .menu a[aria-current="page"]{box-shadow:inset 3px 0 0 #C8D4E2;padding-left:.85rem;}
+    .rg .menu a svg{display:block;height:28px;width:auto;max-width:33px;flex:none;}
+    .rg .menu a svg + span:not(.sr-only){margin-left:.6rem;}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+             clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+    .sec{padding:clamp(2.75rem,7vw,4rem) 0;}
+    .sec h1{font-size:clamp(1.8rem,5.2vw,2.3rem);line-height:1.2;
+            letter-spacing:-.015em;font-weight:700;margin:0 0 .9rem;text-wrap:balance;}
+    .sec h1::before{content:"";display:block;width:2.5rem;height:3px;
+                    background:var(--navy);margin-bottom:1.1rem;}
+    .post-head{border-bottom:1px solid var(--rule);padding-bottom:1.4rem;margin-bottom:2rem;}
+    .dek{font-size:1.125rem;color:var(--muted);margin:0 0 1.25rem;}
+    .byline{font-weight:600;margin:0 0 .2rem;}
+    .rg .dateline{font-size:.9375rem;color:var(--muted);margin:0 0 .2rem;}
+    .rg .dateline:last-child{margin-bottom:0;}
+    .sec h2{font-size:1.35rem;line-height:1.35;font-weight:700;color:var(--navy);
+            margin:2.25rem 0 .75rem;text-wrap:balance;}
+    .sec h3{font-size:1.125rem;line-height:1.4;font-weight:700;color:var(--navy);
+            margin:1.75rem 0 .5rem;}
+    .sec ul,.sec ol{margin:0 0 1.15rem;padding-left:1.3rem;}
+    .sec li{margin-bottom:.5rem;}
+    .sec li:last-child{margin-bottom:0;}
+    .rg blockquote{margin:0 0 1.15rem;padding-left:1.15rem;border-left:3px solid var(--rule);}
+    .rg figure{margin:0 0 1.5rem;}
+    .sec img{display:block;max-width:100%;height:auto;border-radius:4px;}
+    .rg figcaption{font-size:.9375rem;color:var(--muted);margin-top:.5rem;}
+    .rg code{font-family:Consolas,"SFMono-Regular",Menlo,monospace;font-size:.9em;}
+    .rg pre{overflow-x:auto;background:#EDF1F6;padding:1rem;border-radius:4px;margin:0 0 1.15rem;line-height:1.45;}
+    .site-footer{position:relative;color:#BCCBDA;font-size:.9375rem;
+               padding:clamp(2.5rem,7vw,3.5rem) 0 2rem;
+               background:radial-gradient(ellipse 60% 90% at 0 100%,rgba(27,74,115,.45) 0,rgba(27,74,115,0) 70%),
+                          #000819;
+               border-top:3px solid var(--navy-lt);}
+    .site-footer :focus-visible{outline-color:#FFFFFF;}
+    .foot-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem 2rem;
+              padding-bottom:1.75rem;border-bottom:1px solid rgba(200,212,226,.2);}
+    .rg .foot-mark{margin:0;}
+    .rg .foot-mark a{font-size:clamp(1.3rem,4.4vw,1.75rem);line-height:1.15;white-space:nowrap;
+               color:var(--paper);text-decoration:none;padding-left:.7rem;border-left:3px solid var(--navy-lt);}
+    .foot-mark .wm-first{font-weight:300;color:#C8D4E2;}
+    .foot-mark .wm-last{font-weight:700;}
+    .rg .foot-mark a:hover,.rg .foot-mark a:focus{color:#FFFFFF;border-left-color:#C8D4E2;}
+    .rg .foot-cta{margin:0;}
+    .rg a.btn{display:inline-block;font-size:1rem;font-weight:600;line-height:1.25;
+         padding:.85rem 1.5rem;border-radius:4px;text-decoration:none;
+         background:var(--paper);color:var(--navy);}
+    .rg a.btn:hover,.rg a.btn:focus{background:#FFFFFF;color:var(--navy);}
+    .foot-nav ul{list-style:none;margin:0;padding:1.5rem 0;display:flex;flex-wrap:wrap;align-items:center;
+                 gap:.5rem 1.75rem;}
+    .rg .foot-nav a{color:var(--paper);font-weight:600;font-size:.8125rem;letter-spacing:.14em;
+                 text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;min-height:2.75rem;}
+    .rg .foot-nav a:hover,.rg .foot-nav a:focus{color:#FFFFFF;text-decoration:underline;text-underline-offset:4px;}
+    .rg .foot-nav a[aria-current="page"]{color:#C8D4E2;}
+    .foot-nav img{display:block;width:auto;height:28px;}
+    .foot-nav .ico{display:block;height:28px;width:auto;max-width:33px;flex:none;}
+    .rg .foot-nav a .ico + span{margin-left:.5rem;}
+    .rg .copyright{margin:0;padding-top:1.25rem;border-top:1px solid rgba(200,212,226,.2);
+                 font-size:.8125rem;letter-spacing:.04em;color:#8E9DB0;}
+    @media (max-width:26rem){
+      .wrap{padding:0 1.15rem;}
+      body,.rg{font-size:17px;}
+    }
+    .rg figure.chart{margin:0 0 1.5rem;}
+    .rg figure.chart svg{display:block;width:100%;height:auto;max-width:100%;}
+    .table-wrap{overflow-x:auto;margin:0 0 1.5rem;-webkit-overflow-scrolling:touch;}
+    .rg table{border-collapse:collapse;width:100%;min-width:38rem;font-size:.9375rem;line-height:1.45;}
+    .rg th,.rg td{border:1px solid var(--rule);padding:.5rem .65rem;text-align:left;vertical-align:top;}
+    .rg th{background:#EDF1F6;color:var(--navy);}
+    .rg .update-note{font-size:.9375rem;background:#FFFFFF;border:1px solid var(--rule);border-left:3px solid var(--navy-lt);border-radius:4px;padding:.6rem .8rem;}
+    .rg .chart-title{font-weight:700;color:var(--navy);font-size:1.125rem;line-height:1.4;margin:0 0 .5rem;}
+    .rg .chart-legend{font-size:.9375rem;color:var(--muted);margin:0 0 1rem;}
+    .rg .sw{display:inline-block;width:.9em;height:.9em;margin:0 .3em 0 .1em;vertical-align:-.1em;border-radius:2px;}
+    .rg .sw-work{background:#1E4E79;}
+    .rg .sw-hand{background:#8FB3D6;box-shadow:inset 0 0 0 2px #1E4E79;}
+    .rg .sw-cap{background:rgba(30,78,121,.45);}
+    .rg .sw-band{background:repeating-linear-gradient(45deg,#1E4E79 0 3px,#EEF1F5 3px 7px);}
+    .rg .panels{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem;margin:0 0 1rem;}
+    @media (min-width:40rem){
+      .rg .panels{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+      .rg .panel-wide{grid-column:1 / -1;}
+    }
+    .rg .panel{min-width:0;}
+    .rg figure.chart svg.wide{max-width:30rem;}
+    .rg .panel-title{font-weight:700;color:var(--ink);font-size:1rem;line-height:1.4;margin:0 0 .4rem;}
+    .rg .panel-sub{font-size:.9375rem;color:var(--muted);margin:.5rem 0 0;}
+    .rg .share{margin:0 0 1rem;}
+    .rg ul.share-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:.4rem;}
+    @media (min-width:40rem){ .rg ul.share-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);} }
+    .rg .share-row li{margin:0;padding:.45rem .65rem;background:#FFFFFF;border:1px solid var(--rule);border-radius:4px;font-size:.9375rem;}
+    .rg .share-name{font-weight:600;}
+    .rg .share-date{color:var(--muted);}
+    .rg .share-val{float:right;color:var(--navy);}
+    .rg .chart-note{font-size:.9375rem;background:#FFFFFF;border:1px solid var(--rule);border-left:3px solid #1E4E79;border-radius:4px;padding:.6rem .8rem;margin:0 0 1rem;}
+    .rg .chart-note-up{position:relative;margin-top:.9rem;}
+    .rg .chart-note-up::before{content:"";position:absolute;top:-.55rem;left:1.25rem;border:.5rem solid transparent;border-top:0;border-bottom:.55rem solid #1E4E79;}
+    .rg .mini{margin:0 0 1rem;}
+    .rg table.mini-table{min-width:0;}
+</style>
+<script src="/js/menu.js" defer></script>
+</head>
+<body>
+<div class="rg">
+<button type="button" class="menu-btn" id="menu-button" popovertarget="site-menu" aria-label="Menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+<nav class="menu" id="site-menu" popover aria-label="Site menu">
+  <button type="button" class="menu-close" popovertarget="site-menu" popovertargetaction="hide" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <ul>
+    <li><a href="/"><svg viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg><span class="sr-only">Home</span></a></li>
+    <li><a href="/#focus-engage">Focus &amp; Engage</a></li>
+    <li><a href="/#works">Works</a></li>
+    <li><a href="/#assessment">Assessment Offer</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/writing/"><svg viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
+  </ul>
+</nav>
+<header class="site-head">
+  <div class="wrap">
+    <p class="masthead"><a href="/"><span class="wm-first">Robert</span> <span class="wm-last">Guida</span></a></p>
+  </div>
+</header>
+<main class="sec">
+  <article class="wrap">
+    <header class="post-head">
+      <h1>My AI Budget: The Before and After</h1>
+      <p class="dek">A follow-up to my October post on putting my AI on a budget.</p>
+      <p class="byline">Robert Guida, Fractional CTO &amp; Solutions Architect</p>
+      <p class="dateline"><time datetime="2026-11-03">November 3, 2026</time></p>
+    </header>
+
+    <p>A few months ago, I kept running out of session tokens: the amount of AI use my plan allows in a few hours of work. I upgraded my plan, and that helped. Then I started running out of weekly tokens instead.</p>
+    <p>My plan has two limits. One covers each five-hour session, and the other covers the whole week, as the plan's own help page explains. When I upgraded, I could do much more in each session, but every session still counted against my weekly limit. It felt like a contradiction. You would think you could max out your sessions and still stay under your weekly limit, but that is not how it works.</p>
+    <p>So in October I made a run of changes, and I wrote about them in <a href="/writing/ai-budget-without-touching-the-checks.html">Putting My AI on a Budget Without Touching the Checks</a>. Three of them matter most here.</p>
+<ol>
+<li><strong>Dynamic Modeling.</strong> Before a task is handed out, the AI judges how hard it is and picks a model to match. Small, mechanical work goes to a cheaper model, and hard work stays on the strongest one. The checks always stay on the strongest model. It started Oct 12.</li>
+<li><strong>Chat limits.</strong> Each reply re-sends the whole chat so far, so a long chat costs more on every message. A monitor now warns me when a chat gets too long, and the AI writes a hand-off note so a fresh chat can pick up where the old one stopped. It started Oct 16.</li>
+<li><strong>RAG.</strong> It stands for retrieval-augmented generation: the AI searches my written plans and decisions first, then answers from what it found. I added it mainly so the AI would stop acting on a ruling that was later overturned, which a plain hunt through my records could turn up. By my October post, it had not yet paid back what it cost to build. It also started Oct 16.</li>
+</ol>
+    <p>Here is the before and after. I did this while working on real projects, so it is not a controlled test with perfect answers. It is real-world use, with some numbers to show what changed.</p>
+<h2>How to Read the Numbers</h2>
+<ul>
+<li>These figures cover every session my main AI coding tool logged on my laptop. Work done with other tools is not in these counts.</li>
+<li>Every dollar figure is what the same use would cost at pay-per-use list prices. I pay a flat subscription, so none of it is money I spent or saved.</li>
+<li>A prompt is not a unit of work. This counts how often I typed, not how much got done.</li>
+<li><strong>Hand-typed Prompts</strong> are every prompt I typed. <strong>Work Prompts</strong> leave out the lines that only start my day or carry work into a fresh chat after a hand-off, because the chat limits create more of those. Their cost still counts. The logs can only guess a hand-off from its timing, so Work Prompts are sometimes a range.</li>
+<li><strong>After</strong> is Oct 16 to Nov 1, once all three changes were on.</li>
+<li><strong>Before</strong> comes in three versions, because the changes did not all start on the same day:
+<ul>
+<li><strong>Before Dynamic Modeling:</strong> Oct 1 to 11.</li>
+<li><strong>Before Chat Limits + RAG:</strong> Oct 1 to 15. It includes the first four days of Dynamic Modeling.</li>
+<li><strong>First week only:</strong> Oct 1 to 6. It matches no change. I show it because the early days were uneven, and the starting point moves the answer.</li>
+</ul></li>
+<li>None of these is a clean before. A setting that keeps the AI's replies short was already on from around Oct 6. The oldest logs have also partly aged out, so early-October totals read low, and an early price per prompt could be off in either direction.</li>
+</ul>
+<h2>Each Prompt Got Cheaper, and I Typed More</h2>
+<figure class="chart">
+<p class="chart-title">What one prompt cost, how many I typed, and what a working day cost</p>
+<p class="chart-legend"><strong>Legend:</strong> <span class="sw sw-work" aria-hidden="true"></span>dark bars = Work Prompts; <span class="sw sw-hand" aria-hidden="true"></span>light bars = Hand-typed Prompts; <span class="sw sw-cap" aria-hidden="true"></span>a lighter cap on a bar = a range; every dollar is at list price; the Before names are explained above the chart.</p>
+<div class="panels">
+<div class="panel panel-wide">
+<p class="panel-title">Price per prompt, at list price</p>
+<svg xmlns="http://www.w3.org/2000/svg" class="wide" viewBox="0 0 460 632" role="img" aria-label="Three bar charts, at list price. Price per prompt: Work Prompts $9.60 (First week only), $10.91 (Before Dynamic Modeling), $11.02 (Before Chat Limits + RAG), $8.04 to $8.29 (After); Hand-typed Prompts $9.07, $10.04, $10.27, $6.39." font-family="Atkinson Hyperlegible,Verdana,Segoe UI,system-ui,sans-serif"><title>Three bar charts, at list price. Price per prompt: Work Prompts $9.60 (First week only), $10.91 (Before Dynamic Modeling), $11.02 (Before Chat Limits + RAG), $8.04 to $8.29 (After); Hand-typed Prompts $9.07, $10.04, $10.27, $6.39.</title>
+<rect width="460" height="632" fill="#FFFFFF"/>
+<text x="20" y="620" text-anchor="start" font-size="18" fill="#4F5864">$0</text>
+<line x1="128" y1="8" x2="128" y2="594" stroke="#DCE1E8" stroke-width="2"/>
+<text x="128" y="620" text-anchor="middle" font-size="18" fill="#4F5864">$4</text>
+<line x1="236" y1="8" x2="236" y2="594" stroke="#DCE1E8" stroke-width="2"/>
+<text x="236" y="620" text-anchor="middle" font-size="18" fill="#4F5864">$8</text>
+<line x1="344" y1="8" x2="344" y2="594" stroke="#DCE1E8" stroke-width="2"/>
+<text x="344" y="620" text-anchor="middle" font-size="18" fill="#4F5864">$12</text>
+<line x1="20" y1="8" x2="20" y2="594" stroke="#1C2128" stroke-width="2"/>
+<text x="28" y="29" font-size="21" font-weight="700" fill="#1C2128">First week only</text>
+<text x="28" y="54" font-size="19" fill="#4F5864">Oct 1-6</text>
+<rect x="20" y="68" width="259" height="28" fill="#1E4E79"/>
+<text x="290" y="89" font-size="21" font-weight="700" fill="#1C2128">$9.60</text>
+<rect x="21" y="105" width="243" height="26" fill="#8FB3D6" stroke="#1E4E79" stroke-width="2"/>
+<text x="276" y="125" font-size="21" font-weight="700" fill="#1C2128">$9.07</text>
+<text x="28" y="179" font-size="21" font-weight="700" fill="#1C2128">Before Dynamic Modeling</text>
+<text x="28" y="204" font-size="19" fill="#4F5864">Oct 1-11</text>
+<rect x="20" y="218" width="295" height="28" fill="#1E4E79"/>
+<text x="326" y="239" font-size="21" font-weight="700" fill="#1C2128">$10.91</text>
+<rect x="21" y="255" width="269" height="26" fill="#8FB3D6" stroke="#1E4E79" stroke-width="2"/>
+<text x="302" y="275" font-size="21" font-weight="700" fill="#1C2128">$10.04</text>
+<text x="28" y="329" font-size="21" font-weight="700" fill="#1C2128">Before Chat Limits + RAG</text>
+<text x="28" y="354" font-size="19" fill="#4F5864">Oct 1-15</text>
+<rect x="20" y="368" width="298" height="28" fill="#1E4E79"/>
+<text x="329" y="389" font-size="21" font-weight="700" fill="#1C2128">$11.02</text>
+<rect x="21" y="405" width="275" height="26" fill="#8FB3D6" stroke="#1E4E79" stroke-width="2"/>
+<text x="308" y="425" font-size="21" font-weight="700" fill="#1C2128">$10.27</text>
+<text x="28" y="479" font-size="21" font-weight="700" fill="#1C2128">After</text>
+<text x="28" y="504" font-size="19" fill="#4F5864">Oct 16-Nov 1</text>
+<rect x="20" y="518" width="217" height="28" fill="#1E4E79"/>
+<rect x="237" y="518" width="7" height="28" fill="#1E4E79" fill-opacity=".45"/>
+<text x="255" y="539" font-size="21" font-weight="700" fill="#1C2128">$8.04 to $8.29</text>
+<rect x="21" y="555" width="171" height="26" fill="#8FB3D6" stroke="#1E4E79" stroke-width="2"/>
+<text x="204" y="575" font-size="21" font-weight="700" fill="#1C2128">$6.39</text>
+</svg>
+<p class="panel-sub">After against the three Befores: Work Prompts about 14% to about 27% less; Hand-typed Prompts about 30% to about 38% less.</p>
+</div>
+<div class="panel">
+<p class="panel-title">Prompts per day worked</p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 304" role="img" aria-label="Prompts per day worked, Before Dynamic Modeling to After: Work Prompts about 27 to about 36 to 37; Hand-typed Prompts about 30 to about 47." font-family="Atkinson Hyperlegible,Verdana,Segoe UI,system-ui,sans-serif"><title>Prompts per day worked, Before Dynamic Modeling to After: Work Prompts about 27 to about 36 to 37; Hand-typed Prompts about 30 to about 47.</title>
+<rect width="400" height="304" fill="#FFFFFF"/>
+<line x1="20" y1="8" x2="20" y2="294" stroke="#1C2128" stroke-width="2"/>
+<text x="28" y="29" font-size="21" font-weight="700" fill="#1C2128">Before Dynamic Modeling</text>
+<text x="28" y="54" font-size="19" fill="#4F5864">Oct 1-11</text>
+<rect x="20" y="68" width="107" height="28" fill="#1E4E79"/>
+<text x="138" y="89" font-size="21" font-weight="700" fill="#1C2128">about 27</text>
+<rect x="21" y="105" width="114" height="26" fill="#8FB3D6" stroke="#1E4E79" stroke-width="2"/>
+<text x="147" y="125" font-size="21" font-weight="700" fill="#1C2128">about 30</text>
+<text x="28" y="179" font-size="21" font-weight="700" fill="#1C2128">After</text>
+<text x="28" y="204" font-size="19" fill="#4F5864">Oct 16-Nov 1</text>
+<rect x="20" y="218" width="140" height="28" fill="#1E4E79"/>
+<rect x="160" y="218" width="5" height="28" fill="#1E4E79" fill-opacity=".45"/>
+<text x="176" y="239" font-size="21" font-weight="700" fill="#1C2128">about 36 to 37</text>
+<rect x="21" y="255" width="180" height="26" fill="#8FB3D6" stroke="#1E4E79" stroke-width="2"/>
+<text x="213" y="275" font-size="21" font-weight="700" fill="#1C2128">about 47</text>
+</svg>
+<p class="panel-sub">Up about 6% to about 35% (Work Prompts) and about 30% to about 57% (Hand-typed Prompts), depending on the Before.</p>
+</div>
+<div class="panel">
+<p class="panel-title">List-price cost per day worked</p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" role="img" aria-label="Cost per day worked: about $325, $299, $341, then $298." font-family="Atkinson Hyperlegible,Verdana,Segoe UI,system-ui,sans-serif"><title>Cost per day worked: about $325, $299, $341, then $298.</title>
+<rect width="400" height="460" fill="#FFFFFF"/>
+<line x1="20" y1="8" x2="20" y2="450" stroke="#1C2128" stroke-width="2"/>
+<text x="28" y="29" font-size="21" font-weight="700" fill="#1C2128">First week only</text>
+<text x="28" y="54" font-size="19" fill="#4F5864">Oct 1-6</text>
+<rect x="20" y="68" width="201" height="28" fill="#1E4E79"/>
+<text x="232" y="89" font-size="21" font-weight="700" fill="#1C2128">about $325</text>
+<text x="28" y="143" font-size="21" font-weight="700" fill="#1C2128">Before Dynamic Modeling</text>
+<text x="28" y="168" font-size="19" fill="#4F5864">Oct 1-11</text>
+<rect x="20" y="182" width="185" height="28" fill="#1E4E79"/>
+<text x="216" y="203" font-size="21" font-weight="700" fill="#1C2128">about $299</text>
+<text x="28" y="257" font-size="21" font-weight="700" fill="#1C2128">Before Chat Limits + RAG</text>
+<text x="28" y="282" font-size="19" fill="#4F5864">Oct 1-15</text>
+<rect x="20" y="296" width="211" height="28" fill="#1E4E79"/>
+<text x="242" y="317" font-size="21" font-weight="700" fill="#1C2128">about $341</text>
+<text x="28" y="371" font-size="21" font-weight="700" fill="#1C2128">After</text>
+<text x="28" y="396" font-size="19" fill="#4F5864">Oct 16-Nov 1</text>
+<rect x="20" y="410" width="185" height="28" fill="#1E4E79"/>
+<text x="216" y="431" font-size="21" font-weight="700" fill="#1C2128">about $298</text>
+</svg>
+<p class="panel-sub">About flat against Before Dynamic Modeling, and lower against the other two. I also worked more days, so my use across the calendar went up.</p>
+</div>
+</div>
+<figcaption>These figures cover every session my main AI coding tool logged on my laptop.</figcaption>
+</figure>
+    <p><strong>What this means.</strong> Each prompt got cheaper. A Work Prompt cost $10.91 at list price before Dynamic Modeling, and $8.04 to $8.29 after all three changes were on. Counting every Hand-typed Prompt, it went from $10.04 to $6.39. Depending on which Before I use, a Work Prompt cost about 14% to about 27% less, and a Hand-typed Prompt about 30% to about 38% less.</p>
+    <p>I also typed more. By my logs, Work Prompts per day worked rose about 6% to about 35%, depending on the Before, and Hand-typed Prompts rose about 30% to about 57%. So a working day cost about the same: about $300 at list price against Before Dynamic Modeling, and a little less against the other two. I also worked more days, so my use across the calendar went up.</p>
+<h2>Less Old Chat in Every Prompt</h2>
+<figure class="chart">
+<p class="chart-title">Tokens per Work Prompt: old chat re-read, and new text</p>
+<p class="chart-legend"><strong>Legend:</strong> a token is a small chunk of text the AI reads or writes; "re-read" = the chat so far, sent again on every reply and read back from a stored copy; "fresh" = new text; <span class="sw sw-cap" aria-hidden="true"></span>a lighter cap = a range.</p>
+<div class="panels panels-2">
+<div class="panel">
+<p class="panel-title">All tokens per Work Prompt, in millions</p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" role="img" aria-label="Two bar charts of tokens per Work Prompt. All tokens, millions: 19.1 (First week only), 22.6 (Before Dynamic Modeling), 22.6 (Before Chat Limits + RAG), 13.8 to 14.2 (After)." font-family="Atkinson Hyperlegible,Verdana,Segoe UI,system-ui,sans-serif"><title>Two bar charts of tokens per Work Prompt. All tokens, millions: 19.1 (First week only), 22.6 (Before Dynamic Modeling), 22.6 (Before Chat Limits + RAG), 13.8 to 14.2 (After).</title>
+<rect width="400" height="460" fill="#FFFFFF"/>
+<line x1="20" y1="8" x2="20" y2="450" stroke="#1C2128" stroke-width="2"/>
+<text x="28" y="29" font-size="21" font-weight="700" fill="#1C2128">First week only</text>
+<text x="28" y="54" font-size="19" fill="#4F5864">Oct 1-6</text>
+<rect x="20" y="68" width="178" height="28" fill="#1E4E79"/>
+<text x="209" y="89" font-size="21" font-weight="700" fill="#1C2128">19.1</text>
+<text x="28" y="143" font-size="21" font-weight="700" fill="#1C2128">Before Dynamic Modeling</text>
+<text x="28" y="168" font-size="19" fill="#4F5864">Oct 1-11</text>
+<rect x="20" y="182" width="210" height="28" fill="#1E4E79"/>
+<text x="241" y="203" font-size="21" font-weight="700" fill="#1C2128">22.6</text>
+<text x="28" y="257" font-size="21" font-weight="700" fill="#1C2128">Before Chat Limits + RAG</text>
+<text x="28" y="282" font-size="19" fill="#4F5864">Oct 1-15</text>
+<rect x="20" y="296" width="210" height="28" fill="#1E4E79"/>
+<text x="241" y="317" font-size="21" font-weight="700" fill="#1C2128">22.6</text>
+<text x="28" y="371" font-size="21" font-weight="700" fill="#1C2128">After</text>
+<text x="28" y="396" font-size="19" fill="#4F5864">Oct 16-Nov 1</text>
+<rect x="20" y="410" width="128" height="28" fill="#1E4E79"/>
+<rect x="148" y="410" width="4" height="28" fill="#1E4E79" fill-opacity=".45"/>
+<text x="163" y="431" font-size="21" font-weight="700" fill="#1C2128">13.8 to 14.2</text>
+</svg>
+<p class="panel-sub">About 26% to about 39% fewer, depending on the Before.</p>
+</div>
+<div class="panel">
+<p class="panel-title">Fresh tokens per Work Prompt, in thousands</p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" role="img" aria-label="Fresh tokens, thousands: 992, 1,118, 1,182, 947 to 977. Share that is re-read chat: 94.80%, 95.06%, 94.77%, 93.14%." font-family="Atkinson Hyperlegible,Verdana,Segoe UI,system-ui,sans-serif"><title>Fresh tokens, thousands: 992, 1,118, 1,182, 947 to 977. Share that is re-read chat: 94.80%, 95.06%, 94.77%, 93.14%.</title>
+<rect width="400" height="460" fill="#FFFFFF"/>
+<line x1="20" y1="8" x2="20" y2="450" stroke="#1C2128" stroke-width="2"/>
+<text x="28" y="29" font-size="21" font-weight="700" fill="#1C2128">First week only</text>
+<text x="28" y="54" font-size="19" fill="#4F5864">Oct 1-6</text>
+<rect x="20" y="68" width="196" height="28" fill="#1E4E79"/>
+<text x="227" y="89" font-size="21" font-weight="700" fill="#1C2128">992</text>
+<text x="28" y="143" font-size="21" font-weight="700" fill="#1C2128">Before Dynamic Modeling</text>
+<text x="28" y="168" font-size="19" fill="#4F5864">Oct 1-11</text>
+<rect x="20" y="182" width="221" height="28" fill="#1E4E79"/>
+<text x="252" y="203" font-size="21" font-weight="700" fill="#1C2128">1,118</text>
+<text x="28" y="257" font-size="21" font-weight="700" fill="#1C2128">Before Chat Limits + RAG</text>
+<text x="28" y="282" font-size="19" fill="#4F5864">Oct 1-15</text>
+<rect x="20" y="296" width="234" height="28" fill="#1E4E79"/>
+<text x="265" y="317" font-size="21" font-weight="700" fill="#1C2128">1,182</text>
+<text x="28" y="371" font-size="21" font-weight="700" fill="#1C2128">After</text>
+<text x="28" y="396" font-size="19" fill="#4F5864">Oct 16-Nov 1</text>
+<rect x="20" y="410" width="188" height="28" fill="#1E4E79"/>
+<rect x="208" y="410" width="5" height="28" fill="#1E4E79" fill-opacity=".45"/>
+<text x="224" y="431" font-size="21" font-weight="700" fill="#1C2128">947 to 977</text>
+</svg>
+<p class="panel-sub">About 2% to about 20% fewer, depending on the Before.</p>
+</div>
+</div>
+<div class="share">
+<p class="panel-title">Share of all tokens that are re-reads of earlier chat</p>
+<ul class="share-row">
+<li><span class="share-name">First week only</span> <span class="share-date">Oct 1-6</span> <strong class="share-val">94.80%</strong></li>
+<li><span class="share-name">Before Dynamic Modeling</span> <span class="share-date">Oct 1-11</span> <strong class="share-val">95.06%</strong></li>
+<li><span class="share-name">Before Chat Limits + RAG</span> <span class="share-date">Oct 1-15</span> <strong class="share-val">94.77%</strong></li>
+<li><span class="share-name">After</span> <span class="share-date">Oct 16-Nov 1</span> <strong class="share-val">93.14%</strong></li>
+</ul>
+</div>
+<p class="chart-note">On the strongest model I use, re-reads are billed at one-twentieth of the price of new input, by the maker's published price list.</p>
+<div class="mini">
+<p class="panel-title">The same for Hand-typed Prompts</p>
+<table class="mini-table">
+<thead><tr><th scope="col">Period</th><th scope="col">All tokens, M</th><th scope="col">Fresh tokens, K</th></tr></thead>
+<tbody>
+<tr><td>First week only</td><td>18.0</td><td>937</td></tr>
+<tr><td>Before Dynamic Modeling</td><td>20.8</td><td>1,029</td></tr>
+<tr><td>Before Chat Limits + RAG</td><td>21.1</td><td>1,102</td></tr>
+<tr><td>After</td><td>11.0</td><td>753</td></tr>
+</tbody>
+</table>
+</div>
+<figcaption>These figures cover every session my main AI coding tool logged on my laptop.</figcaption>
+</figure>
+    <p><strong>What this means.</strong> A token is a small chunk of text. Each reply re-sends the whole chat so far, plus the rules and instructions the AI started with. Most of that is read back from a stored copy, and my logs count it as a re-read. Before the changes, about 95% of all tokens were re-reads. After, about 93% were. Re-reads are billed at a small fraction of the price of new input. On the strongest model I use, it is one-twentieth, by the maker's published price list. That is why the dollar chart above matters more than the token count.</p>
+    <p>Each figure in this chart is all the tokens my logs recorded in that period, agents' work included, divided by the Work Prompts I typed. So it is an average per prompt, not the size of one request. All tokens per Work Prompt fell from 22.6 million to 13.8 to 14.2 million, about 26% to about 39% fewer, depending on the Before. Fresh tokens, the new text the AI takes in, fell much less: about 2% to about 20%. So most of the drop is less old chat being re-read in every prompt. That is the part the chat limits target, though other changes landed at the same time. By that measure, my prompts got leaner: each one carries less old chat.</p>
+    <p>Dynamic Modeling shows up in the model mix. Cheaper models went from about 1% of AI calls to about 14%, but they carry only about 6% of the cost. The strongest model still does most of the expensive work, and the checks stay on it.</p>
+<h2>The Week It Went Back Up</h2>
+<figure class="chart">
+<p class="chart-title">Price per prompt, week by week, at list price</p>
+<p class="chart-legend"><strong>Legend:</strong> <span class="sw sw-work" aria-hidden="true"></span>dark bars = Work Prompts; <span class="sw sw-hand" aria-hidden="true"></span>light marks = Hand-typed Prompts; <span class="sw sw-cap" aria-hidden="true"></span>a lighter cap = a range; <span class="sw sw-band" aria-hidden="true"></span>the change week is shaded and is not counted as before or after.</p>
+<svg xmlns="http://www.w3.org/2000/svg" class="wide" viewBox="0 0 460 663" role="img" aria-label="Bar chart of price per prompt by week, at list price. Work Prompts: Oct 1-4 (part week) $6.22; Oct 5-11 $15.14; Oct 12-18 (change week) $11.03 to $11.23; Oct 19-25 $5.33 to $5.59; Oct 26-Nov 1 $10.35 to $10.43. Hand-typed Prompts: $5.88, $13.60, $9.04, $4.20, $8.54." font-family="Atkinson Hyperlegible,Verdana,Segoe UI,system-ui,sans-serif"><title>Bar chart of price per prompt by week, at list price. Work Prompts: Oct 1-4 (part week) $6.22; Oct 5-11 $15.14; Oct 12-18 (change week) $11.03 to $11.23; Oct 19-25 $5.33 to $5.59; Oct 26-Nov 1 $10.35 to $10.43. Hand-typed Prompts: $5.88, $13.60, $9.04, $4.20, $8.54.</title>
+<defs><pattern id="c3-hatch-w" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="3" height="9" fill="#FFFFFF" fill-opacity=".5"/></pattern><pattern id="c3-hatch-h" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="3" height="9" fill="#1E4E79" fill-opacity=".35"/></pattern></defs>
+<rect width="460" height="663" fill="#FFFFFF"/>
+<rect x="0" y="230" width="460" height="163" fill="#EEF1F5"/>
+<text x="20" y="651" text-anchor="start" font-size="18" fill="#4F5864">$0</text>
+<line x1="80" y1="8" x2="80" y2="625" stroke="#DCE1E8" stroke-width="2"/>
+<text x="80" y="651" text-anchor="middle" font-size="18" fill="#4F5864">$4</text>
+<line x1="140" y1="8" x2="140" y2="625" stroke="#DCE1E8" stroke-width="2"/>
+<text x="140" y="651" text-anchor="middle" font-size="18" fill="#4F5864">$8</text>
+<line x1="200" y1="8" x2="200" y2="625" stroke="#DCE1E8" stroke-width="2"/>
+<text x="200" y="651" text-anchor="middle" font-size="18" fill="#4F5864">$12</text>
+<line x1="260" y1="8" x2="260" y2="625" stroke="#DCE1E8" stroke-width="2"/>
+<text x="260" y="651" text-anchor="middle" font-size="18" fill="#4F5864">$16</text>
+<line x1="20" y1="8" x2="20" y2="625" stroke="#1C2128" stroke-width="2"/>
+<text x="28" y="29" font-size="21" font-weight="700" fill="#1C2128">Oct 1-4 (part week)</text>
+<rect x="20" y="43" width="93" height="28" fill="#1E4E79"/>
+<text x="124" y="64" font-size="21" font-weight="700" fill="#1C2128">$6.22</text>
+<rect x="21" y="80" width="86" height="16" fill="#8FB3D6" stroke="#1E4E79" stroke-width="2"/>
+<text x="119" y="95" font-size="21" font-weight="700" fill="#1C2128">$5.88</text>
+<text x="28" y="144" font-size="21" font-weight="700" fill="#1C2128">Oct 5-11</text>
+<rect x="20" y="158" width="227" height="28" fill="#1E4E79"/>
+<text x="258" y="179" font-size="21" font-weight="700" fill="#1C2128">$15.14</text>
+<rect x="21" y="195" width="202" height="16" fill="#8FB3D6" stroke="#1E4E79" stroke-width="2"/>
+<text x="235" y="210" font-size="21" font-weight="700" fill="#1C2128">$13.60</text>
+<text x="28" y="259" font-size="21" font-weight="700" fill="#1C2128">Oct 12-18 (change week)</text>
+<rect x="20" y="273" width="165" height="28" fill="#1E4E79"/>
+<rect x="185" y="273" width="3" height="28" fill="#1E4E79" fill-opacity=".45"/>
+<rect x="20" y="273" width="168" height="28" fill="url(#c3-hatch-w)"/>
+<text x="199" y="294" font-size="21" font-weight="700" fill="#1C2128">$11.03 to $11.23</text>
+<rect x="21" y="310" width="134" height="16" fill="#8FB3D6" stroke="#1E4E79" stroke-width="2"/>
+<rect x="20" y="309" width="136" height="18" fill="url(#c3-hatch-h)"/>
+<text x="167" y="325" font-size="21" font-weight="700" fill="#1C2128">$9.04</text>
+<line x1="28" y1="351" x2="60" y2="351" stroke="#1C2128" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="70" y="357" font-size="19" fill="#1C2128">Dynamic Modeling starts, Oct 12</text>
+<line x1="28" y1="379" x2="60" y2="379" stroke="#1C2128" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="70" y="385" font-size="19" fill="#1C2128">Chat Limits + RAG start, Oct 16</text>
+<text x="28" y="430" font-size="21" font-weight="700" fill="#1C2128">Oct 19-25</text>
+<rect x="20" y="444" width="80" height="28" fill="#1E4E79"/>
+<rect x="100" y="444" width="4" height="28" fill="#1E4E79" fill-opacity=".45"/>
+<text x="115" y="465" font-size="21" font-weight="700" fill="#1C2128">$5.33 to $5.59</text>
+<rect x="21" y="481" width="61" height="16" fill="#8FB3D6" stroke="#1E4E79" stroke-width="2"/>
+<text x="94" y="496" font-size="21" font-weight="700" fill="#1C2128">$4.20</text>
+<text x="28" y="545" font-size="21" font-weight="700" fill="#1C2128">Oct 26-Nov 1</text>
+<rect x="20" y="559" width="155" height="28" fill="#1E4E79"/>
+<rect x="175" y="559" width="1" height="28" fill="#1E4E79" fill-opacity=".45"/>
+<text x="187" y="580" font-size="21" font-weight="700" fill="#1C2128">$10.35 to $10.43</text>
+<rect x="21" y="596" width="126" height="16" fill="#8FB3D6" stroke="#1E4E79" stroke-width="2"/>
+<text x="159" y="611" font-size="21" font-weight="700" fill="#1C2128">$8.54</text>
+</svg>
+<p class="chart-note chart-note-up">Note on the last bar: prompts that ran over an hour went from about 6% of prompts to about 12%, and from about 36% of the cost to about 65%, against the week before. The median prompt still took under 10 minutes.</p>
+<figcaption>These figures cover every session my main AI coding tool logged on my laptop. Older logs have partly aged out, so early-October prices per prompt could be off in either direction.</figcaption>
+</figure>
+    <p><strong>What this means.</strong> The drop was not smooth. The cheapest week was Oct 19 to 25, at $5.33 to $5.59 per Work Prompt. Then Oct 26 to Nov 1 went back up to $10.35 to $10.43, close to where I started.</p>
+    <p>I wanted to know why the price went back up, so I had the logs dug into. The short answer is: partly long agent jobs. My median prompt, the middle one if you line them all up by time, still took under ten minutes from when I typed it to its last step, in both weeks. But prompts that ran over an hour went from about 6% of my prompts to about 12%, and from about 36% of the cost to about 65%. Almost every one of them was a prompt where the AI sent the work out to my Agent Team.</p>
+    <p>I had quite a few long jobs that took days. The logs see prompts, not jobs, and a job that runs for days shows up as many shorter prompts. So they can't tell whether those multi-day jobs drove the rise, and "partly" is as far as they go.</p>
+<h2>Did It Help My Weekly Limit?</h2>
+    <p>This part is from memory, not from a record. Before the changes, I hit my weekly limit at least once in October. As of November 3, 2026, I have not hit it since. I still come close, since a lot of my work runs overnight, done by my Agent Team. It seems to take longer to get there, though, and the meter seems to climb no faster per day, maybe a little slower, on more use. I also worked more days. My usage logs can't see that meter, so they can't prove or disprove this, and a change on the vendor's side would look the same.</p>
+    <p>What the logs can show is my list-price use. A week of it is the price per prompt times the number of prompts, and I sent more prompts. So the lower price per prompt did not shrink my week on its own. It paid for the extra prompts. At list price, my use per calendar day went up about 3% to about 29%, depending on the Before.</p>
+<h2>One More Number</h2>
+    <p>At list price, my October use would have cost $8,773.34, about 44 times my $200-a-month plan. That is only what my logs still held. The oldest October logs have partly aged out, so both numbers are the least the month could have been. On pay-per-use pricing, a bill like that adds up fast. I would guess most people doing this much work are on a subscription.</p>
+<h2>What This Means for Your Team</h2>
+    <p style="font-weight: 700;">To me, the changes were worth it.</p>
+    <p>Adding Dynamic Modeling, RAG and Chat limits has been worth the effort and tokens used to put this in place. Several changes landed together, and the mix of work may have changed too, so no one change gets the credit, and I can't put a number on RAG by itself. These numbers come from my own setup. They are not a forecast for your team.</p>
+    <p>If you track your team's AI use, look at cost per day beside cost per prompt. A lower price per prompt can hide rising use.</p>
+    <p>I am looking to package my technology for wider use. If you are interested, reach out to me and let me know.</p>
+<h2>If You Want to Talk</h2>
+    <p>If you have a project that is stuck, or work you have won and can't staff, I would like to hear about it.</p>
+    <p>I start with a two-week assessment of one codebase and how work moves through it, including how your team is using AI-written code. You get a written findings document with a prioritized plan.</p>
+    <p>Send me a message on LinkedIn, or <a href="/book" target="_blank" rel="noopener">book a 20-minute call</a>.</p>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-mark"><a href="/"><span class="wm-first">Robert</span> <span class="wm-last">Guida</span></a></p>
+      <p class="foot-cta"><a class="btn" href="/book" target="_blank" rel="noopener">Let's talk &#x2014; 20 minutes</a></p>
+    </div>
+    <nav class="foot-nav" aria-label="Footer">
+      <ul>
+        <li><a href="/" aria-label="Home"><svg class="ico" viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></a></li>
+        <li><a href="/writing/"><svg class="ico" viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
+        <li><a href="/privacy.html"><svg class="ico" viewBox="2 3 20 17" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.6 10C7 6.3 7.6 3.6 9.6 3.1Q12 4.1 14.4 3.1C16.4 3.6 17 6.3 17.4 10z"/><path d="M2 11Q12 8.4 22 11Q12 12.6 2 11z"/><path d="M2.5 13.5h8v2Q10.5 20 7 20H5.6Q3 20 2.5 16.3z"/><path d="M21.5 13.5h-8v2Q13.5 20 17 20h1.4Q21 20 21.5 16.3z"/><path d="M10.4 13.5h3.2v1.1h-3.2z"/></svg><span>Privacy</span></a></li>
+        <li><a class="social" href="https://www.linkedin.com/in/rob-guida-63843582/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/img/linkedin-in-bug.png" width="33" height="28" alt=""></a></li>
+      </ul>
+    </nav>
+    <p class="copyright">&#xA9; 2026 Robert Guida. All rights reserved.</p>
+  </div>
+</footer>
+</div>
+</body>
+</html>
