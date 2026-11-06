@@ -104,7 +104,8 @@
                padding:1.15rem 1.25rem;}
     .stack-box h3{font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;
                   margin:0 0 .45rem;}
-    .stack-box p{margin:0;font-weight:500;}
+    .stack-box p{margin:0;font-weight:500;text-wrap:balance;}
+    .stack-box .nw{white-space:nowrap;}
 
     .offer{background:var(--tint);border:2px solid var(--navy);border-radius:4px;
            padding:clamp(1.4rem,4.5vw,2.25rem);}
@@ -153,6 +154,7 @@
     @media (max-width:26rem){
       .wrap{padding:0 1.15rem;}
       body,.rg{font-size:17px;}
+      .stack-box p{font-size:.9em;}
     }
 
     .rg ul.facts{list-style:none;margin:0 0 1.15rem;padding:0;}
@@ -447,7 +449,11 @@
       <div class="stack">
         <div class="stack-box">
           <h3>Core stack</h3>
-          <p>AWS &#xB7; SQL &#xB7; Node.js &#xB7; GraphQL &#xB7;<br />React &#xB7; Python &#xB7; PHP &#xB7; Rust</p>
+          <p><strong>Languages and frameworks:</strong> <span class="nw">TypeScript &#xB7;</span> <span class="nw">Node.js &#xB7;</span> <span class="nw">React &#xB7;</span> <span class="nw">Python &#xB7;</span> <span class="nw">PHP &#xB7;</span> <span class="nw">Rust</span></p>
+          <p><strong>Data:</strong> <span class="nw">Aurora/MySQL &#xB7;</span> <span class="nw">MySQL &#xB7;</span> <span class="nw">RDS/MariaDB &#xB7;</span> <span class="nw">MSSQL &#xB7;</span> <span class="nw">Database replication</span></p>
+          <p><strong>Cloud (AWS):</strong> <span class="nw">Lambda &#xB7;</span> <span class="nw">EventBridge &#xB7;</span> <span class="nw">Auto Scaling &#xB7;</span> <span class="nw">Route 53 &#xB7;</span> <span class="nw">IAM &#xB7;</span> <span class="nw">SES &#xB7;</span> <span class="nw">Lightsail</span></p>
+          <p><strong>APIs and Auths:</strong> <span class="nw">REST APIs &#xB7;</span> <span class="nw">GraphQL &#xB7;</span> <span class="nw">OAuth 2.0 &#xB7;</span> <span class="nw">OpenID Connect</span></p>
+          <p><strong>Delivery:</strong> <span class="nw">Docker &#xB7;</span> <span class="nw">Continuous integration (CI)</span></p>
         </div>
       </div>
     </div>
