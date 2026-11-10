@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Agent Team, Built by the Whole Team &#x2014; Robert Guida</title>
+<meta name="description" content="Shared AI instructions for a dev team are settled advice. How a whole development team shares and manages one agent team is still an open question.">
+<link rel="canonical" href="https://robguida.com/writing/one-agent-team.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://robguida.com/writing/one-agent-team.html">
+<meta property="og:title" content="One Agent Team, Built by the Whole Team">
+<meta property="og:description" content="Shared AI instructions for a dev team are settled advice. How a whole development team shares and manages one agent team is still an open question.">
+<meta property="og:image" content="https://robguida.com/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Robert Guida, smiling, in a grey jacket and light-blue open-collar shirt, against a dark blue background.">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+    :root{
+      --paper:#F7F8FA;
+      --ink:#1A1F26;
+      --navy:#0F2A44;
+      --navy-lt:#1B4A73;
+      --rule:#DCE1E8;
+      --muted:#4A5462;
+    }
+    body,.rg{
+      background:var(--paper);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+                  "Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size:18px;
+      line-height:1.6;
+      text-align:left;
+    }
+    body{margin:0;-webkit-text-size-adjust:100%;}
+    .rg,.rg *{box-sizing:border-box;}
+    .rg{overflow-wrap:break-word;}
+    .rg p{margin:0 0 1.15rem;}
+    .rg a{color:var(--navy);text-decoration:underline;text-underline-offset:2px;}
+    .rg a:hover,.rg a:focus{color:var(--navy-lt);}
+    .rg :focus-visible{outline:2px solid var(--navy-lt);outline-offset:3px;}
+    .wrap{max-width:44rem;margin:0 auto;padding:0 1.5rem;}
+    .site-head{position:relative;overflow:hidden;color:var(--paper);
+               padding:.75rem 0 clamp(2.5rem,7vw,4rem);
+               background:radial-gradient(ellipse 70% 90% at 100% 0,rgba(27,74,115,.55) 0,rgba(27,74,115,0) 70%),
+                          radial-gradient(ellipse 60% 70% at 0 100%,rgba(15,42,68,.7) 0,rgba(15,42,68,0) 70%),
+                          #000819;
+               border-bottom:1px solid rgba(200,212,226,.18);}
+    .site-head::before{content:"";position:absolute;inset:0;pointer-events:none;
+               background:linear-gradient(rgba(200,212,226,.06) 1px,transparent 1px) 0 0 / 2rem 2rem,
+                          linear-gradient(90deg,rgba(200,212,226,.06) 1px,transparent 1px) 0 0 / 2rem 2rem;
+               -webkit-mask-image:linear-gradient(200deg,#000 0,rgba(0,0,0,.5) 35%,transparent 75%);
+                       mask-image:linear-gradient(200deg,#000 0,rgba(0,0,0,.5) 35%,transparent 75%);}
+    .site-head .wrap{position:relative;}
+    .site-head :focus-visible{outline-color:#FFFFFF;}
+    .rg .masthead{display:flex;align-items:center;gap:1rem;min-height:2.75rem;
+              margin:0 0 clamp(2.25rem,7vw,3.75rem);}
+    .masthead::after{content:"";flex:1;height:1px;background:rgba(200,212,226,.25);}
+    .rg .masthead a{font-size:clamp(1.3rem,4.4vw,1.75rem);line-height:1.15;letter-spacing:.005em;
+               white-space:nowrap;color:var(--paper);text-decoration:none;
+               padding-left:.7rem;border-left:3px solid var(--navy-lt);}
+    .masthead .wm-first{font-weight:300;color:#C8D4E2;}
+    .masthead .wm-last{font-weight:700;}
+    .rg .masthead a:hover,.rg .masthead a:focus{color:#FFFFFF;border-left-color:#C8D4E2;}
+    .rg .masthead a:hover .wm-first,.rg .masthead a:focus .wm-first{color:#FFFFFF;}
+    @media (max-width:48.99rem){ .rg .masthead{padding-left:2.75rem;} }
+    .site-head .masthead{margin-bottom:0;}
+    .site-head{padding-bottom:.75rem;}
+    .rg .menu-btn{position:fixed;top:.75rem;left:.75rem;z-index:50;width:2.75rem;height:2.75rem;
+                  display:none;align-items:center;justify-content:center;margin:0;padding:0;
+                  background:rgba(15,42,68,.94);color:var(--paper);border:1px solid rgba(200,212,226,.5);
+                  border-radius:4px;cursor:pointer;box-shadow:0 2px 8px rgba(0,8,25,.25);}
+    .rg .menu-btn:hover{background:var(--navy-lt);}
+    .rg .menu-btn:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px;box-shadow:0 0 0 4px var(--navy-lt);}
+    .rg .menu-btn svg{display:block;width:1.375rem;height:1.375rem;}
+    .rg .menu{position:fixed;inset:0 auto 0 0;margin:0;width:min(19rem,85vw);height:100%;max-height:none;
+              overflow-y:auto;border:0;border-right:1px solid rgba(200,212,226,.25);
+              background:#000819;color:var(--paper);padding:.75rem 1.5rem 2rem;}
+    .rg .menu::backdrop{background:rgba(0,8,25,.55);}
+    .rg .menu{display:none;}
+    @supports selector(:popover-open){.rg .menu-btn{display:flex;}.rg .menu:popover-open{display:block;}}
+    .rg .menu :focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
+    .rg .menu-close{display:flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;
+                    margin:0 0 1.25rem -.75rem;padding:0;background:transparent;color:var(--paper);
+                    border:1px solid rgba(200,212,226,.5);border-radius:4px;cursor:pointer;}
+    .rg .menu-close:hover{background:var(--navy);}
+    .rg .menu-close svg{display:block;width:1.25rem;height:1.25rem;}
+    .rg .menu ul{list-style:none;margin:0;padding:0;}
+    .rg .menu li{border-top:1px solid rgba(200,212,226,.2);}
+    .rg .menu li:last-child{border-bottom:1px solid rgba(200,212,226,.2);}
+    .rg .menu a{display:flex;align-items:center;min-height:2.75rem;padding:.6rem 0;color:var(--paper);
+                font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;}
+    .rg .menu a:hover,.rg .menu a:focus{color:#FFFFFF;text-decoration:underline;text-underline-offset:4px;}
+    .rg .menu a[aria-current="page"]{box-shadow:inset 3px 0 0 #C8D4E2;padding-left:.85rem;}
+    .rg .menu a svg{display:block;height:28px;width:auto;max-width:33px;flex:none;}
+    .rg .menu a svg + span:not(.sr-only){margin-left:.6rem;}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+             clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+    .sec{padding:clamp(2.75rem,7vw,4rem) 0;}
+    .sec h1{font-size:clamp(1.8rem,5.2vw,2.3rem);line-height:1.2;
+            letter-spacing:-.015em;font-weight:700;margin:0 0 .9rem;text-wrap:balance;}
+    .sec h1::before{content:"";display:block;width:2.5rem;height:3px;
+                    background:var(--navy);margin-bottom:1.1rem;}
+    .post-head{border-bottom:1px solid var(--rule);padding-bottom:1.4rem;margin-bottom:2rem;}
+    .dek{font-size:1.125rem;color:var(--muted);margin:0 0 1.25rem;}
+    .byline{font-weight:600;margin:0 0 .2rem;}
+    .rg .dateline{font-size:.9375rem;color:var(--muted);margin:0 0 .2rem;}
+    .rg .dateline:last-child{margin-bottom:0;}
+    .sec h2{font-size:1.35rem;line-height:1.35;font-weight:700;color:var(--navy);
+            margin:2.25rem 0 .75rem;text-wrap:balance;}
+    .sec h3{font-size:1.125rem;line-height:1.4;font-weight:700;color:var(--navy);
+            margin:1.75rem 0 .5rem;}
+    .sec ul,.sec ol{margin:0 0 1.15rem;padding-left:1.3rem;}
+    .sec li{margin-bottom:.5rem;}
+    .sec li:last-child{margin-bottom:0;}
+    .rg blockquote{margin:0 0 1.15rem;padding-left:1.15rem;border-left:3px solid var(--rule);}
+    .rg figure{margin:0 0 1.5rem;}
+    .sec img{display:block;max-width:100%;height:auto;border-radius:4px;}
+    .rg figcaption{font-size:.9375rem;color:var(--muted);margin-top:.5rem;}
+    .rg code{font-family:Consolas,"SFMono-Regular",Menlo,monospace;font-size:.9em;}
+    .rg pre{overflow-x:auto;background:#EDF1F6;padding:1rem;border-radius:4px;margin:0 0 1.15rem;line-height:1.45;}
+    .site-footer{position:relative;color:#BCCBDA;font-size:.9375rem;
+               padding:clamp(2.5rem,7vw,3.5rem) 0 2rem;
+               background:radial-gradient(ellipse 60% 90% at 0 100%,rgba(27,74,115,.45) 0,rgba(27,74,115,0) 70%),
+                          #000819;
+               border-top:3px solid var(--navy-lt);}
+    .site-footer :focus-visible{outline-color:#FFFFFF;}
+    .foot-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem 2rem;
+              padding-bottom:1.75rem;border-bottom:1px solid rgba(200,212,226,.2);}
+    .rg .foot-mark{margin:0;}
+    .rg .foot-mark a{font-size:clamp(1.3rem,4.4vw,1.75rem);line-height:1.15;white-space:nowrap;
+               color:var(--paper);text-decoration:none;padding-left:.7rem;border-left:3px solid var(--navy-lt);}
+    .foot-mark .wm-first{font-weight:300;color:#C8D4E2;}
+    .foot-mark .wm-last{font-weight:700;}
+    .rg .foot-mark a:hover,.rg .foot-mark a:focus{color:#FFFFFF;border-left-color:#C8D4E2;}
+    .rg .foot-cta{margin:0;}
+    .rg a.btn{display:inline-block;font-size:1rem;font-weight:600;line-height:1.25;
+         padding:.85rem 1.5rem;border-radius:4px;text-decoration:none;
+         background:var(--paper);color:var(--navy);}
+    .rg a.btn:hover,.rg a.btn:focus{background:#FFFFFF;color:var(--navy);}
+    .foot-nav ul{list-style:none;margin:0;padding:1.5rem 0;display:flex;flex-wrap:wrap;align-items:center;
+                 gap:.5rem 1.75rem;}
+    .rg .foot-nav a{color:var(--paper);font-weight:600;font-size:.8125rem;letter-spacing:.14em;
+                 text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;min-height:2.75rem;}
+    .rg .foot-nav a:hover,.rg .foot-nav a:focus{color:#FFFFFF;text-decoration:underline;text-underline-offset:4px;}
+    .rg .foot-nav a[aria-current="page"]{color:#C8D4E2;}
+    .foot-nav img{display:block;width:auto;height:28px;}
+    .foot-nav .ico{display:block;height:28px;width:auto;max-width:33px;flex:none;}
+    .rg .foot-nav a .ico + span{margin-left:.5rem;}
+    .rg .copyright{margin:0;padding-top:1.25rem;border-top:1px solid rgba(200,212,226,.2);
+                 font-size:.8125rem;letter-spacing:.04em;color:#8E9DB0;}
+    @media (max-width:26rem){
+      .wrap{padding:0 1.15rem;}
+      body,.rg{font-size:17px;}
+    }
+</style>
+<script src="/js/menu.js" defer></script>
+</head>
+<body>
+<div class="rg">
+<button type="button" class="menu-btn" id="menu-button" popovertarget="site-menu" aria-label="Menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+<nav class="menu" id="site-menu" popover aria-label="Site menu">
+  <button type="button" class="menu-close" popovertarget="site-menu" popovertargetaction="hide" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <ul>
+    <li><a href="/"><svg viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg><span class="sr-only">Home</span></a></li>
+    <li><a href="/#focus-engage">Focus &amp; Engage</a></li>
+    <li><a href="/#works">Works</a></li>
+    <li><a href="/#assessment">Assessment Offer</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/writing/"><svg viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
+  </ul>
+</nav>
+<header class="site-head">
+  <div class="wrap">
+    <p class="masthead"><a href="/"><span class="wm-first">Robert</span> <span class="wm-last">Guida</span></a></p>
+  </div>
+</header>
+<main class="sec">
+  <article class="wrap">
+    <header class="post-head">
+      <h1>One Agent Team, Built by the Whole Team</h1>
+      <p class="dek">Shared AI instructions for a dev team are settled advice. How a whole development team shares and manages one agent team is still an open question.</p>
+      <p class="byline">Robert Guida, Fractional CTO &amp; Solutions Architect</p>
+      <p class="dateline"><time datetime="2026-11-10">November 10, 2026</time></p>
+    </header>
+
+    <p>Shared AI instructions for a development team are no longer a new idea. Thoughtworks, a large software services company, publishes a Technology Radar twice a year that rates tools and techniques. In November 2025 it rated "curated shared instructions for software teams" as Adopt, its strongest rating, and kept that rating in April 2026. It says that relying on individual developers to write prompts from scratch "is emerging as an anti-pattern," meaning a common habit that does more harm than good.<a href="#src-1">[1]</a></p>
+    <p>Rahul Garg, a principal engineer at Thoughtworks, writes on the site of Martin Fowler, the company's chief scientist and the author of <em>Refactoring</em>. Garg describes team instructions that "live in the repository" and "evolve through pull requests."<a href="#src-2">[2]</a> Anthropic, the AI company behind Claude, goes further. It calls an "agent manager" an emerging role in several organizations, and says a team without one should at least have one person who owns the setup and its settings.<a href="#src-3">[3]</a></p>
+    <p>Documenting a shared setup is the easy part. Getting a team of coders to agree on one, and stick to it, is where the whole effort succeeds or fails.</p>
+    <p>Shared instructions are only the start. I am talking about one agent team that a whole development team uses and builds together. The job of looking after it is so new that Anthropic still calls it an emerging role. I have been building software and leading teams for more than 30 years, so I'll begin with what I have seen. Then I'll cover what others are writing, and what I think a shared agent team could look like. After that, I want to hear from you.</p>
+    <h2>Standards were hard before AI</h2>
+    <p>When there are no standards, every programmer brings their own logic and their own style. When you do a code review, you see one code philosophy per programmer. Nothing is consistent, and managing the inconsistency is like conducting an orchestra where every player brought their own sheet music.</p>
+    <p>I have seen people write a whole application as one long script on a single page, top to bottom like a waterfall, and stand by it. Their reasoning was that the language is framework enough, and object-oriented code is too much overhead. I have seen code so abstracted that I thought I was in a Doctor Who episode. By the time I had followed a single process through it, I would look up feeling dizzy and hold on to my desk. And I have worked on big monolithic systems that mixed design styles in the same codebase: part MVC, part one-page scripts, part domain-driven, and part something custom that no one could classify.</p>
+    <p>Throughout my career, I have overseen coding standards and code reviews. I worked to set standards that went all the way down to how we write code, especially with entry-level and junior programmers. Years ago, when I mentored new coders, I taught one build order. Build the create form, then list the records, then edit them, then delete them. Wash, rinse, repeat.</p>
+    <p>How many of them followed it?</p>
+    <p>Coders have attitudes, and I am one of them. We don't like being told how to code, because we are coding gods with a little g. We create worlds with our software, and we strive for perfection without knowing what perfection is. So coding has to be wrangled, the way a wild colt has to be broken. That was never about turning coders into mindless drones. The goal was a well-oiled machine, where any programmer can jump onto another person's project without a long ramp-up.</p>
+    <h2>Now multiply it</h2>
+    <p>You don't need hard numbers to see the cost. Take ten people who work alone, each with their own ideas. It takes longer for one coder to get up to speed on another coder's work and make changes. When the code is merged into the develop branch, things break. You end up with a car with four different wheels, headlights that don't match and a convertible roof that opens the wrong way. Johnny Cash sang about a car like that in "One Piece at a Time." He called it a psychobilly Cadillac. Somebody pays for that rework, and rework is paid hours.</p>
+    <p>Now give each of those ten people an agent team: a set of AI agents, each built for one job, such as writing code, testing it or reviewing it. Each developer now works in isolation with a crew of agents, each following its own rules. The models don't match. The effort is set too high on one agent and too low on another (I wrote about effort settings and cost in <a href="/writing/ai-budget-without-touching-the-checks.html">my AI budget article</a>). That is too much power for all those little g's.</p>
+    <p>Based on my experience, I believe that multiplies the inconsistencies. Anthropic makes a similar point: "Bottoms-up adoption generates enthusiasm but can fragment without someone to centralize what works."<a href="#src-3">[3]</a></p>
+    <p>I already see the pull of it. The developers I have worked with each like the agent team they built, just as I like mine. Everybody wants to do their own thing. They are not keen on a central agent team, even when I explain why I believe it needs shared management. Robert Kimani, a freelance Linux and site reliability engineer, describes the same thing in LeadDev, a publication for engineering leaders. On the team he writes about, each developer approached an AI tool "with their own unspoken rules." What worked was an AI usage charter written with the engineers, not handed to them.<a href="#src-5">[5]</a></p>
+    <p>The written rules don't settle it either. Anthropic's own documentation says its coding tool treats its instruction files "as context, not enforced configuration."<a href="#src-4">[4]</a> The same written rules do not get the same behavior every time. That is why the tests and the reviews still matter, whatever setup you run.</p>
+    <h2>What the sources say about who owns it</h2>
+    <p>The sources agree that the rules should be shared and kept with the code. They lean different ways on who owns them.</p>
+    <p>Garg's answer is the team. "The most interesting property of these standards is that they are team-owned," he writes, and a change to them is "a commit that the whole team reviews."<a href="#src-2">[2]</a> Anthropic leans toward a named owner. For a company without a group dedicated to this, its minimum is one person with the authority to make the calls on settings, and the responsibility to keep them current.<a href="#src-3">[3]</a> It also writes that the smoothest deployments it has seen were at "organizations that establish cross-functional working groups early."<a href="#src-3">[3]</a></p>
+    <p>I land between Garg and Anthropic. The team builds it, and someone has the final say. On a small team, that can be one person. A large engineering department will need a bigger group to oversee its agent team.</p>
+    <p>I am not one to force my ideas on a team. You pay a lot of money for programmers, and there is a reason for that. They have skills, and they have high-functioning brains. If you are paying their salaries, you are paying for their brains too, so involve them in making decisions. Nobody wants something shoved down their throat, a coder least of all. It is better to get the team's buy-in.</p>
+    <h2>What I do on my own</h2>
+    <p>Someone still has to keep an agent team healthy. I call that work Agent Team Maturation: saving the rules and maintaining and developing the agent team.</p>
+    <p>I do this on my own agent team a few times a week, improving the team or its pipelines. The aim is more autonomy for the routine work. I am now at the point where I know what to hand it and can expect it to be done overnight, with no input from me. Then I test it and do the code reviews. Let's just say it is better now than when I first started tuning it. I use it every day, on paid client work and on my own software.</p>
+    <p>It works from two layers of rules. Team-level rules apply on every project: how the agents work together, and what always waits for my say. Each project adds its own rules on top. Different kinds of work also follow different workflows. A code change goes through tests and a code review before it merges, and a release waits for my go.</p>
+    <p>That is one person and one setup. The open question is how it holds up when ten coders pull the same copy and push their changes back.</p>
+    <h2>What it might look like</h2>
+    <p>One setup in one repository: the agents, their rules, the model each one runs on and how much effort it spends. It would also share the plumbing. That means matching the model to the size of each task, searching the team's own records so the agents can find past decisions (often called RAG, retrieval-augmented generation), and setting chat-length limits that start a fresh session before one runs too long.</p>
+    <p>Every coder pulls the same copy and runs it in their own sessions. When a change is merged, everyone pulls the new version, the same way they pull code. A group could still have a specialist, like a Python agent, but it would live in the shared team. The two layers of rules would carry over: the team's rules in the shared setup, and each project's rules in that project.</p>
+    <p>Coders would keep experimenting. They use the agent team on real work, run into real problems, and work out real fixes. They try each fix on a branch of their own, the same way they work on code. Then they propose the change through a pull request, the path Garg describes for instructions that "evolve through pull requests."<a href="#src-2">[2]</a> It gets discussed, and it passes or it doesn't.</p>
+    <p>A different AI service could review the pull request too. If your agent team runs on Claude, have Copilot or ChatGPT review the change. That second AI is in addition to human review, not in place of it. Each person who approves a change needs to know what it does, and be able to explain it to non-technical staff. That is collaboration built into the process.</p>
+    <p>Most of the changes would come from the coders. They use the tools, see what comes back, and adjust things until they work. They are the boots on the ground, not the people in the logistics tent.</p>
+    <p>Someone still chairs it. In this version there is an Agent Team Manager, with Agent Team Assistant Managers. How many depends on the size of the engineering department. These are people, not agents. Say a group needs a Python-only agent, for coding or for testing. They talk it through with the manager, get the OK, and send the change in for review. The manager or an assistant manager merges it. The manager may also narrow the original agent's role to the work it handles best, for example making it a PHP agent, so the two no longer conflict. The manager can reject a change when there is a reason. Every committee needs a chairman.</p>
+    <p>Where that manager sits is still open. Anthropic says the teams doing this work today tend to sit under developer experience or developer productivity.<a href="#src-3">[3]</a> I believe the agent manager role will become a standard one, whatever the title ends up being.</p>
+    <h2>Pushback on this approach</h2>
+    <p><strong>Does the manager become a bottleneck?</strong> There are bottlenecks everywhere. Hiring talent has always been one. Before AI, a new skill set meant hiring someone who had it. Improving an agent team is faster than that. And no one stops working while a change waits. The assistant managers can review and merge changes too, so one person's absence does not stop the line. The manager keeps the final say. The real test is whether there are more bottlenecks than before. Fewer, or just different, is not a concern.</p>
+    <p>The one place I can see a new bottleneck is a large department where the agents' memory is committed to the repository and rides along in every pull request. That can be a lot of text, and not all of it is worth a line-by-line review. There, a very short AI summary of what changed would do.</p>
+    <p><strong>What if one bad change hits everyone?</strong> One bad merge can take down a whole site if it is not properly tested. That is true of any code. It is why the agent team lives under version control, where a bad change can be rolled back. But the rules are only context, so you test what comes out. Run the changed agent team on a few known tasks. The code it writes still has to pass the project's tests and a code review. If the results get worse, the change does not go in.</p>
+    <p>On my own agent team, most changes make it better, partly because more than one AI service reviews them. When a change goes wrong, it usually follows the same pattern. AI tries to please you. Question one thing, and it decides it needs a new layer to deal with it, when you were only asking a question. Too often, adding a layer is its fix for any problem, the way a bureaucracy adds another department instead of fixing the actual issue. It can also end up contradicting itself. Garg warns that "overly prescriptive instructions become brittle."<a href="#src-2">[2]</a> That is one way they get there. So you have to be very clear, every time.</p>
+    <p><strong>Could someone tamper with it?</strong> Protect the agent team at least as well as you protect the code. The goal is to make it as tamper-proof as you can. One thought for that discussion: keep it in a private repository, and limit who can change it to the manager and the assistant managers.</p>
+    <p><strong>Does it turn coders into drones?</strong> Not when the coders are the ones bringing most of the changes.</p>
+    <p><strong>How do you keep it from becoming a graveyard?</strong> Garg warns that shared instructions can turn into "another documentation graveyard."<a href="#src-2">[2]</a> I find that hard to picture with an agent team that gets used every day, on every project. When it goes wrong, the coders feel it that day, and they bring the fix. For it to become a graveyard, the engineers would have to give up on AI, go back to coding by hand and be happy with step debugging and code hints. That was what efficient coding looked like until AI burst that bubble. I don't see that happening.</p>
+    <p><strong>One manager, or a working group?</strong> Anthropic describes both: a small team, "sometimes even just one person," and working groups that cross team lines.<a href="#src-3">[3]</a> Each company's environment and culture will drive that choice. Whatever the shape, it has to scale with the number of engineers who use the agent team.</p>
+    <p>The people who run the company have to be ready for this, too. It is a new department, or at least a new job, and its work is managing AI agents. That can sound odd next to the expectation that AI will shrink the workforce. It probably will. But someone still has to be the parent of the agent team.</p>
+    <p>Most of that work is not coding. The manager, or the group, may spend their time benchmarking one pipeline against another and testing new protocols, so the agent team keeps getting more efficient. Just because you have AI does not mean you have AI that runs well. Someone has to track how quickly code gets written and checked, how many mistakes come back, and how good the prompts are. They may need to coach the engineers on how to rate a prompt, and review how prompts are being used. All of that takes metrics, and someone to act on them. It is a long list, and the company needs to embrace it.</p>
+    <h2>Where I land</h2>
+    <p>In my opinion, the issues you get without a central agent team outweigh the cons of having one. That view comes from years of seeing what happens when different people's code comes together, and from running my own agent team. So I would rather open the question than close it.</p>
+    <p>A lot of us are working this out right now, and no one has the whole answer yet. I have put what I have seen on the table. If you have run a shared agent team, or something close to it, add your experience: what worked, what broke and who owns it. If you think the whole idea is wrong, say so. That helps everyone reading, too. The conversation is on <a href="https://www.linkedin.com/posts/rob-guida-63843582_ive-spent-years-managing-coding-standards-share-7525936666289549313-uAbk/" target="_blank" rel="noopener">the LinkedIn post</a> for this article.</p>
+    <p>And if you want to talk through how it might look on your team, <a href="/book" target="_blank" rel="noopener">book a call</a>.</p>
+    <h2>Sources</h2>
+    <ol>
+<li id="src-1">Thoughtworks. "Curated shared instructions for software teams." Technology Radar, Techniques, Adopt. Published 5 November 2025, last updated 15 April 2026 (Vol. 34). <a href="https://www.thoughtworks.com/radar/techniques/curated-shared-instructions-for-software-teams" target="_blank" rel="noopener noreferrer">https://www.thoughtworks.com/radar/techniques/curated-shared-instructions-for-software-teams</a> (re-checked 2026-11-10; the page says this entry is not on the current edition of the Radar). Who Thoughtworks is and how often the Radar comes out: <a href="https://www.thoughtworks.com/radar/faq" target="_blank" rel="noopener noreferrer">https://www.thoughtworks.com/radar/faq</a> (checked 2026-11-10: "a twice-yearly snapshot"; Thoughtworks calls itself "a large client services company").</li>
+<li id="src-2">Rahul Garg. "Encoding Team Standards." martinfowler.com, 31 March 2026. <a href="https://www.martinfowler.com/articles/reduce-friction-ai/encoding-team-standards.html" target="_blank" rel="noopener noreferrer">https://www.martinfowler.com/articles/reduce-friction-ai/encoding-team-standards.html</a> (re-checked 2026-11-10; author bio: "a Principal Engineer at Thoughtworks"). Martin Fowler's role: <a href="https://martinfowler.com/aboutMe.html" target="_blank" rel="noopener noreferrer">https://martinfowler.com/aboutMe.html</a> (checked 2026-11-10: "Chief Scientist" at Thoughtworks; author of <em>Refactoring</em>).</li>
+<li id="src-3">Anthropic. "How Claude Code works in large codebases: best practices and where to start." Claude blog, 14 May 2026. <a href="https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start" target="_blank" rel="noopener noreferrer">https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start</a> (re-checked 2026-11-10)</li>
+<li id="src-4">Anthropic. "How Claude remembers your project." Claude Code documentation. <a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener noreferrer">https://code.claude.com/docs/en/memory</a> (no page date shown; checked 2026-10-27, wording unchanged since)</li>
+<li id="src-5">Robert Kimani. "Managing AI coding assistants without losing control." LeadDev, 18 August 2025. <a href="https://leaddev.com/ai/managing-ai-coding-assistants-without-losing-control" target="_blank" rel="noopener noreferrer">https://leaddev.com/ai/managing-ai-coding-assistants-without-losing-control</a> (re-checked 2026-11-10; author bio: "a freelance Linux Engineer and consultant specializing in Site Reliability Engineering")</li>
+    </ol>
+    <h2>If You Want to Talk</h2>
+    <p>If you have a project that is stuck, or work you have won and can't staff, I would like to hear about it.</p>
+    <p>I start with a two-week assessment of one codebase and how work moves through it, including how your team is using AI-written code. You get a written findings document with a prioritized plan.</p>
+    <p>Send me a message on LinkedIn, or <a href="/book" target="_blank" rel="noopener">book a 20-minute call</a>.</p>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-mark"><a href="/"><span class="wm-first">Robert</span> <span class="wm-last">Guida</span></a></p>
+      <p class="foot-cta"><a class="btn" href="/book" target="_blank" rel="noopener">Let's talk &#x2014; 20 minutes</a></p>
+    </div>
+    <nav class="foot-nav" aria-label="Footer">
+      <ul>
+        <li><a href="/" aria-label="Home"><svg class="ico" viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></a></li>
+        <li><a href="/writing/"><svg class="ico" viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
+        <li><a href="/privacy.html"><svg class="ico" viewBox="2 3 20 17" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.6 10C7 6.3 7.6 3.6 9.6 3.1Q12 4.1 14.4 3.1C16.4 3.6 17 6.3 17.4 10z"/><path d="M2 11Q12 8.4 22 11Q12 12.6 2 11z"/><path d="M2.5 13.5h8v2Q10.5 20 7 20H5.6Q3 20 2.5 16.3z"/><path d="M21.5 13.5h-8v2Q13.5 20 17 20h1.4Q21 20 21.5 16.3z"/><path d="M10.4 13.5h3.2v1.1h-3.2z"/></svg><span>Privacy</span></a></li>
+        <li><a class="social" href="https://www.linkedin.com/in/rob-guida-63843582/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/img/linkedin-in-bug.png" width="33" height="28" alt=""></a></li>
+      </ul>
+    </nav>
+    <p class="copyright">&#xA9; 2026 Robert Guida. All rights reserved.</p>
+  </div>
+</footer>
+</div>
+</body>
+</html>
