@@ -76,12 +76,46 @@
     .hero-role{font-size:1.0625rem;font-weight:500;letter-spacing:.03em;
                color:#BCCBDA;margin:0 0 2rem;}
     .hero p{color:var(--paper);max-width:34rem;}
-    .hero .news{max-width:34rem;margin:0 0 1.6rem;padding:.7rem .9rem;border:1px solid rgba(200,212,226,.45);
-                border-left:4px solid #C8D4E2;border-radius:4px;background:rgba(255,255,255,.07);
-                font-size:1rem;line-height:1.45;}
-    .hero .news p{margin:0;}
-    .rg .hero .news a{display:inline-block;margin-top:.2rem;min-height:1.5rem;color:#FFFFFF;font-weight:600;}
-    .rg .hero .news a:hover,.rg .hero .news a:focus{color:#C8D4E2;}
+    .hero .news{position:relative;isolation:isolate;overflow:hidden;max-width:34rem;margin:0 0 1.8rem;padding:1rem 1.1rem 1.1rem;
+                border:2px solid #0E7A55;border-left:6px solid #0E7A55;border-radius:10px;
+                background:radial-gradient(ellipse 75% 95% at 100% 0,rgba(14,122,85,.55) 0,rgba(14,122,85,0) 70%),
+                           radial-gradient(ellipse 65% 80% at 0 100%,rgba(10,99,69,.5) 0,rgba(10,99,69,0) 70%),
+                           #03241A;
+                box-shadow:0 10px 28px rgba(0,0,0,.45),0 0 0 4px rgba(14,122,85,.25);
+                font-size:1rem;line-height:1.45;transition:border-color .2s,box-shadow .2s;}
+    .hero .news::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+                background:url("img/news-geo-green.svg") 0 0 / 240px 208px,
+                           linear-gradient(rgba(127,224,180,.07) 1px,transparent 1px) 0 0 / 1.25rem 1.25rem,
+                           linear-gradient(90deg,rgba(127,224,180,.07) 1px,transparent 1px) 0 0 / 1.25rem 1.25rem;
+                -webkit-mask-image:linear-gradient(200deg,#000 0,rgba(0,0,0,.55) 35%,rgba(0,0,0,.15) 75%);
+                        mask-image:linear-gradient(200deg,#000 0,rgba(0,0,0,.55) 35%,rgba(0,0,0,.15) 75%);}
+    .hero .news:hover{border-color:#12935F;box-shadow:0 12px 32px rgba(0,0,0,.5),0 0 0 4px rgba(14,122,85,.5);}
+    .rg .hero .news p{margin:0;color:#F2FAF6;}
+    .news-new{display:inline-block;margin-right:.45rem;padding:.15rem .6rem;border-radius:999px;
+              background:#0E7A55;border:1px solid #7FE0B4;color:#FFFFFF;font-size:.8125rem;font-weight:800;letter-spacing:.12em;
+              text-transform:uppercase;vertical-align:.1em;}
+    .rg .hero .news .news-apps{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .6rem;margin:.75rem 0 .9rem;}
+    .news-app{position:relative;display:inline-flex;align-items:center;gap:.65rem;padding:.4rem 1rem .4rem .4rem;border-radius:12px;
+              background:linear-gradient(145deg,rgba(18,147,95,.55) 0,rgba(3,36,26,.9) 70%);
+              border:1px solid rgba(127,224,180,.7);
+              box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 0 0 1px rgba(0,0,0,.25),0 0 14px rgba(127,224,180,.28);
+              color:#FFFFFF;font-size:1.0625rem;font-weight:700;line-height:1.2;letter-spacing:.01em;
+              text-shadow:0 1px 2px rgba(0,0,0,.5);}
+    .news-app img{display:block;width:3rem;height:3rem;border-radius:10px;background:#FFFFFF;
+                  border:2px solid #7FE0B4;object-fit:cover;box-shadow:0 0 10px rgba(127,224,180,.45);}
+    .news-and{color:#DDF5E9;font-size:.9375rem;}
+    .rg .hero .news a{display:inline-block;padding:.55rem 1.1rem;border-radius:999px;background:#0E7A55;
+                      border:1px solid #7FE0B4;color:#FFFFFF;font-weight:700;text-decoration:none;line-height:1.25;}
+    .rg .hero .news a::after{content:"";position:absolute;inset:0;border-radius:10px;}
+    .rg .hero .news a:hover,.rg .hero .news a:focus{background:#0A6345;border-color:#FFFFFF;color:#FFFFFF;}
+    .rg .hero .news a:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
+    @media (prefers-reduced-motion:no-preference){
+      .news-new{animation:news-ping 1.8s ease-out .6s 3;}
+      .news-app{transition:transform .2s,box-shadow .2s;}
+      .hero .news:hover .news-app{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 0 0 1px rgba(0,0,0,.25),0 0 20px rgba(127,224,180,.45);}
+      @keyframes news-ping{0%{box-shadow:0 0 0 0 rgba(127,224,180,.6);}100%{box-shadow:0 0 0 .7rem rgba(127,224,180,0);}}
+    }
+    @media (prefers-reduced-motion:reduce){ .hero .news{transition:none;} }
 
     .rg a.btn{display:inline-block;font-size:1.0625rem;font-weight:600;line-height:1.25;
          padding:.95rem 1.7rem;border-radius:4px;text-decoration:none;
@@ -191,6 +225,7 @@
                text-shadow:0 1px 3px rgba(0,0,0,.7);}
     .nameplate .eyebrow{margin:0 0 .35rem;}
     .nameplate .hero-role{margin:0 0 .6rem;}
+    .rg .hero .nameplate .hero-sub{margin:-.35rem 0 0;font-size:.9375rem;font-weight:500;letter-spacing:.02em;color:#DCE4EE;}
     .hero .nameplate p:last-child{margin:0;}
     @media (min-width:40rem){
       .hero-figure img.photo{aspect-ratio:auto;}
@@ -329,6 +364,7 @@
 <script src="js/menu.js" defer></script>
 </head>
 <body>
+<span id="new-tab-note" hidden>Opens in a new tab</span>
 <div class="rg">
 <button type="button" class="menu-btn" id="menu-button" popovertarget="site-menu" aria-label="Menu">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -350,7 +386,11 @@
 
   <section class="hero" id="home" aria-labelledby="hook">
     <div class="wrap">
-      <div class="news"><p>New from bengUSA.pro: two free apps, Our U.S. Debt and Language Basics. <a href="/writing/two-free-apps.html">Read about them &#x2192;</a></p></div>
+      <div class="news">
+        <p><span class="news-new">New</span> from bengUSA.pro: two free apps,</p>
+        <p class="news-apps"><span class="news-app"><img src="img/two-free-apps-thumb-our-us-debt.jpg" width="128" height="128" alt="" decoding="async">Our U.S. Debt</span> <span class="news-and">and</span> <span class="news-app"><img src="img/two-free-apps-thumb-language-basics.jpg" width="128" height="128" alt="" decoding="async">Language Basics</span><span class="sr-only">.</span></p>
+        <p><a href="/writing/two-free-apps.html">Read about them &#x2192;</a></p>
+      </div>
       <h1 id="hook">AI can write your code.<br />It can't run your project.</h1>
       <ul class="facts">
         <li>30+ years building software and leading development teams.</li>
@@ -358,13 +398,14 @@
         <li>New products: I help your company spec, develop, test and launch the product.</li>
         <li>I run my own projects with an AI engineering team, and the gates that make its work safe to ship.</li>
       </ul>
-      <p><a class="btn btn-light" href="/book" target="_blank" rel="noopener">Let's talk &#x2014; 20 minutes</a></p>
+      <p><a class="btn btn-light" href="/book" target="_blank" rel="noopener" aria-describedby="new-tab-note">Let's talk &#x2014; 20 minutes</a></p>
       <p class="hero-more"><a href="/writing/">Read my writing</a></p>
       <div class="hero-figure">
         <img class="photo" fetchpriority="high" src="img/rob-guida-hero.jpg" width="1672" height="941" alt="Robert Guida, smiling, in a grey jacket and light-blue open-collar shirt, against a dark blue background.">
         <div class="nameplate">
           <p class="eyebrow">ROBERT GUIDA</p>
           <h2 class="hero-role">Fractional CTO &amp; Solutions Architect</h2>
+          <p class="hero-sub">Co-founder &amp; CEO of bengUSA.pro</p>
         </div>
       </div>
     </div>
@@ -559,7 +600,7 @@
           <li>Then we discuss what might solve it.</li>
           <li>You decide whether it is a fit.</li>
         </ul>
-        <p><a class="btn btn-light" href="/book" target="_blank" rel="noopener">Let's talk &#x2014; 20 minutes</a></p>
+        <p><a class="btn btn-light" href="/book" target="_blank" rel="noopener" aria-describedby="new-tab-note">Let's talk &#x2014; 20 minutes</a></p>
       </div>
     </div>
   </section>
@@ -578,7 +619,7 @@
           <li><a href="#home" aria-label="Home" aria-current="page"><svg class="ico" viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></a></li>
           <li><a href="/writing/"><svg class="ico" viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
           <li><a href="/privacy.html" target="_blank"><svg class="ico" viewBox="2 3 20 17" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.6 10C7 6.3 7.6 3.6 9.6 3.1Q12 4.1 14.4 3.1C16.4 3.6 17 6.3 17.4 10z"/><path d="M2 11Q12 8.4 22 11Q12 12.6 2 11z"/><path d="M2.5 13.5h8v2Q10.5 20 7 20H5.6Q3 20 2.5 16.3z"/><path d="M21.5 13.5h-8v2Q13.5 20 17 20h1.4Q21 20 21.5 16.3z"/><path d="M10.4 13.5h3.2v1.1h-3.2z"/></svg><span>Privacy</span></a></li>
-          <li><a class="social" href="https://www.linkedin.com/in/rob-guida-63843582/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="img/linkedin-in-bug.png" width="33" height="28" alt=""></a></li>
+          <li><a class="social" href="https://www.linkedin.com/in/rob-guida-63843582/" target="_blank" rel="noopener" aria-label="LinkedIn" aria-describedby="new-tab-note"><img src="img/linkedin-in-bug.png" width="33" height="28" alt=""></a></li>
         </ul>
       </nav>
       <p class="copyright">&#xA9; 2026 Robert Guida. All rights reserved.</p>

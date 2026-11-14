@@ -163,10 +163,16 @@
       .sec{padding:0;}
       a{overflow-wrap:anywhere;}
     }
+    .rg figure.shot{margin:0 0 1.5rem;}
+    .shot img{display:block;max-width:100%;height:auto;border:1px solid var(--rule);border-radius:8px;
+              box-shadow:0 4px 14px rgba(15,42,68,.12);}
+    .shot-tall img{max-width:min(100%,20rem);}
+    .rg .shot figcaption{font-size:.9375rem;color:var(--muted);margin-top:.5rem;}
 </style>
 <script src="/js/menu.js" defer></script>
 </head>
 <body>
+<span id="new-tab-note" hidden>Opens in a new tab</span>
 <div class="rg">
 <button type="button" class="menu-btn" id="menu-button" popovertarget="site-menu" aria-label="Menu">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -205,7 +211,12 @@
 
     <p>Our U.S. Debt works differently from a debt clock. Many debt clocks start from the Treasury&#x2019;s official daily figure, then use a formula to project the numbers in between. Our U.S. Debt saves the Treasury&#x2019;s actual figure once a day. You can pick a date range and see how much the debt changed, in total, per person or per household, and there&#x2019;s a chart of the debt over time. I also wanted to see how one president&#x2019;s term stacks up against another, so you can tick two or more terms and compare them. Looking at our debt may not be the most fun thing to do, but it can be interesting, and useful for a lot of purposes.</p>
 
-    <p>Our U.S. Debt: <a href="/go/two-free-apps-1" target="_blank" rel="nofollow noopener noreferrer">https://bengusa.pro/ourusdebt/</a></p>
+    <figure class="shot">
+      <img src="/img/two-free-apps-our-us-debt.jpg" width="960" height="487" loading="lazy" decoding="async" alt="A line chart titled The debt over time, running from October 13 into November. The total debt line rises with a few ups and downs, and a red trend line keeps going up past the last day shown.">
+      <figcaption>Our U.S. Debt: the chart of the debt over time, with the trend line turned on.</figcaption>
+    </figure>
+
+    <p>Our U.S. Debt: <a href="/go/two-free-apps-1" target="_blank" rel="nofollow noopener noreferrer" aria-describedby="new-tab-note">https://bengusa.pro/ourusdebt/</a></p>
 
     <p>The fun one is Language Basics. We built it to help with learning the basics of Albanian (Shqip). The apps I tried give you words and phrases but skip over some basic things. Like the alphabet! Numbers! Simple things.</p>
 
@@ -213,9 +224,14 @@
 
     <p>My partner is Bengali, so we added his language. My son works at a Japanese-owned facility alongside Spanish-speaking coworkers, so we added those, too. All four are live. Just pick one from the language drop-down on the page.</p>
 
+    <figure class="shot shot-tall">
+      <img src="/img/two-free-apps-language-basics.jpg" width="613" height="853" loading="lazy" decoding="async" alt="A Language Basics flashcard from the Albanian numbers lesson, 0 to 10. The card shows the number 2, the Albanian word dy, and how to say it, Doo, with Next Card and Test me buttons below.">
+      <figcaption>Language Basics: an Albanian number flashcard. It shows 2, the word dy, and how to say it: Doo.</figcaption>
+    </figure>
+
     <p>So, if you want to learn some Shqip, Bengali, Japanese or Spanish, or you&#x2019;re just really bored, go play with it.</p>
 
-    <p>Language Basics: <a href="/go/two-free-apps-2" target="_blank" rel="nofollow noopener noreferrer">https://bengusa.pro/languagebasics</a></p>
+    <p>Language Basics: <a href="/go/two-free-apps-2" target="_blank" rel="nofollow noopener noreferrer" aria-describedby="new-tab-note">https://bengusa.pro/languagebasics</a></p>
 
     <p>Both apps are free, and right now neither one asks you to sign up, so try them both.</p>
 
@@ -227,14 +243,14 @@
   <div class="wrap">
     <div class="foot-top">
       <p class="foot-mark"><a href="/"><span class="wm-first">Robert</span> <span class="wm-last">Guida</span></a></p>
-      <p class="foot-cta"><a class="btn" href="/book" target="_blank" rel="noopener">Let's talk &#x2014; 20 minutes</a></p>
+      <p class="foot-cta"><a class="btn" href="/book" target="_blank" rel="noopener" aria-describedby="new-tab-note">Let's talk &#x2014; 20 minutes</a></p>
     </div>
     <nav class="foot-nav" aria-label="Footer">
       <ul>
         <li><a href="/" aria-label="Home"><svg class="ico" viewBox="2 3 20 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></a></li>
         <li><a href="/writing/"><svg class="ico" viewBox="1.6 0.1 20.8 22.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 9.5h14a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5H5a2.5 2.5 0 0 1-2.5-2.5V12A2.5 2.5 0 0 1 5 9.5z"/><path d="M9 9.5v-3h6v3"/><path d="M12.5 6.5 21 1"/><path d="M21 1q.5 3.8-5.2 4.6"/><path d="M6.5 19.5 9.25 12 12 19.5M7.5 17H11"/><path d="M14 12h3.5M15.75 12v7.5M14 19.5h3.5"/></svg><span>Writing</span></a></li>
         <li><a href="/privacy.html"><svg class="ico" viewBox="2 3 20 17" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.6 10C7 6.3 7.6 3.6 9.6 3.1Q12 4.1 14.4 3.1C16.4 3.6 17 6.3 17.4 10z"/><path d="M2 11Q12 8.4 22 11Q12 12.6 2 11z"/><path d="M2.5 13.5h8v2Q10.5 20 7 20H5.6Q3 20 2.5 16.3z"/><path d="M21.5 13.5h-8v2Q13.5 20 17 20h1.4Q21 20 21.5 16.3z"/><path d="M10.4 13.5h3.2v1.1h-3.2z"/></svg><span>Privacy</span></a></li>
-        <li><a class="social" href="https://www.linkedin.com/in/rob-guida-63843582/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="/img/linkedin-in-bug.png" width="33" height="28" alt=""></a></li>
+        <li><a class="social" href="https://www.linkedin.com/in/rob-guida-63843582/" target="_blank" rel="noopener" aria-label="LinkedIn" aria-describedby="new-tab-note"><img src="/img/linkedin-in-bug.png" width="33" height="28" alt=""></a></li>
       </ul>
     </nav>
     <p class="copyright">&#xA9; 2026 Robert Guida. All rights reserved.</p>
