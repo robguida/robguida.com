@@ -104,11 +104,13 @@
     .news-app img{display:block;width:3rem;height:3rem;border-radius:10px;background:#FFFFFF;
                   border:2px solid #7FE0B4;object-fit:cover;box-shadow:0 0 10px rgba(127,224,180,.45);}
     .news-and{color:#DDF5E9;font-size:.9375rem;}
-    .rg .hero .news a{display:inline-block;padding:.55rem 1.1rem;border-radius:999px;background:#0E7A55;
+    .rg .hero .news a.news-read{display:inline-block;padding:.55rem 1.1rem;border-radius:999px;background:#0E7A55;
                       border:1px solid #7FE0B4;color:#FFFFFF;font-weight:700;text-decoration:none;line-height:1.25;}
-    .rg .hero .news a::after{content:"";position:absolute;inset:0;border-radius:10px;}
-    .rg .hero .news a:hover,.rg .hero .news a:focus{background:#0A6345;border-color:#FFFFFF;color:#FFFFFF;}
-    .rg .hero .news a:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
+    .rg .hero .news a.news-app,.rg .hero .news a.news-app:link,.rg .hero .news a.news-app:visited,.rg .hero .news a.news-app:hover,.rg .hero .news a.news-app:focus,.rg .hero .news a.news-app:focus-visible,.rg .hero .news a.news-app:active{color:#FFFFFF;font-weight:700;text-decoration:none;}
+    .rg .hero .news a.news-app:hover,.rg .hero .news a.news-app:focus{border-color:#FFFFFF;}
+    .rg .hero .news a.news-app:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
+    .rg .hero .news a.news-read:hover,.rg .hero .news a.news-read:focus{background:#0A6345;border-color:#FFFFFF;color:#FFFFFF;}
+    .rg .hero .news a.news-read:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px;}
     @media (prefers-reduced-motion:no-preference){
       .news-new{animation:news-ping 1.8s ease-out .6s 3;}
       .news-app{transition:transform .2s,box-shadow .2s;}
@@ -388,8 +390,8 @@
     <div class="wrap">
       <div class="news">
         <p><span class="news-new">New</span> from bengUSA.pro: two free apps,</p>
-        <p class="news-apps"><span class="news-app"><img src="img/two-free-apps-thumb-our-us-debt.jpg" width="128" height="128" alt="" decoding="async">Our U.S. Debt</span> <span class="news-and">and</span> <span class="news-app"><img src="img/two-free-apps-thumb-language-basics.jpg" width="128" height="128" alt="" decoding="async">Language Basics</span><span class="sr-only">.</span></p>
-        <p><a href="/writing/two-free-apps.html">Read about them &#x2192;</a></p>
+        <p class="news-apps"><a class="news-app" href="https://bengusa.pro/ourusdebt/" target="_blank" rel="noopener" aria-describedby="new-tab-note"><img src="img/two-free-apps-thumb-our-us-debt.jpg" width="128" height="128" alt="" decoding="async">Our U.S. Debt</a> <span class="news-and">and</span> <a class="news-app" href="https://bengusa.pro/languagebasics/" target="_blank" rel="noopener" aria-describedby="new-tab-note"><img src="img/two-free-apps-thumb-language-basics.jpg" width="128" height="128" alt="" decoding="async">Language Basics</a><span class="sr-only">.</span></p>
+        <p><a class="news-read" href="/writing/two-free-apps.html">Read about them &#x2192;</a></p>
       </div>
       <h1 id="hook">AI can write your code.<br />It can't run your project.</h1>
       <ul class="facts">
